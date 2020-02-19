@@ -1,0 +1,44 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 引入公共的 静态资源 部分 -->
+<head th:replace="includes/common_includes :: common_header('后台管理 | 操作面板')">
+</head>
+<!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+    <!-- 引入公共的 导航栏 部分 -->
+    <header th:replace="includes/common_includes :: common_nav"></header>
+    <!-- 引入公共的 菜单栏 部分 -->
+    <aside th:replace="includes/common_includes :: common_menu"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                控制面板
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">控制面板</a></li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- 引入公共的 copyright 部分 -->
+    <footer th:replace="includes/common_includes :: common_copyright"></footer>
+
+</div>
+<!-- 引入公共的 JS 部分 -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+</body>
+</html>

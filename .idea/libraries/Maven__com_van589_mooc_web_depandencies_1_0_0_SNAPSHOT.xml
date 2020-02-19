@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: com.van589:mooc-web-depandencies:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://F:/apache-maven-3.2.2/repository/com/van589/mooc-web-depandencies/1.0.0-SNAPSHOT/mooc-web-depandencies-1.0.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/mooc-web-dependencies/mooc-web-depandencies-1.0.0-SNAPSHOT-javadoc.jar!/" />
+      <root url="jar://F:/apache-maven-3.2.2/repository/com/van589/mooc-web-depandencies/1.0.0-SNAPSHOT/mooc-web-depandencies-1.0.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/mooc-web-dependencies/mooc-web-depandencies-1.0.0-SNAPSHOT-sources.jar!/" />
+      <root url="jar://F:/apache-maven-3.2.2/repository/com/van589/mooc-web-depandencies/1.0.0-SNAPSHOT/mooc-web-depandencies-1.0.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

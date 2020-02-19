@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van589.mooc.web.admin.dao..LogMapper">
+  <resultMap id="BaseResultMap" type="com.van589.mooc.domain.Log">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="operationtime" jdbcType="TIMESTAMP" property="operationtime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,4 @@
+com\van589\mooc\commons\constant\ConstantUtils.class
+com\van589\mooc\commons\persistence\BaseRoleEntity.class
+com\van589\mooc\commons\dto\BaseResult.class
+com\van589\mooc\commons\dto\PageInfo.class
