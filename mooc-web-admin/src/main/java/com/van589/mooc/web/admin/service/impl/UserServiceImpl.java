@@ -72,9 +72,9 @@ public class UserServiceImpl implements UserService<User> {
         //新增用户
         if (user.getId() == null) {
             user.setId(UUID.randomUUID().toString().replace("-", ""));
-            user.setWechar(user.getWechar() == null ? "无" : user.getWechar());
+            user.setWechar(user.getWechar().isEmpty() ? "无" : user.getWechar());
             user.setCollect(user.getCollect() == null ? 0 : user.getCollect());
-            user.setEducation(user.getEducation() == null ? "无" : user.getEducation());
+            user.setEducation(user.getEducation().isEmpty() ? "无" : user.getEducation());
             user.setPassword(user.getPassword());
             user.setFristtime(first);
             user.setLasttime(first);
@@ -88,5 +88,16 @@ public class UserServiceImpl implements UserService<User> {
 
 
         return BaseResult.success("保存用户信息成功");
+    }
+
+    /**
+     * 批量删除
+     *
+     * @param ids
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public void deleteMulti(String[] ids) {
+        userMapper.deleteMulti(ids);
     }
 }
