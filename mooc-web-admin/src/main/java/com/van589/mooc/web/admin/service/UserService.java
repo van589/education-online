@@ -29,4 +29,10 @@ public interface UserService<T extends BaseRoleEntity> {
      * @return
      */
     public BaseResult save(T entity);
+
+    /**
+     * 批量删除
+     * @param ids
+     */
+    public void deleteMulti(String[] ids);
 }

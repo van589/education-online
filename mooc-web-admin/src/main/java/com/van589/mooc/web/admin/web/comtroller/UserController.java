@@ -7,6 +7,7 @@ import com.van589.mooc.domain.Admin;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.service.AdminService;
 import com.van589.mooc.web.admin.service.UserService;
+import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,30 +30,32 @@ public class UserController {
 
     /**
      * 跳转到用户列表页面
+     *
      * @return
      */
-    @RequestMapping(value = "list",method = RequestMethod.GET)
-    public String list(){
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public String list() {
         return "user_list";
     }
 
     /**
-     *  DateTables 的分页查询
+     * DateTables 的分页查询
+     *
      * @param request
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "page",method = RequestMethod.GET)
-    public PageInfo<User> page(HttpServletRequest request){
+    @RequestMapping(value = "page", method = RequestMethod.GET)
+    public PageInfo<User> page(HttpServletRequest request) {
         //获取 DateTables 的请求的参数
         String draw = request.getParameter("draw");
         String start = request.getParameter("start");
         String length = request.getParameter("length");
 
         //设置请求参数
-        Map<String,Object> params = new HashMap<>();
-        params.put("page",Integer.parseInt(start));
-        params.put("pageSize",Integer.parseInt(length));
+        Map<String, Object> params = new HashMap<>();
+        params.put("page", Integer.parseInt(start));
+        params.put("pageSize", Integer.parseInt(length));
 
         PageInfo<User> pageInfo = userService.page(params);
 
@@ -63,10 +66,11 @@ public class UserController {
 
     /**
      * 跳转用户表单页
-      * @return
+     *
+     * @return
      */
-    @RequestMapping(value = "form",method = RequestMethod.GET)
-    public String form(){
+    @RequestMapping(value = "form", method = RequestMethod.GET)
+    public String form() {
         return "user_form";
     }
 
@@ -91,5 +95,26 @@ public class UserController {
             model.addAttribute("baseResult", baseResult);
             return "user_form";
         }
+    }
+
+    /**
+     * 删除用户信息
+     *
+     * @param ids
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public BaseResult delete(String ids) {
+        BaseResult baseResult = null;
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            userService.deleteMulti(idArray);
+            baseResult = BaseResult.success("删除用户成功");
+        } else {
+            baseResult = BaseResult.fail("删除用户失败");
+        }
+
+        return baseResult;
     }
 }

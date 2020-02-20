@@ -24,4 +24,11 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
      * @return
      */
     int count();
+
+    /**
+     * 批量删除
+     *
+     * @param ids
+     */
+    void deleteMulti(String[] ids);
 }

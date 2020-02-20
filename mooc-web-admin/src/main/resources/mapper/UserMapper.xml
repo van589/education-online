@@ -49,4 +49,12 @@
         user AS a LIMIT #{page}, #{pageSize}
     </select>
 
+    <delete id="deleteMulti">
+        DELETE FROM user
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
 </mapper>

@@ -28,7 +28,11 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-
+                    <div th:if="${baseResult != null}" class="alert alert-dismissible"
+                         th:classappend="${baseResult.status == 200} ? 'alert-success' : 'alert-danger'">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <span th:text="${baseResult.message}"></span>
+                    </div>
 
 
                     <div class="box box-info">
@@ -37,8 +41,8 @@
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
-                        <form id="inputForm" class="form-horizontal" th:action="@{/user/save}" th:object="${user}" method="post">
-                            <hidden path="id"/>
+                        <form id="inputForm" class="form-horizontal" th:action="@{/user/save}" th:object="${user}"
+                              method="post">
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">用户账户</label>
@@ -100,7 +104,7 @@
                                     <label for="collect" class="col-sm-2 control-label">用户余额</label>
 
                                     <div class="col-sm-10">
-                                        <input name="collect" id="collect" type="text" class="form-control"
+                                        <input name="collect" id="collect" type="text" class="form-control number"
                                                placeholder="请输入用户余额(可为空)">
                                     </div>
                                 </div>
@@ -113,21 +117,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="getVip" class="col-sm-2 control-label">vip日期</label>
+                                    <label for="getVip" class="col-sm-2 control-label date">vip日期</label>
 
                                     <div class="col-sm-10">
                                         <input name="getVip" id="getVip" type="date" class="form-control"
                                                placeholder="请输入vip到期日期(可为空)" value="">
                                     </div>
                                 </div>
-                                <!--<div class="form-group">
-                                    <label  class="col-sm-2 control-label">Date:</label>
-
-                                    <div class=" date col-sm-10">
-                                        <input type="text" class="form-control pull-right " id="datepicker"
-                                               placeholder="请输入vip到期日期(可为空)">
-                                    </div>
-                                </div>-->
                             </div>
 
 
