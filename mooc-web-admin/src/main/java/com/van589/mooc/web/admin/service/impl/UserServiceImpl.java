@@ -6,7 +6,7 @@ import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.dao.UserMapper;
 import com.van589.mooc.web.admin.service.UserService;
-import io.micrometer.core.instrument.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService<User> {
 
     /**
      * 查询用户总记录数
+     *
      * @param user
      * @return
      */
@@ -69,28 +70,46 @@ public class UserServiceImpl implements UserService<User> {
         if (validator != null) {
             return BaseResult.fail(validator);
         }*/
-        Date first = new Date();
-        user.setUpdatetime(first);
-
         //新增用户
         if (user.getId() == null) {
+            Date first = new Date();
             user.setId(UUID.randomUUID().toString().replace("-", ""));
             user.setWechar(user.getWechar().isEmpty() ? "无" : user.getWechar());
             user.setCollect(user.getCollect() == null ? 0 : user.getCollect());
             user.setEducation(user.getEducation().isEmpty() ? "无" : user.getEducation());
             user.setPassword(user.getPassword());
             user.setFristtime(first);
+            user.setUpdatetime(first);
             user.setLasttime(first);
             userMapper.insert(user);
         }
 
         // 编辑用户
         else {
-
+            // 编辑用户时如果没有输入密码则沿用原来的密码
+            if (StringUtils.isBlank(user.getPassword())) {
+                User oldTbUser = getById(user.getId());
+                user.setPassword(oldTbUser.getPassword());
+            }
+            // 验证密码是否符合规范，密码长度介于 6 - 20 位之间
+            if (StringUtils.length(user.getPassword()) < 6 || StringUtils.length(user.getPassword()) > 20) {
+                return BaseResult.fail("密码长度必须介于 6 - 20 位之间");
+            }
+            user.setUpdatetime(new Date());
+            update(user);
         }
 
 
         return BaseResult.success("保存用户信息成功");
+    }
+
+    /**
+     * 更新用户信息
+     *
+     * @param user
+     */
+    public void update(User user) {
+        userMapper.update(user);
     }
 
     /**
@@ -102,5 +121,16 @@ public class UserServiceImpl implements UserService<User> {
     @Transactional(readOnly = false)
     public void deleteMulti(String[] ids) {
         userMapper.deleteMulti(ids);
+    }
+
+    /**
+     * 查询单条信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public User getById(String id) {
+        return (User) userMapper.selectById(id);
     }
 }

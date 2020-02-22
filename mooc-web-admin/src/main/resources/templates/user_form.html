@@ -20,7 +20,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">新增用户</a></li>
+                <li><a href="#" th:text="${user == null ? '新增用户' : '编辑用户'}">新增用户</a></li>
             </ol>
         </section>
 
@@ -37,19 +37,25 @@
 
                     <div class="box box-info">
                         <div class="box-header with-border">
-                            <h3 class="box-title" th:text="${session.user == null ? '新增用户' : '编辑用户'}"></h3>
+                            <h3 class="box-title" th:text="${user == null ? '新增用户' : '编辑用户'}"></h3>
                         </div>
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form id="inputForm" class="form-horizontal" th:action="@{/user/save}" th:object="${user}"
                               method="post">
+                            <input type="hidden" th:value="${user.id}" name="id"/>
+                            <input type="hidden" th:value="${user.vip}" name="vip" th:if="${user.vip != null}"/>
+                            <input type="hidden" th:value="${user.fristtime}" name="fristtime"/>
+                            <input type="hidden" th:value="${user.updatetime}" name="updatetime"/>
+                            <input type="hidden" th:value="${user.lasttime}" name="lasttime"/>
+
                             <div class="box-body">
                                 <div class="form-group">
                                     <label for="name" class="col-sm-2 control-label">用户账户</label>
 
                                     <div class="col-sm-10">
                                         <input name="name" id="name" type="text" class="form-control required"
-                                               placeholder="请输入用户账户">
+                                               placeholder="请输入用户账户" th:value="${user.name}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,7 +63,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="nickname" id="nickname" type="text" class="form-control required"
-                                               placeholder="请输入用户昵称">
+                                               placeholder="请输入用户昵称" th:value="${user.nickname}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -65,7 +71,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="password" id="password" type="password"
-                                               class="form-control required" placeholder="请输入用户密码">
+                                               class="form-control required" placeholder="请输入用户密码" th:value="${user.password}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -73,7 +79,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="sex" id="sex" type="text" class="form-control required"
-                                               placeholder="请输入用户性别">
+                                               placeholder="请输入用户性别" th:value="${user.sex}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -81,7 +87,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="phone" id="phone" type="text" class="form-control required mobile"
-                                               placeholder="请输入手机号码">
+                                               placeholder="请输入手机号码" th:value="${user.phone}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -89,7 +95,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="email" id="email" type="text" class="form-control required email"
-                                               placeholder="请输入邮箱地址">
+                                               placeholder="请输入邮箱地址" th:value="${user.email}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -97,7 +103,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="wechar" id="wechar" type="text" class="form-control "
-                                               placeholder="请输入微信号(可为空)">
+                                               placeholder="请输入微信号(可为空)" th:value="${user.wechar}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -105,7 +111,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="collect" id="collect" type="text" class="form-control number"
-                                               placeholder="请输入用户余额(可为空)">
+                                               placeholder="请输入用户余额(可为空)" th:value="${user.collect}">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -113,15 +119,7 @@
 
                                     <div class="col-sm-10">
                                         <input name="education" id="education" type="text" class="form-control"
-                                               placeholder="请输入教育程度(可为空)">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="getVip" class="col-sm-2 control-label date">vip日期</label>
-
-                                    <div class="col-sm-10">
-                                        <input name="getVip" id="getVip" type="date" class="form-control"
-                                               placeholder="请输入vip到期日期(可为空)" value="">
+                                               placeholder="请输入教育程度(可为空)" th:value="${user.education}">
                                     </div>
                                 </div>
                             </div>

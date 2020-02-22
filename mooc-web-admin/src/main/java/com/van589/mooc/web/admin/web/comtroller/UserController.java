@@ -3,6 +3,7 @@ package com.van589.mooc.web.admin.web.comtroller;
 import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
+import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.Admin;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.service.AdminService;
@@ -27,6 +28,20 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @ModelAttribute
+    public User getTbUser(String id) {
+        User user = null;
+
+        // id 不为空，则从数据库获取
+        if (id != null) {
+            user = (User) userService.getById(id);
+        } else {
+            user = new User();
+        }
+
+        return user;
+    }
 
     /**
      * 跳转到用户列表页面
@@ -87,13 +102,13 @@ public class UserController {
 
         // 保存成功
         if (baseResult.getStatus() == 200) {
-            redirectAttributes.addFlashAttribute("baseResult", baseResult);
+            redirectAttributes.addFlashAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
             return "redirect:/user/list";
         }
 
         // 保存失败
         else {
-            model.addAttribute("baseResult", baseResult);
+            model.addAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
             return "user_form";
         }
     }
@@ -117,5 +132,15 @@ public class UserController {
         }
 
         return baseResult;
+    }
+
+    /**
+     * 显示用户详情
+     *
+     * @return
+     */
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public String detail() {
+        return "includes/user_detail";
     }
 }

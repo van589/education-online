@@ -3,6 +3,7 @@ package com.van589.mooc.web.admin.service;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
+import com.van589.mooc.domain.User;
 
 import java.util.Map;
 
@@ -35,4 +36,11 @@ public interface UserService<T extends BaseRoleEntity> {
      * @param ids
      */
     public void deleteMulti(String[] ids);
+
+    /**
+     * 查询单条信息
+     * @param id
+     * @return
+     */
+    public T getById(String id);
 }

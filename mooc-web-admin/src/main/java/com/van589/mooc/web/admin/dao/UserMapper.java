@@ -31,4 +31,18 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
      * @param ids
      */
     void deleteMulti(String[] ids);
+
+    /**
+     * 根据主键查询
+     * @param id
+     * @return
+     */
+    public T selectById(String id);
+
+    /**
+     * 更新
+     *
+     * @param entity
+     */
+    void update(T entity);
 }
