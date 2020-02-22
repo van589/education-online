@@ -18,10 +18,10 @@ public interface UserService<T extends BaseRoleEntity> {
 
     /**
      * 查询分页笔数
-     *
+     * @param entity
      * @return
      */
-    public int count();
+    public int count(T entity);
 
     /**
      * 保存信息

@@ -2,6 +2,7 @@ package com.van589.mooc.web.admin.service.impl;
 
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
+import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.dao.UserMapper;
 import com.van589.mooc.web.admin.service.UserService;
@@ -30,8 +31,10 @@ public class UserServiceImpl implements UserService<User> {
     public PageInfo<User> page(Map<String, Object> params) {
         PageInfo<User> pageInfo = new PageInfo<>();
 
+        //获取前端传来的用户信息
+        User user = (User) params.get("pageParams");
         //查询用户总记录数
-        int count = userMapper.count();
+        int count = userMapper.count(user);
         //查询分页信息
         List<User> users = userMapper.page(params);
 
@@ -44,12 +47,12 @@ public class UserServiceImpl implements UserService<User> {
 
     /**
      * 查询用户总记录数
-     *
+     * @param user
      * @return
      */
     @Override
-    public int count() {
-        return userMapper.count();
+    public int count(User user) {
+        return userMapper.count(user);
     }
 
     /**

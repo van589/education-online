@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!-- 引入公共的 静态资源 部分 -->
-<head th:replace="includes/common_includes :: common_header('后台管理 | 用户列表')">
+<head th:replace="includes/common_includes :: common_header('后台管理 | 用户列表')"></head>
 <body class="hold-transition skin-blue layout-boxed sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -33,6 +33,89 @@
                          th:classappend="${baseResult.status == 200} ? 'alert-success' : 'alert-danger'">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                         <span th:text="${baseResult.message}"></span>
+                    </div>
+
+                    <div class="box box-info box-info-search" style="display: none;">
+                        <div class="box-header">
+                            <h3 class="box-title">高级搜索</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row form-horizontal">
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-3 control-label">账号</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="name" class="form-control" placeholder="账号"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="nickname" class="col-sm-3 control-label">昵称</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="nickname" class="form-control" placeholder="昵称"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="email" class="col-sm-3 control-label">邮箱</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="email" class="form-control" placeholder="邮箱"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="phone" class="col-sm-3 control-label">手机</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="phone" class="form-control" placeholder="手机"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="sex" class="col-sm-3 control-label">性别</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="sex" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="education" class="col-sm-3 control-label">学历</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="education" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>无</option>
+                                                <option>初中</option>
+                                                <option>高中</option>
+                                                <option>中专</option>
+                                                <option>专科</option>
+                                                <option>本科</option>
+                                                <option>硕士</option>
+                                                <option>博士</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="button" class="btn btn-info pull-right" onclick="search();">搜索</button>
+                        </div>
                     </div>
 
                     <div class="box">
@@ -88,32 +171,12 @@
 <!-- 引入公共的 JS 部分 -->
 <div th:replace="includes/common_includes :: common_foot"></div>
 
-<div class="modal fade" id="modal-default">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" th:text="${title == null  ? '温馨提示' : title}">温馨提示"</h4>
-            </div>
-            <div class="modal-body">
-                <p id="modal-message">message</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
-                <button id="btnModalOk" type="button" class="btn btn-primary">确定</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-
+<!-- 引入公共的 模态框 部分 -->
+<div th:replace="includes/common_includes :: common_modal"></div>
 <script>
     var _dataTable;
 
     $(function () {
-
         var _columns = [
             {
                 "data": function (row, type, val, meta) {
@@ -141,6 +204,27 @@
 
         _dataTable = App.initDataTables("/user/page", _columns);
     });
+
+    function search() {
+        var name = $("#name").val();
+        var nickname = $("#nickname").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var sex = $("#sex").val();
+        var education = $("#education").val();
+
+        var param = {
+            "name": name,
+            "nickname": nickname,
+            "phone": phone,
+            "email": email,
+            "sex": sex,
+            "education": education
+        };
+
+        _dataTable.settings()[0].ajax.data = param;
+        _dataTable.ajax.reload();
+    }
 </script>
 </body>
 </html>

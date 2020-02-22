@@ -46,7 +46,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "page", method = RequestMethod.GET)
-    public PageInfo<User> page(HttpServletRequest request) {
+    public PageInfo<User> page(HttpServletRequest request,User user) {
         //获取 DateTables 的请求的参数
         String draw = request.getParameter("draw");
         String start = request.getParameter("start");
@@ -56,6 +56,7 @@ public class UserController {
         Map<String, Object> params = new HashMap<>();
         params.put("page", Integer.parseInt(start));
         params.put("pageSize", Integer.parseInt(length));
+        params.put("pageParams", user);
 
         PageInfo<User> pageInfo = userService.page(params);
 

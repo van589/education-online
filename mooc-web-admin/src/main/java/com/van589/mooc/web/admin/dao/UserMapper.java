@@ -20,10 +20,10 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
 
     /**
      * 查询总笔数
-     *
+     * @param entity
      * @return
      */
-    int count();
+    int count(T entity);
 
     /**
      * 批量删除
