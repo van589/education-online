@@ -29,20 +29,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ModelAttribute
-    public User getTbUser(String id) {
-        User user = null;
-
-        // id 不为空，则从数据库获取
-        if (id != null) {
-            user = (User) userService.getById(id);
-        } else {
-            user = new User();
-        }
-
-        return user;
-    }
-
     /**
      * 跳转到用户列表页面
      *
@@ -86,7 +72,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "form", method = RequestMethod.GET)
-    public String form() {
+    public String form(Model model,String id) {
+        getUser(model,id);
         return "user_form";
     }
 
@@ -140,7 +127,26 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "detail", method = RequestMethod.GET)
-    public String detail() {
+    public String detail(Model model,String id) {
+       getUser(model, id);
         return "includes/user_detail";
+    }
+
+    /**
+     * 获取单个用户信息
+     * @param model
+     * @param id
+     */
+    private void getUser(Model model, String id) {
+        User user = null;
+
+        //如果 id 不为空则将用户信息查询出来，否则返回一个空的用户信息
+        if (id != null){
+            user = (User) userService.getById(id);
+        }
+        else{
+            user = new User();
+        }
+        model.addAttribute("user",user);
     }
 }

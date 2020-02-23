@@ -1,6 +1,7 @@
 package com.van589.mooc.commons.persistence;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,6 +21,7 @@ public class BaseRoleEntity implements Serializable {
     /**
      * 用户昵称
      */
+    @Length(min = 6,max = 10,message = "用户昵称的长度必须介于 {min} - {max} 位之间")
     private String nickname;
 
     /**

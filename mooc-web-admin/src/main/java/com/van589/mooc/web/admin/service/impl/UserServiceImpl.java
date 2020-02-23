@@ -10,7 +10,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.DigestUtils;
 
 import java.util.*;
 
@@ -71,7 +70,7 @@ public class UserServiceImpl implements UserService<User> {
             return BaseResult.fail(validator);
         }*/
         //新增用户
-        if (user.getId() == null) {
+        if (user.getId() == null || user.getId().isEmpty()) {
             Date first = new Date();
             user.setId(UUID.randomUUID().toString().replace("-", ""));
             user.setWechar(user.getWechar().isEmpty() ? "无" : user.getWechar());
@@ -86,22 +85,24 @@ public class UserServiceImpl implements UserService<User> {
 
         // 编辑用户
         else {
+            User oldUser = (User) userMapper.selectById(user.getId());
             // 编辑用户时如果没有输入密码则沿用原来的密码
             if (StringUtils.isBlank(user.getPassword())) {
-                User oldTbUser = getById(user.getId());
-                user.setPassword(oldTbUser.getPassword());
+                user.setPassword(oldUser.getPassword());
             }
             // 验证密码是否符合规范，密码长度介于 6 - 20 位之间
             if (StringUtils.length(user.getPassword()) < 6 || StringUtils.length(user.getPassword()) > 20) {
                 return BaseResult.fail("密码长度必须介于 6 - 20 位之间");
             }
+            user.setVip(oldUser.getVip());
+            user.setFristtime(oldUser.getFristtime());
             user.setUpdatetime(new Date());
+            user.setLasttime(oldUser.getLasttime());
             update(user);
         }
-
-
         return BaseResult.success("保存用户信息成功");
     }
+
 
     /**
      * 更新用户信息

@@ -5,6 +5,7 @@ import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 public interface UserService<T extends BaseRoleEntity> {

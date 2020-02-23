@@ -2,7 +2,11 @@ package com.van589.mooc.domain;
 
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data

@@ -44,10 +44,6 @@
                         <form id="inputForm" class="form-horizontal" th:action="@{/user/save}" th:object="${user}"
                               method="post">
                             <input type="hidden" th:value="${user.id}" name="id"/>
-                            <input type="hidden" th:value="${user.vip}" name="vip" th:if="${user.vip != null}"/>
-                            <input type="hidden" th:value="${user.fristtime}" name="fristtime"/>
-                            <input type="hidden" th:value="${user.updatetime}" name="updatetime"/>
-                            <input type="hidden" th:value="${user.lasttime}" name="lasttime"/>
 
                             <div class="box-body">
                                 <div class="form-group">

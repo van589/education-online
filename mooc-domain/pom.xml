@@ -19,11 +19,19 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.van589</groupId>
             <artifactId>mooc-commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
+
+        <!-- Spring Begin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- Spring End -->
     </dependencies>
 
 

@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="新增删除单项信息功能">
+    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="新增高级搜索功能">
+      <change afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/validator/BeanValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/static/assets/app/adminApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/static/assets/app/adminApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/mooc-commons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/mooc-commons.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/constant/ConstantUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/constant/ConstantUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseRoleEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseRoleEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/constant/ConstantUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/constant/ConstantUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseRoleEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseRoleEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-domain/mooc-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/mooc-domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-domain/src/main/java/com/van589/mooc/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/src/main/java/com/van589/mooc/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-domain/target/classes/com/van589/mooc/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/target/classes/com/van589/mooc/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/MoocWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/MoocWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,21 +107,22 @@
     <selection>jr</selection>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\static\assets\css\skins" />
+      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\templates" />
+      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\templates\admin" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.van589.mooc.commons.validator" />
+      <recent name="com.van589.mooc.commons.dto" />
+      <recent name="tk.mybatis" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\static\assets\app" />
       <recent name="F:\javaWeb\education\mooc-domain\src\main\java\com\van589\mooc\domain" />
       <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\static\assets\css\skins" />
       <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\static" />
       <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\templates" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.van589.mooc.commons.dto" />
-      <recent name="tk.mybatis" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\static\assets\css\skins" />
-      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\templates" />
-      <recent name="F:\javaWeb\education\mooc-web-admin\src\main\resources\templates\admin" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.MoocWebAdminApplication">
@@ -277,66 +293,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582402967312" />
-    <state x="2347" y="170" width="1156" height="842" key="CommitChangelistDialog2" timestamp="1582447506878">
+    <state x="2347" y="170" width="1156" height="842" key="CommitChangelistDialog2" timestamp="1582468287568">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2347" y="170" width="1156" height="842" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447506878" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582367731569">
+    <state x="2347" y="170" width="1156" height="842" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582468287568" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1582468036589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582367731569" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582468036589" />
     <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1582402691715">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582402691715" />
-    <state width="1877" height="444" key="GridCell.Tab.0.bottom" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.0.bottom" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.0.center" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.0.center" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.0.left" timestamp="1582447121845">
+    <state width="1877" height="540" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.0.left" timestamp="1582467727228">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121845" />
-    <state width="1877" height="444" key="GridCell.Tab.0.right" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727228" />
+    <state width="1877" height="540" key="GridCell.Tab.0.right" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.1.bottom" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.1.bottom" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.1.center" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.1.center" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.1.left" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.1.left" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.1.right" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.1.right" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.2.bottom" timestamp="1582447121847">
+    <state width="1877" height="540" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.2.bottom" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121847" />
-    <state width="1877" height="444" key="GridCell.Tab.2.center" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.2.center" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.2.left" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.2.left" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
-    <state width="1877" height="444" key="GridCell.Tab.2.right" timestamp="1582447121846">
+    <state width="1877" height="540" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
+    <state width="1877" height="540" key="GridCell.Tab.2.right" timestamp="1582467727229">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="444" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582447121846" />
+    <state width="1877" height="540" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582467727229" />
     <state x="531" y="185" key="Registry" timestamp="1581620121117">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -365,10 +381,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="754" y="438" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582400850356" />
-    <state x="1938" y="77" width="1480" height="999" key="dock-window-1" timestamp="1582033578200">
+    <state x="1920" y="202" width="1459" height="528" key="dock-window-1" timestamp="1582462879831">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="1938" y="77" width="1480" height="999" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582033578200" />
+    <state x="1920" y="202" width="1459" height="528" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582462879831" />
     <state x="580" y="246" width="759" height="548" key="find.popup" timestamp="1581599718782">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
