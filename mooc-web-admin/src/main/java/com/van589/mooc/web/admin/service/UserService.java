@@ -46,8 +46,16 @@ public interface UserService<T extends BaseRoleEntity> {
     public T getById(String id);
 
     /**
+     *充值一条或多条余额信息
      *
      * @param params
      */
     public void updateCollectMulti(Map<String,Object> params);
+
+    /**
+     * 充值一条或多条 VIP 时间信息
+     *
+     * @param params
+     */
+    public void updateVipSettingDateMulti(Map<String,Object> params);
 }

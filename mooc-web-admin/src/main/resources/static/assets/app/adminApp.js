@@ -220,17 +220,16 @@ var App = function () {
                     $("#modal-message").html(data);
                 }
             });
-
         }
 
-        // 点击删除按钮时弹出模态框
+        // 点击按钮时弹出模态框
         $("#modal-default").modal("show");
 
-        // 如果用户选择了数据项则调用删除方法
+        // 如果用户选择了数据项则调用 异步更新余额数据 方法
         $("#btnModalOk").bind("click", function () {
             // 取出 input 里的值
             var rechargeInput = $("#rechargeInput").val();
-            handlerRechargeData(url, rechargeInput);
+            handlerRechargeDataUpdate(url, rechargeInput);
         });
     };
 
@@ -238,7 +237,7 @@ var App = function () {
      * AJAX 异步更新余额数据
      * @param url
      */
-    var handlerRechargeData = function (url, rechargeInput) {
+    var handlerRechargeDataUpdate = function (url, rechargeInput) {
         $("#modal-default").modal("hide");
 
         if (_idArray.length > 0) {
@@ -248,6 +247,66 @@ var App = function () {
                     "url": url,
                     "type": "POST",
                     "data": {"ids": _idArray.toString(), "rechargeInput": rechargeInput},
+                    "dataType": "JSON",
+                    "success": function (data) {
+                        defaultModelOk(data);
+                    }
+                });
+            }, 500)
+        }
+    };
+
+    /**
+     * vip 时间设置
+     * @param url
+     */
+    var handlerVipSettting = function (url) {
+
+        //将前端用户信息的 ID 放入数组里
+        idAarrayPush();
+
+        // 判断用户是否选择了数据项
+        if (_idArray.length === 0) {
+            $("#modal-message").html("您还没有选择任何数据项，请至少选择一项");
+        } else {
+            // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "html",
+                success: function (data) {
+                    //装载页面信息
+                    $("#modal-message").html(data);
+                }
+            });
+        }
+
+        // 点击按钮时弹出模态框
+        $("#modal-default").modal("show");
+
+        // 如果用户选择了数据项则调用 异步设置VIP时间数据 方法
+        $("#btnModalOk").bind("click", function () {
+            // 取出 input 里的值
+            var vipSettingSelect = $("#vipSettingSelect").val();
+            handlerVipSettingDataUpdate(url, vipSettingSelect);
+        });
+    };
+
+    /**
+     * AJAX 异步设置VIP时间数据
+     * @param url
+     * @param data
+     */
+    var handlerVipSettingDataUpdate = function (url,vipDate) {
+        $("#modal-default").modal("hide");
+
+        if (_idArray.length > 0) {
+            // AJAX 异步删除操作
+            setTimeout(function () {
+                $.ajax({
+                    "url": url,
+                    "type": "POST",
+                    "data": {"ids": _idArray.toString(), "vipDate": vipDate},
                     "dataType": "JSON",
                     "success": function (data) {
                         defaultModelOk(data);
@@ -345,11 +404,19 @@ var App = function () {
         },
 
         /**
-         * VIP充值
+         * 余额充值
          * @param url
          */
         recharge: function (url) {
             handlerRecharge(url);
+        },
+
+        /**
+         *设置 VIP 时间
+         * @param url
+         */
+        vipSetting: function (url) {
+            handlerVipSettting(url);
         }
 
     }

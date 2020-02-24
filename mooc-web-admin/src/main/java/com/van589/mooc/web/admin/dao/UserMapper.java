@@ -20,6 +20,7 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
 
     /**
      * 查询总笔数
+     *
      * @param entity
      * @return
      */
@@ -34,21 +35,30 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
 
     /**
      * 根据主键查询
+     *
      * @param id
      * @return
      */
     public T selectById(String id);
 
     /**
-     * 更新
+     * 更新单条用户信息
      *
      * @param entity
      */
     void update(T entity);
 
     /**
+     * 批量更新用户余额
      *
      * @param params
      */
-    public void updateCollectMulti(Map<String,Object> params);
+    public void updateCollectMulti(Map<String, Object> params);
+
+    /**
+     * 批量更新用户 VIP 时间
+     *
+     * @param params
+     */
+    public void updateVipSettingDateMulti(Map<String,Object> params);
 }

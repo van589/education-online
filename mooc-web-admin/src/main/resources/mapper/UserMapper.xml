@@ -133,4 +133,19 @@
             #{id}
         </foreach>
     </update>
+
+    <update id="updateVipSettingDateMulti" parameterType="hashmap">
+        UPDATE user
+        SET
+        <if test="vipDate == 0">
+            vip = null
+        </if>
+        <if test="vipDate != 0">
+            vip = date_add(ifnull(vip,NOW()), interval #{vipDate} day)
+        </if>
+        WHERE id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </update>
 </mapper>

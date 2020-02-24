@@ -145,4 +145,15 @@ public class UserServiceImpl implements UserService<User> {
     public void updateCollectMulti(Map<String,Object> params) {
         userMapper.updateCollectMulti(params);
     }
+
+    /**
+     * 充值一条或多条 VIP 时间信息
+     *
+     * @param params
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public void updateVipSettingDateMulti(Map<String, Object> params) {
+        userMapper.updateVipSettingDateMulti(params);
+    }
 }

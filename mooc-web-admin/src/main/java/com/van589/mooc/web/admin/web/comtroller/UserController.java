@@ -135,8 +135,9 @@ public class UserController {
     }
 
     /**
-     * 跳转充值界面
+     * 余额充值处理
      * @param ids
+     * @param rechargeInput
      * @return
      */
     @ResponseBody
@@ -158,7 +159,7 @@ public class UserController {
     }
 
     /**
-     * 跳转充值界面
+     * 跳转模态框的余额充值界面
      * @return
      */
     @RequestMapping(value = "recharge" ,method = RequestMethod.GET)
@@ -166,6 +167,34 @@ public class UserController {
         return "includes/recharge_default";
     }
 
+    /**
+     * VIP 设置处理
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "vipSetting" , method = RequestMethod.POST)
+    public BaseResult vipSettring(String ids,Integer vipDate){
+        BaseResult baseResult = BaseResult.fail("VIP设置失败");
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            Map params = new HashMap();
+            params.put("vipDate",vipDate);
+            params.put("ids",idArray);
+            userService.updateVipSettingDateMulti(params);
+            baseResult = BaseResult.success("VIP设置成功");
+        }
+
+        return baseResult;
+    }
+
+    /**
+     * 跳转模态框的 VIP 设置界面
+     * @return
+     */
+    @RequestMapping(value = "vipSetting",method = RequestMethod.GET)
+    public String vipSetting(){
+        return "includes/vip_setting_default";
+    }
     /**
      * 获取单个用户信息
      *
