@@ -127,7 +127,7 @@ var App = function () {
         $("#modal-default").modal("show");
         // 绑定删除事件
         $("#btnModalOk").bind("click", function () {
-            handlerDeleteData(url);
+            handlerAjaxData(url);
         });
     };
 
@@ -136,15 +136,9 @@ var App = function () {
      * @param url
      */
     var handlerDeleteMulti = function (url) {
-        _idArray = new Array();
 
-        // 将选中元素的 ID 放入数组中
-        _checkbox.each(function () {
-            var _id = $(this).attr("id");
-            if (_id != null && _id != "undefine" && $(this).is(":checked")) {
-                _idArray.push(_id);
-            }
-        });
+        //将前端用户信息的 ID 放入数组里
+        idAarrayPush();
 
         // 判断用户是否选择了数据项
         if (_idArray.length === 0) {
@@ -158,15 +152,15 @@ var App = function () {
 
         // 如果用户选择了数据项则调用删除方法
         $("#btnModalOk").bind("click", function () {
-            handlerDeleteData(url);
+            handlerAjaxData(url);
         });
     };
 
     /**
-     * AJAX 异步删除
+     * AJAX 异步操作删除数据
      * @param url
      */
-    var handlerDeleteData = function (url) {
+    var handlerAjaxData = function (url) {
         $("#modal-default").modal("hide");
 
         if (_idArray.length > 0) {
@@ -178,28 +172,7 @@ var App = function () {
                     "data": {"ids": _idArray.toString()},
                     "dataType": "JSON",
                     "success": function (data) {
-                        // 请求成功后，无论是成功或是失败都需要弹出模态框进行提示，所以这里需要先解绑原来的 click 事件
-                        $("#btnModalOk").unbind("click");
-
-                        // 请求成功
-                        if (data.status === 200) {
-                            // 刷新页面
-                            $("#btnModalOk").bind("click", function () {
-                                window.location.reload();
-                            });
-                        }
-
-                        // 请求失败
-                        else {
-                            // 确定按钮的事件改为隐藏模态框
-                            $("#btnModalOk").bind("click", function () {
-                                $("#modal-default").modal("hide");
-                            });
-                        }
-
-                        // 因为无论如何都需要提示信息，所以这里的模态框是必须调用的
-                        $("#modal-message").html(data.message);
-                        $("#modal-default").modal("show");
+                        defaultModelOk(data);
                     }
                 });
             }, 500)
@@ -207,22 +180,127 @@ var App = function () {
     };
 
     /**
-     * 查看详情
+     * 查看用户详情信息
      * @param url
      */
     var handlerShowDetail = function (url) {
-        // 这里是通过 Ajax 请求 html 的方式将 jsp 装载进模态框中
+        // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
         $.ajax({
             url: url,
             type: "get",
             dataType: "html",
             success: function (data) {
+                //将用户信息页放入模态框中
                 $("#modal-detail-body").html(data);
                 $("#modal-detail").modal("show");
             }
         });
     };
 
+    /**
+     * 余额充值
+     * @param url
+     */
+    var handlerRecharge = function (url) {
+
+        //将前端用户信息的 ID 放入数组里
+        idAarrayPush();
+
+        // 判断用户是否选择了数据项
+        if (_idArray.length === 0) {
+            $("#modal-message").html("您还没有选择任何数据项，请至少选择一项");
+        } else {
+            // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "html",
+                success: function (data) {
+                    //装载页面信息
+                    $("#modal-message").html(data);
+                }
+            });
+
+        }
+
+        // 点击删除按钮时弹出模态框
+        $("#modal-default").modal("show");
+
+        // 如果用户选择了数据项则调用删除方法
+        $("#btnModalOk").bind("click", function () {
+            // 取出 input 里的值
+            var rechargeInput = $("#rechargeInput").val();
+            handlerRechargeData(url, rechargeInput);
+        });
+    };
+
+    /**
+     * AJAX 异步更新余额数据
+     * @param url
+     */
+    var handlerRechargeData = function (url, rechargeInput) {
+        $("#modal-default").modal("hide");
+
+        if (_idArray.length > 0) {
+            // AJAX 异步删除操作
+            setTimeout(function () {
+                $.ajax({
+                    "url": url,
+                    "type": "POST",
+                    "data": {"ids": _idArray.toString(), "rechargeInput": rechargeInput},
+                    "dataType": "JSON",
+                    "success": function (data) {
+                        defaultModelOk(data);
+                    }
+                });
+            }, 500)
+        }
+    };
+
+    /**
+     * Ajax异步请求成功后的模态框操作
+     * @param data
+     */
+    var defaultModelOk = function (data) {
+        // 请求成功后，无论是成功或是失败都需要弹出模态框进行提示，所以这里需要先解绑原来的 click 事件
+        $("#btnModalOk").unbind("click");
+
+        // 请求成功
+        if (data.status === 200) {
+            // 刷新页面
+            $("#btnModalOk").bind("click", function () {
+                window.location.reload();
+            });
+        }
+
+        // 请求失败
+        else {
+            // 确定按钮的事件改为隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                $("#modal-default").modal("hide");
+            });
+        }
+
+        // 因为无论如何都需要提示信息，所以这里的模态框是必须调用的
+        $("#modal-message").html(data.message);
+        $("#modal-default").modal("show");
+    };
+
+    /**
+     * 将前端用户信息的 ID 放入数组里
+     */
+    var idAarrayPush = function () {
+        _idArray = new Array();
+        var _rechargeCollect = null;
+        // 将选中元素的 ID 放入数组中
+        _checkbox.each(function () {
+            var _id = $(this).attr("id");
+            if (_id != null && _id != "undefine" && $(this).is(":checked")) {
+                _idArray.push(_id);
+            }
+        });
+    };
+    
     return {
         /**
          * 初始化
@@ -246,7 +324,7 @@ var App = function () {
          * 删除单笔数据
          * @param url
          */
-        deleteSingle: function(url, id, msg) {
+        deleteSingle: function (url, id, msg) {
             handlerDeleteSingle(url, id, msg);
         },
 
@@ -264,6 +342,14 @@ var App = function () {
          */
         showDetail: function (url) {
             handlerShowDetail(url);
+        },
+
+        /**
+         * VIP充值
+         * @param url
+         */
+        recharge: function (url) {
+            handlerRecharge(url);
         }
 
     }

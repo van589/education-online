@@ -125,4 +125,12 @@
         WHERE id = #{id}
     </update>
 
+    <update id="updateCollectMulti" parameterType="hashmap">
+        UPDATE user
+        SET collect = collect + #{collect}
+        WHERE id IN
+        <foreach collection="ids" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </update>
 </mapper>

@@ -44,4 +44,10 @@ public interface UserService<T extends BaseRoleEntity> {
      * @return
      */
     public T getById(String id);
+
+    /**
+     *
+     * @param params
+     */
+    public void updateCollectMulti(Map<String,Object> params);
 }

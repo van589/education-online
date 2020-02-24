@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class UserController {
      */
     @ResponseBody
     @RequestMapping(value = "page", method = RequestMethod.GET)
-    public PageInfo<User> page(HttpServletRequest request,User user) {
+    public PageInfo<User> page(HttpServletRequest request, User user) {
         //获取 DateTables 的请求的参数
         String draw = request.getParameter("draw");
         String start = request.getParameter("start");
@@ -72,8 +73,8 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "form", method = RequestMethod.GET)
-    public String form(Model model,String id) {
-        getUser(model,id);
+    public String form(Model model, String id) {
+        getUser(model, id);
         return "user_form";
     }
 
@@ -123,17 +124,51 @@ public class UserController {
 
     /**
      * 显示用户详情
-     *
+     * @param model
+     * @param id
      * @return
      */
     @RequestMapping(value = "detail", method = RequestMethod.GET)
-    public String detail(Model model,String id) {
-       getUser(model, id);
+    public String detail(Model model, String id) {
+        getUser(model, id);
         return "includes/user_detail";
     }
 
     /**
+     * 跳转充值界面
+     * @param ids
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "recharge" ,method = RequestMethod.POST)
+    public BaseResult recharge(String ids,Integer rechargeInput){
+        BaseResult baseResult = null;
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            Map params = new HashMap();
+            params.put("collect",rechargeInput);
+            params.put("ids",idArray);
+            userService.updateCollectMulti(params);
+            baseResult = BaseResult.success("充值成功");
+        } else {
+            baseResult = BaseResult.fail("充值失败");
+        }
+
+        return baseResult;
+    }
+
+    /**
+     * 跳转充值界面
+     * @return
+     */
+    @RequestMapping(value = "recharge" ,method = RequestMethod.GET)
+    public String recharge(){
+        return "includes/recharge_default";
+    }
+
+    /**
      * 获取单个用户信息
+     *
      * @param model
      * @param id
      */
@@ -141,12 +176,11 @@ public class UserController {
         User user = null;
 
         //如果 id 不为空则将用户信息查询出来，否则返回一个空的用户信息
-        if (id != null){
+        if (id != null) {
             user = (User) userService.getById(id);
-        }
-        else{
+        } else {
             user = new User();
         }
-        model.addAttribute("user",user);
+        model.addAttribute(ConstantUtils.SESSION_USER, user);
     }
 }

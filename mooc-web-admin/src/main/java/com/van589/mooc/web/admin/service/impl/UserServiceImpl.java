@@ -105,7 +105,7 @@ public class UserServiceImpl implements UserService<User> {
 
 
     /**
-     * 更新用户信息
+     * 更新单条用户信息
      *
      * @param user
      */
@@ -133,5 +133,16 @@ public class UserServiceImpl implements UserService<User> {
     @Override
     public User getById(String id) {
         return (User) userMapper.selectById(id);
+    }
+
+    /**
+     * 余额充值一条或多条信息
+     *
+     * @param params
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public void updateCollectMulti(Map<String,Object> params) {
+        userMapper.updateCollectMulti(params);
     }
 }

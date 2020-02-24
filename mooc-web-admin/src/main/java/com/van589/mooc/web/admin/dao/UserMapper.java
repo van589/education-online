@@ -45,4 +45,10 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
      * @param entity
      */
     void update(T entity);
+
+    /**
+     *
+     * @param params
+     */
+    public void updateCollectMulti(Map<String,Object> params);
 }
