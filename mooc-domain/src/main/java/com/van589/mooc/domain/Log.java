@@ -1,11 +1,12 @@
 package com.van589.mooc.domain;
 
+import com.van589.mooc.commons.persistence.BaseEntity;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class Log {
+public class Log extends BaseEntity {
     /**
      * 日志id
      */

@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class BaseRoleEntity implements Serializable {
+public class BaseRoleEntity extends BaseEntity {
     /**
      * 用户ID
      */

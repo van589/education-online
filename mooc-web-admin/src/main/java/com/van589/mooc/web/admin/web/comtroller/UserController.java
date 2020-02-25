@@ -3,22 +3,16 @@ package com.van589.mooc.web.admin.web.comtroller;
 import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
-import com.van589.mooc.commons.persistence.BaseRoleEntity;
-import com.van589.mooc.domain.Admin;
 import com.van589.mooc.domain.User;
-import com.van589.mooc.web.admin.service.AdminService;
 import com.van589.mooc.web.admin.service.UserService;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.constraints.Size;
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +31,7 @@ public class UserController {
      */
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
-        return "user_list";
+        return "user/user_list";
     }
 
     /**
@@ -75,7 +69,7 @@ public class UserController {
     @RequestMapping(value = "form", method = RequestMethod.GET)
     public String form(Model model, String id) {
         getUser(model, id);
-        return "user_form";
+        return "user/user_form";
     }
 
     /**
@@ -97,7 +91,7 @@ public class UserController {
         // 保存失败
         else {
             model.addAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
-            return "user_form";
+            return "user/user_form";
         }
     }
 
@@ -131,7 +125,7 @@ public class UserController {
     @RequestMapping(value = "detail", method = RequestMethod.GET)
     public String detail(Model model, String id) {
         getUser(model, id);
-        return "includes/user_detail";
+        return "includes/user/user_detail";
     }
 
     /**
@@ -164,7 +158,7 @@ public class UserController {
      */
     @RequestMapping(value = "recharge" ,method = RequestMethod.GET)
     public String recharge(){
-        return "includes/recharge_default";
+        return "includes/user/recharge_default";
     }
 
     /**
@@ -193,7 +187,7 @@ public class UserController {
      */
     @RequestMapping(value = "vipSetting",method = RequestMethod.GET)
     public String vipSetting(){
-        return "includes/vip_setting_default";
+        return "includes/user/vip_setting_default";
     }
     /**
      * 获取单个用户信息
