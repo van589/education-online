@@ -3,6 +3,7 @@ package com.van589.mooc.web.admin.web.comtroller;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.domain.Log;
 import com.van589.mooc.domain.User;
+import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,8 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "log")
-public class LogController {
+public class LogController extends AbstractBaseController<Log, LogService> {
 
-    @Autowired
-    private LogService logService;
 
     /**
      * 跳转到用户列表页面
@@ -30,32 +29,4 @@ public class LogController {
     public String list() {
         return "log/log_user_list";
     }
-
-    /**
-     * DateTables 的分页查询
-     *
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "page", method = RequestMethod.GET)
-    public PageInfo<User> page(HttpServletRequest request, Log log) {
-        //获取 DateTables 的请求的参数
-        String draw = request.getParameter("draw");
-        String start = request.getParameter("start");
-        String length = request.getParameter("length");
-
-        //设置请求参数
-        Map<String, Object> params = new HashMap<>();
-        params.put("page", Integer.parseInt(start));
-        params.put("pageSize", Integer.parseInt(length));
-        params.put("pageParams", log);
-
-        PageInfo<User> pageInfo = logService.page(params);
-
-        pageInfo.setDraw(draw == null ? 0 : Integer.parseInt(draw));
-
-        return pageInfo;
-    }
-
 }

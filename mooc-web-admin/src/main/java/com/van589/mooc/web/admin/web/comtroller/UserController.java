@@ -4,6 +4,7 @@ import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.domain.User;
+import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.UserService;
 import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value = "user")
-public class UserController {
-
-    @Autowired
-    private UserService userService;
+public class UserController extends AbstractBaseController<User, UserService> {
 
     /**
      * 跳转到用户列表页面
@@ -32,33 +30,6 @@ public class UserController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
         return "user/user_list";
-    }
-
-    /**
-     * DateTables 的分页查询
-     *
-     * @param request
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "page", method = RequestMethod.GET)
-    public PageInfo<User> page(HttpServletRequest request, User user) {
-        //获取 DateTables 的请求的参数
-        String draw = request.getParameter("draw");
-        String start = request.getParameter("start");
-        String length = request.getParameter("length");
-
-        //设置请求参数
-        Map<String, Object> params = new HashMap<>();
-        params.put("page", Integer.parseInt(start));
-        params.put("pageSize", Integer.parseInt(length));
-        params.put("pageParams", user);
-
-        PageInfo<User> pageInfo = userService.page(params);
-
-        pageInfo.setDraw(draw == null ? 0 : Integer.parseInt(draw));
-
-        return pageInfo;
     }
 
     /**
@@ -80,7 +51,7 @@ public class UserController {
      */
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(User user, Model model, RedirectAttributes redirectAttributes) {
-        BaseResult baseResult = userService.save(user);
+        BaseResult baseResult = service.save(user);
 
         // 保存成功
         if (baseResult.getStatus() == 200) {
@@ -107,7 +78,7 @@ public class UserController {
         BaseResult baseResult = null;
         if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
-            userService.deleteMulti(idArray);
+            service.deleteMulti(idArray);
             baseResult = BaseResult.success("删除用户成功");
         } else {
             baseResult = BaseResult.fail("删除用户失败");
@@ -118,6 +89,7 @@ public class UserController {
 
     /**
      * 显示用户详情
+     *
      * @param model
      * @param id
      * @return
@@ -130,20 +102,21 @@ public class UserController {
 
     /**
      * 余额充值处理
+     *
      * @param ids
      * @param rechargeInput
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "recharge" ,method = RequestMethod.POST)
-    public BaseResult recharge(String ids,Integer rechargeInput){
+    @RequestMapping(value = "recharge", method = RequestMethod.POST)
+    public BaseResult recharge(String ids, Integer rechargeInput) {
         BaseResult baseResult = null;
         if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
             Map params = new HashMap();
-            params.put("collect",rechargeInput);
-            params.put("ids",idArray);
-            userService.updateCollectMulti(params);
+            params.put("collect", rechargeInput);
+            params.put("ids", idArray);
+            service.updateCollectMulti(params);
             baseResult = BaseResult.success("充值成功");
         } else {
             baseResult = BaseResult.fail("充值失败");
@@ -154,27 +127,29 @@ public class UserController {
 
     /**
      * 跳转模态框的余额充值界面
+     *
      * @return
      */
-    @RequestMapping(value = "recharge" ,method = RequestMethod.GET)
-    public String recharge(){
+    @RequestMapping(value = "recharge", method = RequestMethod.GET)
+    public String recharge() {
         return "includes/user/recharge_default";
     }
 
     /**
      * VIP 设置处理
+     *
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "vipSetting" , method = RequestMethod.POST)
-    public BaseResult vipSettring(String ids,Integer vipDate){
+    @RequestMapping(value = "vipSetting", method = RequestMethod.POST)
+    public BaseResult vipSettring(String ids, Integer vipDate) {
         BaseResult baseResult = BaseResult.fail("VIP设置失败");
         if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
             Map params = new HashMap();
-            params.put("vipDate",vipDate);
-            params.put("ids",idArray);
-            userService.updateVipSettingDateMulti(params);
+            params.put("vipDate", vipDate);
+            params.put("ids", idArray);
+            service.updateVipSettingDateMulti(params);
             baseResult = BaseResult.success("VIP设置成功");
         }
 
@@ -183,12 +158,14 @@ public class UserController {
 
     /**
      * 跳转模态框的 VIP 设置界面
+     *
      * @return
      */
-    @RequestMapping(value = "vipSetting",method = RequestMethod.GET)
-    public String vipSetting(){
+    @RequestMapping(value = "vipSetting", method = RequestMethod.GET)
+    public String vipSetting() {
         return "includes/user/vip_setting_default";
     }
+
     /**
      * 获取单个用户信息
      *
@@ -200,7 +177,7 @@ public class UserController {
 
         //如果 id 不为空则将用户信息查询出来，否则返回一个空的用户信息
         if (id != null) {
-            user = (User) userService.getById(id);
+            user = service.getById(id);
         } else {
             user = new User();
         }

@@ -6,6 +6,10 @@ import org.hibernate.validator.constraints.Length;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 所有 使用者角色 的基类
+ *
+ */
 @Data
 public class BaseRoleEntity extends BaseEntity {
     /**

@@ -1,5 +1,6 @@
 package com.van589.mooc.web.admin.dao;
 
+import com.van589.mooc.commons.persistence.BaseDao;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 import org.springframework.stereotype.Component;
@@ -9,22 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
-    /**
-     * 分页查询
-     *
-     * @param params，需要两个参数，start/记录开始的位置 length/每页记录数
-     * @return
-     */
-    List<T> page(Map<String, Object> params);
-
-    /**
-     * 查询总笔数
-     *
-     * @param entity
-     * @return
-     */
-    int count(T entity);
+public interface UserMapper extends MyMapper<User>, BaseDao<User> {
 
     /**
      * 批量删除
@@ -39,14 +25,14 @@ public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
      * @param id
      * @return
      */
-    public T selectById(String id);
+    public User selectById(String id);
 
     /**
      * 更新单条用户信息
      *
      * @param entity
      */
-    void update(T entity);
+    void update(User entity);
 
     /**
      * 批量更新用户余额

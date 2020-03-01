@@ -4,6 +4,7 @@ import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
+import com.van589.mooc.web.admin.abstracts.AbstractBaseServiceImpl;
 import com.van589.mooc.web.admin.dao.UserMapper;
 import com.van589.mooc.web.admin.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -15,45 +16,7 @@ import java.util.*;
 
 @Service
 @Transactional(readOnly = true)
-public class UserServiceImpl implements UserService<User> {
-
-    @Autowired
-    private UserMapper userMapper;
-
-    /**
-     * 分页查询操作
-     *
-     * @param params
-     * @return
-     */
-    @Override
-    public PageInfo<User> page(Map<String, Object> params) {
-        PageInfo<User> pageInfo = new PageInfo<>();
-
-        //获取前端传来的用户信息
-        User user = (User) params.get("pageParams");
-        //查询用户总记录数
-        int count = userMapper.count(user);
-        //查询分页信息
-        List<User> users = userMapper.page(params);
-
-        pageInfo.setRecordsTotal(count);
-        pageInfo.setRecordsFiltered(count);
-        pageInfo.setData(users);
-
-        return pageInfo;
-    }
-
-    /**
-     * 查询用户总记录数
-     *
-     * @param user
-     * @return
-     */
-    @Override
-    public int count(User user) {
-        return userMapper.count(user);
-    }
+public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> implements UserService {
 
     /**
      * 新增或保存信息
@@ -80,12 +43,12 @@ public class UserServiceImpl implements UserService<User> {
             user.setFristtime(first);
             user.setUpdatetime(first);
             user.setLasttime(first);
-            userMapper.insert(user);
+            dao.insert(user);
         }
 
         // 编辑用户
         else {
-            User oldUser = (User) userMapper.selectById(user.getId());
+            User oldUser = (User) dao.selectById(user.getId());
             // 编辑用户时如果没有输入密码则沿用原来的密码
             if (StringUtils.isBlank(user.getPassword())) {
                 user.setPassword(oldUser.getPassword());
@@ -110,7 +73,7 @@ public class UserServiceImpl implements UserService<User> {
      * @param user
      */
     public void update(User user) {
-        userMapper.update(user);
+        dao.update(user);
     }
 
     /**
@@ -121,7 +84,7 @@ public class UserServiceImpl implements UserService<User> {
     @Override
     @Transactional(readOnly = false)
     public void deleteMulti(String[] ids) {
-        userMapper.deleteMulti(ids);
+        dao.deleteMulti(ids);
     }
 
     /**
@@ -132,7 +95,7 @@ public class UserServiceImpl implements UserService<User> {
      */
     @Override
     public User getById(String id) {
-        return (User) userMapper.selectById(id);
+        return (User) dao.selectById(id);
     }
 
     /**
@@ -142,8 +105,8 @@ public class UserServiceImpl implements UserService<User> {
      */
     @Override
     @Transactional(readOnly = false)
-    public void updateCollectMulti(Map<String,Object> params) {
-        userMapper.updateCollectMulti(params);
+    public void updateCollectMulti(Map<String, Object> params) {
+        dao.updateCollectMulti(params);
     }
 
     /**
@@ -154,6 +117,6 @@ public class UserServiceImpl implements UserService<User> {
     @Override
     @Transactional(readOnly = false)
     public void updateVipSettingDateMulti(Map<String, Object> params) {
-        userMapper.updateVipSettingDateMulti(params);
+        dao.updateVipSettingDateMulti(params);
     }
 }

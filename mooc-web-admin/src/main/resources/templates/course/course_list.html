@@ -1,11 +1,10 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!-- 引入公共的 静态资源 部分 -->
-<head th:replace="includes/common_includes :: common_header('后台管理 | 用户列表')"></head>
+<head th:replace="includes/common_includes :: common_header('后台管理 | 课程列表')"></head>
 <body class="hold-transition skin-blue layout-boxed sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
-
     <!-- 引入公共的 导航栏 部分 -->
     <header th:replace="includes/common_includes :: common_nav"></header>
     <!-- 引入公共的 菜单栏 部分 -->
@@ -16,11 +15,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                用户管理
+                课程管理
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">用户管理</a></li>
+                <li><a href="#">课程列表</a></li>
             </ol>
         </section>
 
@@ -120,28 +119,13 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">用户列表</h3>
+                            <h3 class="box-title">课程列表</h3>
                         </div>
 
                         <div class="box-body">
-                            <button href="/user/form" type="button" class="btn btn-sm btn-default"><i
-                                    class="fa fa-plus"></i>
-                                新增
-                            </button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-sm btn-default"
-                                    onclick="App.deleteMulti('/user/delete')"><i class="fa fa-trash-o"></i> 删除
-                            </button>&nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-sm btn-primary"
                                     onclick="$('.box-info-search').css('display') == 'none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast')">
                                 <i class="fa fa-search"></i> 搜索
-                            </button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-sm btn-default"
-                                    onclick="App.recharge('/user/recharge ')"><i class="fa fa-money"></i>
-                                余额充值
-                            </button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-sm btn-default"
-                                    onclick="App.vipSetting('/user/vipSetting')"><i class="fa fa-coffee"></i>
-                                 VIP 设置
                             </button>&nbsp;&nbsp;&nbsp;
                         </div>
 
@@ -151,12 +135,11 @@
                                 <thead>
                                 <tr>
                                     <th><input type="checkbox" class="minimal icheck_master"/></th>
-                                    <th>用户名</th>
-                                    <th>昵称</th>
-                                    <th>手机号</th>
-                                    <th>余额</th>
-                                    <th>邮箱</th>
-                                    <th>VIP时间</th>
+                                    <th>课程名称</th>
+                                    <th>视频类型</th>
+                                    <th>视频价格</th>
+                                    <th>视频评价</th>
+                                    <th>视频修改日期</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -176,9 +159,7 @@
 
     <!-- 引入公共的 copyright 部分 -->
     <footer th:replace="includes/common_includes :: common_copyright"></footer>
-
 </div>
-
 <!-- 引入公共的 JS 部分 -->
 <div th:replace="includes/common_includes :: common_foot"></div>
 
@@ -196,14 +177,13 @@
                 }
             },
             {"data": "name"},
-            {"data": "nickname"},
-            {"data": "phone"},
-            {"data": "collect"},
-            {"data": "email"},
+            {"data": "type"},
+            {"data": "price"},
+            {"data": "label"},
             {
                 "data": function (row, type, val, meta) {
-                    var vip = row.vip;
-                    return vip == null ? "无VIP" : DateTime.format(vip, "yyyy-MM-dd HH:mm:ss");
+                    var updatetime = DateTime.format(row.updatetime, "yyyy-MM-dd HH:mm:ss");
+                    return updatetime;
                 }
             },
             {
@@ -217,7 +197,7 @@
             }
         ];
 
-        _dataTable = App.initDataTables("/user/page", _columns);
+        _dataTable = App.initDataTables("/course/page", _columns);
     });
 
     function search() {
@@ -241,5 +221,6 @@
         _dataTable.ajax.reload();
     }
 </script>
+
 </body>
 </html>
