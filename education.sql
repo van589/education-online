@@ -11,7 +11,7 @@
  Target Server Version : 80018
  File Encoding         : 65001
 
- Date: 20/02/2020 07:37:49
+ Date: 01/03/2020 17:08:25
 */
 
 SET NAMES utf8mb4;
@@ -40,6 +40,28 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 INSERT INTO `admin` VALUES ('1000', 'admin', 'admin', 'admin', 'Male', '13377211793', '1273647531@qq.com', '2020-02-18 15:03:12', '2020-02-18 15:03:15', '2020-02-18 15:03:18');
 INSERT INTO `admin` VALUES ('1001', 'admin01', 'admin', 'admin', 'Female', '133xxxxxxxx', 'c4f3132@163.com', '2020-02-18 15:04:25', '2020-02-18 15:04:28', '2020-02-18 15:04:30');
+
+-- ----------------------------
+-- Table structure for course
+-- ----------------------------
+DROP TABLE IF EXISTS `course`;
+CREATE TABLE `course`  (
+  `id` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '课程表主键',
+  `name` varchar(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '课程名称',
+  `introduction` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '视频简介',
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '视频类型',
+  `price` int(10) UNSIGNED ZEROFILL NOT NULL COMMENT '视频价格',
+  `label` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '视频评价',
+  `fristtime` datetime(0) NOT NULL COMMENT '视频创建日期',
+  `updatetime` datetime(0) NOT NULL COMMENT '视频修改日期',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `视频名称`(`name`) USING BTREE COMMENT '视频名称的索引'
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of course
+-- ----------------------------
+INSERT INTO `course` VALUES ('1', 'Java', 'JavaSE基础', 'free', 0000000000, '无', '2020-03-01 17:04:32', '2020-03-01 17:04:35');
 
 -- ----------------------------
 -- Table structure for ipset
@@ -105,9 +127,14 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('16b3d9f0d8c84ea7a0ffcc4b32a72b88', 'admin', 'aa', 'admin', 'Male', '13377211793', 'admin', '无', 0000000000, '无', NULL, '2020-02-20 06:47:17', '2020-02-20 06:47:17', '2020-02-20 06:47:17');
-INSERT INTO `user` VALUES ('2000', 'admin', 'admin', 'admin', 'Male', '13377211793', '1273647531@qq.com', 'G4T7', 0000000000, '本科', NULL, '2020-02-18 15:05:16', '2020-02-18 15:05:18', '2020-02-18 15:05:20');
-INSERT INTO `user` VALUES ('2001', 'user', 'user', 'user', 'Female', '133xxxxxxxx', 'djefnehfdnqmh651651@163.com', 'NMTNERN51', 0000000000, '本科', NULL, '2020-02-18 15:06:09', '2020-02-18 15:06:11', '2020-02-18 15:06:14');
-INSERT INTO `user` VALUES ('87f7661c3ff64136acb4fbd27c57eb71', 'bb', 'bb', 'admin', 'Male', '13377211792', 'admin', '', 0000000000, '', NULL, '2020-02-20 06:57:16', '2020-02-20 06:57:16', '2020-02-20 06:57:16');
+INSERT INTO `user` VALUES ('0637a7ee1b6a4c72a0cc23a1146db917', 'yz772095101 ', '123', 'admin', 'Male', '13377211793', 'admin@163.com', '无', 0000000200, '无', '2020-04-25 04:02:17', '2020-02-23 22:08:26', '2020-02-23 22:08:26', '2020-02-23 22:08:26');
+INSERT INTO `user` VALUES ('16b3d9f0d8c84ea7a0ffcc4b32a72b88', 'admin', 'aa', 'adm1234', 'Male', '13377211793', 'admin@funtl.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-27 20:47:17', '2020-02-23 22:02:26', '2020-02-27 20:47:17');
+INSERT INTO `user` VALUES ('1803713888cb43268c0e73e0233145f5', 'admin', 'c\'casd', 'admin', 'Male', '13377211793', 'admin@funtl.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-23 18:27:59', '2020-02-23 18:27:59', '2020-02-23 18:27:59');
+INSERT INTO `user` VALUES ('2001', 'user', 'user', 'user321', 'Female', '13313231654', 'djefnehfdnqmh651651@163.com', 'NMTNERN51', 0000000100, '本科', '2020-04-25 04:02:17', '2020-02-19 19:06:09', '2020-02-23 22:06:25', '2020-02-19 19:06:14');
+INSERT INTO `user` VALUES ('25028f8cf21b453689f8ae153374bd60', '334', 'c\'c', 'admin2345', 'Male', '13377211792', 'admin@163.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-20 14:47:21', '2020-02-23 22:19:38', '2020-02-20 14:47:21');
+INSERT INTO `user` VALUES ('782b95b1df2549538f744f2f84886518', 'admin1234', 'c\'c', 'admin123', 'Male', '13377211793', 'admin@163.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-23 21:25:14', '2020-02-23 21:25:14', '2020-02-23 21:25:14');
+INSERT INTO `user` VALUES ('848caf92c8f148a98df24c62989e586e', 'yz772095101 ', 'c\'c', 'ad3345', 'Male', '13377211792', 'admin@funtl.com', '无', 0000000200, '无', '2020-04-25 04:02:17', '2020-03-09 08:33:00', '2020-02-23 22:11:05', '2020-03-09 08:33:00');
+INSERT INTO `user` VALUES ('a7ff91886bec44ed9bd2808344e97195', 'admin', 'aa123', 'admi234', 'Male', '13377211793', 'admin@163.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-24 08:49:25', '2020-02-24 22:06:45', '2020-02-24 08:49:25');
+INSERT INTO `user` VALUES ('ae46604ba2d441aa9ccc674a289de6c2', '334', 'c\'c', 'admin12', 'Male', '13377211792', 'admin1111@163.com', '无', 0000000100, '无', '2020-04-25 04:02:17', '2020-02-24 02:46:24', '2020-02-24 22:06:23', '2020-02-24 02:46:24');
 
 SET FOREIGN_KEY_CHECKS = 1;
