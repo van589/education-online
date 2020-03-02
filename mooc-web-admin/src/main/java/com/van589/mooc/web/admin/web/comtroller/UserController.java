@@ -52,6 +52,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
      * @param user
      * @return
      */
+    @Override
     @RequestMapping(value = "save", method = RequestMethod.POST)
     public String save(User user, Model model, RedirectAttributes redirectAttributes) {
         BaseResult baseResult = service.save(user);
@@ -70,11 +71,12 @@ public class UserController extends AbstractBaseController<User, UserService> {
     }
 
     /**
-     * 删除用户信息
+     * 删除一条或多条课程信息
      *
      * @param ids
      * @return
      */
+    @Override
     @ResponseBody
     @RequestMapping(value = "delete", method = RequestMethod.POST)
     public BaseResult delete(String ids) {
@@ -97,6 +99,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
      * @param id
      * @return
      */
+    @Override
     @RequestMapping(value = "detail", method = RequestMethod.GET)
     public String detail(Model model, String id) {
         getUser(model, id);

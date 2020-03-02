@@ -1,5 +1,6 @@
 package com.van589.mooc.web.admin.web.comtroller;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.domain.Log;
 import com.van589.mooc.domain.User;
@@ -46,6 +47,11 @@ public class LogController extends AbstractBaseController<Log, LogService> {
 
     @Override
     public String detail(Model model, String id) {
+        return null;
+    }
+
+    @Override
+    public BaseResult delete(String ids) {
         return null;
     }
 

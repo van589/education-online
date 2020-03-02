@@ -97,4 +97,12 @@
             updatetime   = #{updatetime}
         WHERE id = #{id}
     </update>
+
+    <delete id="deleteMulti">
+        DELETE FROM course
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

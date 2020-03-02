@@ -11,11 +11,7 @@ import java.util.Map;
 
 public interface UserService extends BaseService<User> {
 
-    /**
-     * 批量删除
-     * @param ids
-     */
-    public void deleteMulti(String[] ids);
+
 
     /**
      *充值一条或多条余额信息

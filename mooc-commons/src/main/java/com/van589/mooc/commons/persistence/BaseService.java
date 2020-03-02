@@ -22,6 +22,7 @@ public interface BaseService<T extends BaseEntity> {
 
     /**
      * 查询分页笔数
+     *
      * @param entity
      * @return
      */
@@ -29,6 +30,7 @@ public interface BaseService<T extends BaseEntity> {
 
     /**
      * 查询单条信息
+     *
      * @param id
      * @return
      */
@@ -36,8 +38,16 @@ public interface BaseService<T extends BaseEntity> {
 
     /**
      * 保存信息
+     *
      * @param entity
      * @return
      */
     public BaseResult save(T entity);
+
+    /**
+     * 删除一条或多条信息
+     *
+     * @param ids
+     */
+    public void deleteMulti(String[] ids);
 }

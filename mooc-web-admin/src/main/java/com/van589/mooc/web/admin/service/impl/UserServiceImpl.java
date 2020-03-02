@@ -61,41 +61,9 @@ public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> i
             user.setFristtime(oldUser.getFristtime());
             user.setUpdatetime(new Date());
             user.setLasttime(oldUser.getLasttime());
-            update(user);
+            dao.update(user);
         }
         return BaseResult.success("保存用户信息成功");
-    }
-
-
-    /**
-     * 更新单条用户信息
-     *
-     * @param user
-     */
-    public void update(User user) {
-        dao.update(user);
-    }
-
-    /**
-     * 批量删除
-     *
-     * @param ids
-     */
-    @Override
-    @Transactional(readOnly = false)
-    public void deleteMulti(String[] ids) {
-        dao.deleteMulti(ids);
-    }
-
-    /**
-     * 查询单条信息
-     *
-     * @param id
-     * @return
-     */
-    @Override
-    public User getById(String id) {
-        return (User) dao.selectById(id);
     }
 
     /**

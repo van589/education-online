@@ -6,10 +6,12 @@ import com.van589.mooc.domain.Course;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.CourseService;
+import io.micrometer.core.instrument.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -76,6 +78,28 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
     public String detail(Model model, String id) {
         getCourse(model, id);
         return "includes/course/course_detail";
+    }
+
+    /**
+     * 删除一条或多条课程信息
+     *
+     * @param ids
+     * @return
+     */
+    @Override
+    @ResponseBody
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    public BaseResult delete(String ids) {
+        BaseResult baseResult = null;
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            service.deleteMulti(idArray);
+            baseResult = BaseResult.success("删除用户成功");
+        } else {
+            baseResult = BaseResult.fail("删除用户失败");
+        }
+
+        return baseResult;
     }
 
     /**

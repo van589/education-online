@@ -13,13 +13,6 @@ import java.util.Map;
 public interface UserMapper extends MyMapper<User>, BaseDao<User> {
 
     /**
-     * 批量删除
-     *
-     * @param ids
-     */
-    void deleteMulti(String[] ids);
-
-    /**
      * 批量更新用户余额
      *
      * @param params

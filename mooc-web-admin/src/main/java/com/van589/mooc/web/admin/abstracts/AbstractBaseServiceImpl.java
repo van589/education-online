@@ -73,4 +73,15 @@ public abstract class AbstractBaseServiceImpl<T extends BaseEntity, D extends Ba
     public T getById(String id) {
         return dao.selectById(id);
     }
+
+    /**
+     * 删除一条或多条信息
+     *
+     * @param ids
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public void deleteMulti(String[] ids) {
+        dao.deleteMulti(ids);
+    }
 }

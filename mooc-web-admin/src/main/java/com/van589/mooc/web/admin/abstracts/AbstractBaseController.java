@@ -1,6 +1,7 @@
 package com.van589.mooc.web.admin.abstracts;
 
 import com.van589.mooc.commons.constant.ConstantUtils;
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseEntity;
 import com.van589.mooc.commons.persistence.BaseService;
@@ -65,6 +66,14 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
      * @return
      */
     public abstract String detail(Model model, String id);
+
+    /**
+     * 删除一条或多条信息
+     *
+     * @param ids
+     * @return
+     */
+    public abstract BaseResult delete(String ids);
 
     /**
      * DateTables 的分页查询

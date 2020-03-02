@@ -43,4 +43,11 @@ public interface BaseDao<T extends BaseEntity> extends Mapper<T>, MySqlMapper<T>
      * @param entity
      */
     void update(T entity);
+
+    /**
+     * 单条或批量删除
+     *
+     * @param ids
+     */
+    void deleteMulti(String[] ids);
 }
