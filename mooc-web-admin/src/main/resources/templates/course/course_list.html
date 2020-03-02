@@ -43,72 +43,62 @@
                             <div class="row form-horizontal">
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="name" class="col-sm-3 control-label">账号</label>
+                                        <label for="name" class="col-sm-3 control-label">名称</label>
 
                                         <div class="col-sm-9">
-                                            <input id="name" class="form-control" placeholder="账号"/>
+                                            <input id="name" class="form-control" placeholder="视频名称"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="nickname" class="col-sm-3 control-label">昵称</label>
+                                        <label for="introduction" class="col-sm-3 control-label">简介</label>
 
                                         <div class="col-sm-9">
-                                            <input id="nickname" class="form-control" placeholder="昵称"/>
+                                            <input id="introduction" class="form-control" placeholder="视频简介"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="email" class="col-sm-3 control-label">邮箱</label>
+                                        <label for="type" class="col-sm-3 control-label">类型</label>
 
                                         <div class="col-sm-9">
-                                            <input id="email" class="form-control" placeholder="邮箱"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="phone" class="col-sm-3 control-label">手机</label>
-
-                                        <div class="col-sm-9">
-                                            <input id="phone" class="form-control" placeholder="手机"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="sex" class="col-sm-3 control-label">性别</label>
-
-                                        <div class="col-sm-9">
-                                            <select id="sex" class="form-control" style="width: 100%;">
+                                            <select id="type" class="form-control" style="width: 100%;">
                                                 <option selected="selected"></option>
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                                <option>free</option>
+                                                <option>vip</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="education" class="col-sm-3 control-label">学历</label>
+                                        <label for="price" class="col-sm-3 control-label">价格</label>
 
                                         <div class="col-sm-9">
-                                            <select id="education" class="form-control" style="width: 100%;">
+                                            <input id="price" class="form-control" placeholder="视频价格"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="label" class="col-sm-3 control-label">评价</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="label" class="form-control" style="width: 100%;">
                                                 <option selected="selected"></option>
                                                 <option>无</option>
-                                                <option>初中</option>
-                                                <option>高中</option>
-                                                <option>中专</option>
-                                                <option>专科</option>
-                                                <option>本科</option>
-                                                <option>硕士</option>
-                                                <option>博士</option>
+                                                <option>极差</option>
+                                                <option>一般</option>
+                                                <option>良好</option>
+                                                <option>优秀</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
@@ -209,19 +199,17 @@
 
     function search() {
         var name = $("#name").val();
-        var nickname = $("#nickname").val();
-        var phone = $("#phone").val();
-        var email = $("#email").val();
-        var sex = $("#sex").val();
-        var education = $("#education").val();
+        var introduction = $("#introduction").val();
+        var type = $("#type").val();
+        var price = $("#price").val();
+        var label = $("#label").val();
 
         var param = {
             "name": name,
-            "nickname": nickname,
-            "phone": phone,
-            "email": email,
-            "sex": sex,
-            "education": education
+            "introduction": introduction,
+            "type": type,
+            "price": price,
+            "label": label
         };
 
         _dataTable.settings()[0].ajax.data = param;

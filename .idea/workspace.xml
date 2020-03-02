@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="完成课程编辑功能，并修复无法使用tk.mybatis自带CRUD功能的情况">
+    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" afterDir="false" />
     </list>
@@ -314,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583166120286</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="完成批量或单条删除课程信息功能">
+      <created>1583174415386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1583174415386</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +345,8 @@
     <MESSAGE value="对项目进行了简单的封装，并增加查看课程列表功能" />
     <MESSAGE value="更新sql文件" />
     <MESSAGE value="完成新增课程功能、对controller、service进行简单修改、完善新增用户节目" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成新增课程功能、对controller、service进行简单修改、完善新增用户节目" />
+    <MESSAGE value="完成批量或单条删除课程信息功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成批量或单条删除课程信息功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="171" key="#MoocWebApplication" timestamp="1581621695797">
@@ -395,10 +391,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582623109563" />
-    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2" timestamp="1583166117990">
+    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2" timestamp="1583174413747">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583166117990" />
+    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174413747" />
     <state x="2239" y="52" width="1156" height="894" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582626011068" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1583166033712">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -409,65 +405,65 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582478521711" />
-    <state width="1877" height="439" key="GridCell.Tab.0.bottom" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.0.bottom" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.0.center" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.0.center" timestamp="1583175210938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210938" />
     <state width="1877" height="438" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.0.left" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.0.left" timestamp="1583175210938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210938" />
     <state width="1877" height="438" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.0.right" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.0.right" timestamp="1583175210938">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210938" />
     <state width="1877" height="438" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.1.bottom" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.1.bottom" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.1.center" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.1.center" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.1.left" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.1.left" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.1.right" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.1.right" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.2.bottom" timestamp="1583174355159">
+    <state width="1877" height="439" key="GridCell.Tab.2.bottom" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355159" />
+    <state width="1877" height="439" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896540" />
-    <state width="1877" height="439" key="GridCell.Tab.2.center" timestamp="1583174355159">
+    <state width="1877" height="439" key="GridCell.Tab.2.center" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355159" />
+    <state width="1877" height="439" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.2.left" timestamp="1583174355158">
+    <state width="1877" height="439" key="GridCell.Tab.2.left" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355158" />
+    <state width="1877" height="439" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="439" key="GridCell.Tab.2.right" timestamp="1583174355159">
+    <state width="1877" height="439" key="GridCell.Tab.2.right" timestamp="1583175210939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="439" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583174355159" />
+    <state width="1877" height="439" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583175210939" />
     <state width="1877" height="438" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896540" />
     <state x="531" y="185" key="Registry" timestamp="1581620121117">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -543,5 +539,16 @@
     </state>
     <state x="623" y="225" width="672" height="676" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583050050667" />
     <state x="623" y="225" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582545797454" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseController.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

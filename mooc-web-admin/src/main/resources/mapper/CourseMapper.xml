@@ -28,26 +28,23 @@
 
     <select id="count" resultType="java.lang.Integer">
         select count(*) from course AS a
-        <!--<where>
-          <if test="name != null and name != ''">
-            AND a.name LIKE CONCAT ('%', #{name}, '%')
-          </if>
-          <if test="nickname != null and nickname != ''">
-            AND a.nickname LIKE CONCAT ('%', #{nickname}, '%')
-          </if>
-          <if test="phone != null and phone != ''">
-            AND a.phone LIKE CONCAT ('%', #{phone}, '%')
-          </if>
-          <if test="email != null and email != ''">
-            AND a.email LIKE CONCAT ('%', #{email}, '%')
-          </if>
-          <if test="sex != null and sex != ''">
-            AND a.sex LIKE CONCAT ('%', #{sex}, '%')
-          </if>
-          <if test="education != null and education != ''">
-            AND a.education LIKE CONCAT ('%', #{education}, '%')
-          </if>
-        </where>-->
+        <where>
+            <if test="name != null and name != ''">
+                AND a.name LIKE CONCAT ('%', #{name}, '%')
+            </if>
+            <if test="introduction != null and introduction != ''">
+                AND a.introduction LIKE CONCAT ('%', #{introduction}, '%')
+            </if>
+            <if test="type != null and type != ''">
+                AND a.type LIKE CONCAT ('%', #{type}, '%')
+            </if>
+            <if test="price != null and price != ''">
+                AND a.price LIKE CONCAT ('%', #{price}, '%')
+            </if>
+            <if test="label != null and label != ''">
+                AND a.label LIKE CONCAT ('%', #{label}, '%')
+            </if>
+        </where>
     </select>
 
     <select id="page" parameterType="java.util.Map" resultType="com.van589.mooc.domain.Course">
@@ -55,26 +52,23 @@
         <include refid="courseColumns"/>
         FROM
         course AS a
-        <!--<where>
-          <if test="pageParams.name != null and pageParams.name != ''">
-            AND a.name LIKE CONCAT ('%', #{pageParams.name}, '%')
-          </if>
-          <if test="pageParams.nickname != null and pageParams.nickname != ''">
-            AND a.nickname LIKE CONCAT ('%', #{pageParams.nickname}, '%')
-          </if>
-          <if test="pageParams.phone != null and pageParams.phone != ''">
-            AND a.phone LIKE CONCAT ('%', #{pageParams.phone}, '%')
-          </if>
-          <if test="pageParams.email != null and pageParams.email != ''">
-            AND a.email LIKE CONCAT ('%', #{pageParams.email}, '%')
-          </if>
-          <if test="pageParams.sex != null and pageParams.sex != ''">
-            AND a.sex LIKE CONCAT ('%', #{pageParams.sex}, '%')
-          </if>
-          <if test="pageParams.education != null and pageParams.education != ''">
-            AND a.education LIKE CONCAT ('%', #{pageParams.education}, '%')
-          </if>
-        </where>-->
+        <where>
+            <if test="pageParams.name != null and pageParams.name != ''">
+                AND a.name LIKE CONCAT ('%', #{pageParams.name}, '%')
+            </if>
+            <if test="pageParams.introduction != null and pageParams.introduction != ''">
+                AND a.introduction LIKE CONCAT ('%', #{pageParams.introduction}, '%')
+            </if>
+            <if test="pageParams.type != null and pageParams.type != ''">
+                AND a.type LIKE CONCAT ('%', #{pageParams.type}, '%')
+            </if>
+            <if test="pageParams.price != null and pageParams.price != ''">
+                AND a.price LIKE CONCAT ('%', #{pageParams.price}, '%')
+            </if>
+            <if test="pageParams.label != null and pageParams.label != ''">
+                AND a.label LIKE CONCAT ('%', #{pageParams.label}, '%')
+            </if>
+        </where>
         LIMIT #{page}, #{pageSize}
     </select>
 
