@@ -11,7 +11,7 @@ import java.util.Map;
  *
  * @param <T>
  */
-public interface BaseDao<T extends BaseEntity> {
+public interface BaseDao<T extends BaseEntity> extends Mapper<T>, MySqlMapper<T> {
 
     /**
      * 分页查询
@@ -36,4 +36,11 @@ public interface BaseDao<T extends BaseEntity> {
      * @return
      */
     public T selectById(String id);
+
+    /**
+     * 更新单条信息
+     *
+     * @param entity
+     */
+    void update(T entity);
 }

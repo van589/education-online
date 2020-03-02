@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group" id="priceDisplay" th:if="${course.type != 'free'}">
+                                <div class="form-group" id="priceDisplay" th:style="${course.type == 'free' ? 'display:none' : 'display:block'}">
                                     <label for="price" class="col-sm-2 control-label">课程价格</label>
 
                                     <div class="col-sm-10">

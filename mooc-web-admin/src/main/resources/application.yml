@@ -35,3 +35,5 @@ logging:
           web:
             admin:
               dao: debug
+mapper:
+  mappers: com.van589.mooc.commons.persistence.BaseDao
