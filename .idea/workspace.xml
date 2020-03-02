@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/persistence/BaseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mooc-domain/target/classes/com/van589/mooc/domain/Course.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/includes/course/course_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/constant/ConstantUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/constant/ConstantUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/src/main/java/com/van589/mooc/commons/persistence/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/constant/ConstantUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/classes/com/van589/mooc/commons/constant/ConstantUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/abstracts/AbstractBaseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/CourseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/LogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/LogServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user/user_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user/user_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/user/user_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +255,7 @@
       <workItem from="1582704104248" duration="1891000" />
       <workItem from="1582985366379" duration="4879000" />
       <workItem from="1583032750632" duration="9917000" />
-      <workItem from="1583127239751" duration="10713000" />
+      <workItem from="1583127239751" duration="12447000" />
     </task>
     <task id="LOCAL-00001" summary="新增高级搜索功能">
       <created>1582367759440</created>
@@ -306,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583053746312</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="完成新增课程功能、对controller、service进行简单修改、完善新增用户节目">
+      <created>1583166120286</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583166120286</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,10 +359,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="679" y="328" key="#com.intellij.fileTypes.FileTypeChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582988393378" />
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1583155675516">
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1583169388154">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583155675516" />
+    <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583169388154" />
     <state x="765" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582622746589" />
     <state x="570" y="448" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1581683765183">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -481,10 +474,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583057298473" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1583057296882">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1583166140582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583057296882" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583166140582" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582626019749" />
     <state x="714" y="277" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1582116263669">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -535,16 +528,5 @@
     </state>
     <state x="623" y="225" width="672" height="676" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583050050667" />
     <state x="623" y="225" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582545797454" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

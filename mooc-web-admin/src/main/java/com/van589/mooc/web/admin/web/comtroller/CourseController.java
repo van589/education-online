@@ -28,7 +28,7 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
     }
 
     /**
-     * 跳转用户表单页
+     * 跳转 课程 表单页
      *
      * @return
      */
@@ -40,7 +40,7 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
     }
 
     /**
-     * 保存课程信息
+     * 保存 课程 信息
      * @param entity
      * @param model
      * @param redirectAttributes
@@ -65,7 +65,21 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
     }
 
     /**
-     * 获取单个课程信息
+     * 显示 课程 详情
+     *
+     * @param model
+     * @param id
+     * @return
+     */
+    @Override
+    @RequestMapping(value = "detail",method = RequestMethod.GET)
+    public String detail(Model model, String id) {
+        getCourse(model, id);
+        return "includes/course/course_detail";
+    }
+
+    /**
+     * 获取单个 课程 信息
      *
      * @param model
      * @param id

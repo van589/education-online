@@ -44,5 +44,10 @@ public class LogController extends AbstractBaseController<Log, LogService> {
         return null;
     }
 
+    @Override
+    public String detail(Model model, String id) {
+        return null;
+    }
+
 
 }

@@ -123,6 +123,13 @@
                         </div>
 
                         <div class="box-body">
+                            <a href="/course/form" type="button" class="btn btn-sm btn-default"><i
+                                    class="fa fa-plus"></i>
+                                新增
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-default"
+                                    onclick="App.deleteMulti('/user/delete')"><i class="fa fa-trash-o"></i> 删除
+                            </button>&nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-sm btn-primary"
                                     onclick="$('.box-info-search').css('display') == 'none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast')">
                                 <i class="fa fa-search"></i> 搜索
@@ -188,7 +195,7 @@
             },
             {
                 "data": function (row, type, val, meta) {
-                    var detailUrl = "/user/detail?id=" + row.id;
+                    var detailUrl = "/course/detail?id=" + row.id;
                     var deleteUrl = "/user/delete";
                     return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
                         '<a href="/user/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +

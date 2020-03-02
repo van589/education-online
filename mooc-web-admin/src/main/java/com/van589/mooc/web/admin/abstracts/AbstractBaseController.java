@@ -39,7 +39,7 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
     public abstract String list();
 
     /**
-     * 跳转用户表单页
+     * 跳转表单页
      *
      * @param model
      * @param id
@@ -48,6 +48,7 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
     public abstract String form(Model model, String id);
 
     /**
+     *保存或更新信息
      *
      * @param entity
      * @param model
@@ -55,6 +56,15 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
      * @return
      */
     public abstract String save(T entity, Model model, RedirectAttributes redirectAttributes);
+
+    /**
+     * 显示详情信息
+     *
+     * @param model
+     * @param id
+     * @return
+     */
+    public abstract String detail(Model model, String id);
 
     /**
      * DateTables 的分页查询
