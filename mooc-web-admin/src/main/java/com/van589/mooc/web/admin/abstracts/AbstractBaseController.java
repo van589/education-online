@@ -1,15 +1,22 @@
 package com.van589.mooc.web.admin.abstracts;
 
+import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseEntity;
 import com.van589.mooc.commons.persistence.BaseService;
+import com.van589.mooc.domain.Course;
 import com.van589.mooc.domain.Log;
+import com.van589.mooc.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.text.html.parser.Entity;
+import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +37,24 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
      * @return
      */
     public abstract String list();
+
+    /**
+     * 跳转用户表单页
+     *
+     * @param model
+     * @param id
+     * @return
+     */
+    public abstract String form(Model model, String id);
+
+    /**
+     *
+     * @param entity
+     * @param model
+     * @param redirectAttributes
+     * @return
+     */
+    public abstract String save(T entity, Model model, RedirectAttributes redirectAttributes);
 
     /**
      * DateTables 的分页查询
@@ -56,5 +81,19 @@ public abstract class AbstractBaseController<T extends BaseEntity, S extends Bas
         pageInfo.setDraw(draw == null ? 0 : Integer.parseInt(draw));
 
         return pageInfo;
+    }
+
+    /**
+     * 获取单个实体类信息
+     *
+     * @param id
+     */
+    protected T getEntity(String id){
+        T entity = null;
+        //如果 id 不为空则将用户信息查询出来，否则返回一个空的用户信息
+        if (id != null) {
+            return service.getById(id);
+        }
+        return entity;
     }
 }

@@ -28,4 +28,12 @@ public interface BaseDao<T extends BaseEntity> {
      * @return
      */
     int count(T entity);
+
+    /**
+     * 根据主键查询
+     *
+     * @param id
+     * @return
+     */
+    public T selectById(String id);
 }

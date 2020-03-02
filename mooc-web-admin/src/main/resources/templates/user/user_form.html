@@ -71,11 +71,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sex" class="col-sm-2 control-label">用户性别</label>
+                                    <label for="sex" class="col-sm-2 control-label">性别</label>
 
                                     <div class="col-sm-10">
-                                        <input name="sex" id="sex" type="text" class="form-control required"
-                                               placeholder="请输入用户性别" th:value="${user.sex}">
+                                        <select name="sex" id="sex" class="form-control required" style="width: 100%;">
+                                            <option th:selected="${user.sex == 'Male'}" value="Male">Male</option>
+                                            <option th:selected="${user.sex == 'Female'}" value="Female">Female</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -110,12 +112,28 @@
                                                placeholder="请输入用户余额(可为空)" th:value="${user.collect}">
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!--<div class="form-group">
                                     <label for="education" class="col-sm-2 control-label">教育程度</label>
 
                                     <div class="col-sm-10">
                                         <input name="education" id="education" type="text" class="form-control"
                                                placeholder="请输入教育程度(可为空)" th:value="${user.education}">
+                                    </div>
+                                </div>-->
+                                <div class="form-group">
+                                    <label for="education" class="col-sm-2 control-label">教育程度</label>
+
+                                    <div class="col-sm-10">
+                                        <select name="education" id="education" class="form-control" style="width: 100%;">
+                                            <option th:selected="${user.education == '无'}" value="无">无</option>
+                                            <option th:selected="${user.education == '初中'}" value="初中">初中</option>
+                                            <option th:selected="${user.education == '高中'}" value="高中">高中</option>
+                                            <option th:selected="${user.education == '中专'}" value="中专">中专</option>
+                                            <option th:selected="${user.education == '专科'}" value="专科">专科</option>
+                                            <option th:selected="${user.education == '本科'}" value="本科">本科</option>
+                                            <option th:selected="${user.education == '硕士'}" value="硕士">硕士</option>
+                                            <option th:selected="${user.education == '博士'}" value="博士">博士</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

@@ -3,6 +3,7 @@ package com.van589.mooc.web.admin.web.comtroller;
 import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
+import com.van589.mooc.domain.Course;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.UserService;
@@ -27,6 +28,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
      *
      * @return
      */
+    @Override
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
         return "user/user_list";
@@ -37,9 +39,10 @@ public class UserController extends AbstractBaseController<User, UserService> {
      *
      * @return
      */
+    @Override
     @RequestMapping(value = "form", method = RequestMethod.GET)
     public String form(Model model, String id) {
-        getUser(model, id);
+        getUser(model,id);
         return "user/user_form";
     }
 
@@ -173,14 +176,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
      * @param id
      */
     private void getUser(Model model, String id) {
-        User user = null;
-
-        //如果 id 不为空则将用户信息查询出来，否则返回一个空的用户信息
-        if (id != null) {
-            user = service.getById(id);
-        } else {
-            user = new User();
-        }
-        model.addAttribute(ConstantUtils.SESSION_USER, user);
+        User user = getEntity(id);
+        model.addAttribute(ConstantUtils.SESSION_USER, user == null ? new User() : user);
     }
 }

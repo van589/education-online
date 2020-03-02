@@ -1,5 +1,6 @@
 package com.van589.mooc.web.admin.service.impl;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.domain.Log;
 import com.van589.mooc.web.admin.abstracts.AbstractBaseServiceImpl;
@@ -14,4 +15,8 @@ import java.util.Map;
 @Service
 public class LogServiceImpl extends AbstractBaseServiceImpl<Log, LogMapper> implements LogService {
 
+    @Override
+    public BaseResult save(Log entity) {
+        return null;
+    }
 }

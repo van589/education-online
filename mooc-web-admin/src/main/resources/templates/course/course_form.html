@@ -1,0 +1,134 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 引入公共的 静态资源 部分 -->
+<head th:replace="includes/common_includes :: common_header('后台管理 | 新增课程')">
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+
+    <!-- 引入公共的 导航栏 部分 -->
+    <header th:replace="includes/common_includes :: common_nav"></header>
+    <!-- 引入公共的 菜单栏 部分 -->
+    <aside th:replace="includes/common_includes :: common_menu"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                课程管理
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#" th:text="${course.id == null ? '新增课程' : '编辑课程'}">新增课程</a></li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div th:if="${baseResult != null}" class="alert alert-dismissible"
+                         th:classappend="${baseResult.status == 200} ? 'alert-success' : 'alert-danger'">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <span th:text="${baseResult.message}"></span>
+                    </div>
+
+
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title" th:text="${course.id == null ? '新增课程' : '编辑课程'}"></h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form id="inputForm" class="form-horizontal" th:action="@{/course/save}" th:object="${course}"
+                              method="post">
+                            <input type="hidden" th:value="${course.id}" name="id"/>
+
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="name" class="col-sm-2 control-label">课程名称</label>
+
+                                    <div class="col-sm-10">
+                                        <input name="name" id="name" type="text" class="form-control required"
+                                               placeholder="请输入课程名称" th:value="${course.name}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="introduction" class="col-sm-2 control-label">课程简介</label>
+
+                                    <div class="col-sm-10">
+                                        <input name="introduction" id="introduction" type="text"
+                                               class="form-control required"
+                                               placeholder="请输入课程简介" th:value="${course.introduction}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="type" class="col-sm-2 control-label">课程类型</label>
+                                    <div class="col-sm-10">
+                                        <select id="type" onchange="select()" name="type" class="form-control required" style="width: 100%;">
+                                            <option th:selected="${course.type == 'vip'}" value="vip">vip</option>
+                                            <option th:selected="${course.type == 'free'}" value="free">free</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" id="priceDisplay">
+                                    <label for="price" class="col-sm-2 control-label">课程价格</label>
+
+                                    <div class="col-sm-10">
+                                        <input name="price" id="price" type="text" class="form-control number required" placeholder="请输入课程价格" th:value="${course.price}">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="label" class="col-sm-2 control-label">视频评价</label>
+                                    <div class="col-sm-10">
+                                        <select id="label" name="label" class="form-control" style="width: 100%;">
+                                            <option th:selected="${course.label == '无'}" value="无">无</option>
+                                            <option th:selected="${course.label == '极差'}" value="极差">极差</option>
+                                            <option th:selected="${course.label == '一般'}" value="一般">一般</option>
+                                            <option th:selected="${course.label == '良好'}" value="良好">良好</option>
+                                            <option th:selected="${course.label == '优秀'}" value="优秀">优秀</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="box-footer">
+                                <button type="button" class="btn btn-default" onclick="history.go(-1);">返回</button>
+                                <button type="submit" class="btn btn-info pull-right">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- 引入公共的 copyright 部分 -->
+    <footer th:replace="includes/common_includes :: common_copyright"></footer>
+    <!-- 引入公共的 JS 部分 -->
+    <div th:replace="includes/common_includes :: common_foot"></div>
+</div>
+<script>
+    /**
+     * 根据课程类型显示价格
+     */
+    function select() {
+
+        //如果课程类型为 free 则隐藏课程价格
+        if($("#type").val() == 'free'){
+            $("#priceDisplay").css('display','none');
+        }
+        //如果课程类型为 vip 则显示课程价格
+        else{
+            $("#priceDisplay").css('display','block');
+        }
+    }
+</script>
+
+</body>
+</html>

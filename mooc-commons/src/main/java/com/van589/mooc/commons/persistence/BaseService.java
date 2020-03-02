@@ -1,5 +1,6 @@
 package com.van589.mooc.commons.persistence;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 
 import java.util.Map;
@@ -25,4 +26,18 @@ public interface BaseService<T extends BaseEntity> {
      * @return
      */
     public int count(T entity);
+
+    /**
+     * 查询单条信息
+     * @param id
+     * @return
+     */
+    public T getById(String id);
+
+    /**
+     * 保存信息
+     * @param entity
+     * @return
+     */
+    public BaseResult save(T entity);
 }

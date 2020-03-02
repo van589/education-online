@@ -1,14 +1,21 @@
 package com.van589.mooc.web.admin.abstracts;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseDao;
 import com.van589.mooc.commons.persistence.BaseEntity;
 import com.van589.mooc.commons.persistence.BaseService;
+import com.van589.mooc.domain.Course;
 import com.van589.mooc.domain.Log;
+import com.van589.mooc.domain.User;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * 所有 ServiceImpl 的基类
@@ -16,7 +23,7 @@ import java.util.Map;
  * @param <T>
  * @param <D>
  */
-public abstract class AbstractBaseServiceImpl<T extends BaseEntity , D extends BaseDao<T>> implements BaseService<T> {
+public abstract class AbstractBaseServiceImpl<T extends BaseEntity, D extends BaseDao<T>> implements BaseService<T> {
 
     @Autowired
     protected D dao;
@@ -54,5 +61,16 @@ public abstract class AbstractBaseServiceImpl<T extends BaseEntity , D extends B
     @Override
     public int count(T entity) {
         return dao.count(entity);
+    }
+
+    /**
+     * 查询单条信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public T getById(String id) {
+        return dao.selectById(id);
     }
 }

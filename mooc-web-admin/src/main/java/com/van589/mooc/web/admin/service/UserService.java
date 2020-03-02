@@ -12,24 +12,10 @@ import java.util.Map;
 public interface UserService extends BaseService<User> {
 
     /**
-     * 保存信息
-     * @param entity
-     * @return
-     */
-    public BaseResult save(User entity);
-
-    /**
      * 批量删除
      * @param ids
      */
     public void deleteMulti(String[] ids);
-
-    /**
-     * 查询单条信息
-     * @param id
-     * @return
-     */
-    public User getById(String id);
 
     /**
      *充值一条或多条余额信息

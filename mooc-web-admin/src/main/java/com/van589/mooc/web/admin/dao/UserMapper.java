@@ -20,14 +20,6 @@ public interface UserMapper extends MyMapper<User>, BaseDao<User> {
     void deleteMulti(String[] ids);
 
     /**
-     * 根据主键查询
-     *
-     * @param id
-     * @return
-     */
-    public User selectById(String id);
-
-    /**
      * 更新单条用户信息
      *
      * @param entity

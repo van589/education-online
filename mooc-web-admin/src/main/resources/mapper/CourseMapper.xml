@@ -77,4 +77,12 @@
         </where>-->
         LIMIT #{page}, #{pageSize}
     </select>
+
+    <select id="selectById" resultType="com.van589.mooc.domain.Course">
+        SELECT
+        <include refid="courseColumns"></include>
+        FROM course AS a
+        where
+        a.id = #{id}
+    </select>
 </mapper>
