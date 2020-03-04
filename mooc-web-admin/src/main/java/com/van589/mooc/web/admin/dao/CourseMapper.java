@@ -7,5 +7,5 @@ import org.springframework.stereotype.Component;
 import tk.mybatis.MyMapper;
 
 @Component
-public interface CourseMapper extends MyMapper<Course>, BaseDao<Course> {
+public interface CourseMapper extends BaseDao<Course> {
 }

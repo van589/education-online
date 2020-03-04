@@ -12,7 +12,7 @@
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="fristtime" jdbcType="TIMESTAMP" property="fristtime" />
+    <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
     <result column="lasttime" jdbcType="TIMESTAMP" property="lasttime" />
   </resultMap>

@@ -16,7 +16,7 @@
         <result column="collect" jdbcType="INTEGER" property="collect"/>
         <result column="education" jdbcType="VARCHAR" property="education"/>
         <result column="vip" jdbcType="TIMESTAMP" property="vip"/>
-        <result column="fristtime" jdbcType="TIMESTAMP" property="fristtime"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
         <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
         <result column="lasttime" jdbcType="TIMESTAMP" property="lasttime"/>
     </resultMap>
@@ -33,7 +33,7 @@
         a.collect,
         a.education,
         a.vip,
-        a.fristtime,
+        a.firsttime,
         a.updatetime,
         a.lasttime
     </sql>
@@ -119,7 +119,7 @@
             collect    = #{collect},
             education  = #{education},
             vip= #{vip},
-            fristtime  = #{fristtime},
+            firsttime  = #{firsttime},
             updatetime = #{updatetime},
             lasttime   = #{lasttime}
         WHERE id = #{id}

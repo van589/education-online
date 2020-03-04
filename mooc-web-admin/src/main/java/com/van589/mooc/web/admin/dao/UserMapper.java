@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public interface UserMapper extends MyMapper<User>, BaseDao<User> {
+public interface UserMapper extends BaseDao<User> {
 
     /**
      * 批量更新用户余额

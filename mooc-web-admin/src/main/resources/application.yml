@@ -37,3 +37,6 @@ logging:
               dao: debug
 mapper:
   mappers: com.van589.mooc.commons.persistence.BaseDao
+
+file:
+  path: F:/javaWeb/education/upload/

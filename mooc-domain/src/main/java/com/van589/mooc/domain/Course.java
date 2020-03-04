@@ -1,18 +1,26 @@
 package com.van589.mooc.domain;
 
 import com.van589.mooc.commons.persistence.BaseEntity;
+import com.van589.mooc.commons.persistence.BaseTimeEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
 @Data
-public class Course extends BaseEntity {
+@EqualsAndHashCode(callSuper = false)
+public class Course extends BaseTimeEntity {
 
     /**
      * 课程ID
      */
     private String id;
+
+    /**
+     * 视频表id
+     */
+    private String fileId;
 
     /**
      * 课程名称
@@ -38,15 +46,5 @@ public class Course extends BaseEntity {
      * 课程评价
      */
     private String label;
-
-    /**
-     * 首次登录时间
-     */
-    private Date fristtime;
-
-    /**
-     * 修改时间
-     */
-    private Date updatetime;
 
 }

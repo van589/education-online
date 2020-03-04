@@ -11,7 +11,7 @@ import java.util.Date;
  *
  */
 @Data
-public class BaseRoleEntity extends BaseEntity {
+public abstract class BaseRoleEntity extends BaseTimeEntity {
     /**
      * 用户ID
      */
@@ -48,15 +48,6 @@ public class BaseRoleEntity extends BaseEntity {
      */
     private String email;
 
-    /**
-     * 首次登录时间
-     */
-    private Date fristtime;
-
-    /**
-     * 修改时间
-     */
-    private Date updatetime;
 
     /**
      * 最后登录时间

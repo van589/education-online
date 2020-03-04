@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Service
+@Transactional(readOnly = true)
 public class CourseServiceImpl extends AbstractBaseServiceImpl<Course, CourseMapper> implements CourseService {
 
     /**
@@ -37,7 +38,7 @@ public class CourseServiceImpl extends AbstractBaseServiceImpl<Course, CourseMap
             Date first = new Date();
             //设置UUID
             entity.setId(UUID.randomUUID().toString().replace("-", ""));
-            entity.setFristtime(first);
+            entity.setFirsttime(first);
             entity.setUpdatetime(first);
             dao.insert(entity);
         }

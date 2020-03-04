@@ -1,11 +1,14 @@
 package com.van589.mooc.domain;
 
+import com.van589.mooc.commons.persistence.BaseTimeEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
 @Data
-public class Ipset {
+@EqualsAndHashCode(callSuper = false)
+public class Ipset extends BaseTimeEntity {
     /**
      * 操作者ip
      */
@@ -25,15 +28,5 @@ public class Ipset {
      * 封禁日期
      */
     private Date bantime;
-
-    /**
-     * 首次注册时间
-     */
-    private Date fristtime;
-
-    /**
-     * 最后登录时间
-     */
-    private Date lasttime;
 
 }

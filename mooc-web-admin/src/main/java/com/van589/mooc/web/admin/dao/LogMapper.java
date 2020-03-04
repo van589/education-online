@@ -11,6 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public interface LogMapper extends MyMapper<Log> , BaseDao<Log> {
+public interface LogMapper extends BaseDao<Log> {
 
 }

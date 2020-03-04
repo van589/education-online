@@ -2,6 +2,7 @@ package com.van589.mooc.domain;
 
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -10,6 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class User extends BaseRoleEntity {
     /**
      * 微信号

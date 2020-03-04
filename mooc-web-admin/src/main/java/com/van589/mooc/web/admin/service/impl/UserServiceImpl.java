@@ -40,7 +40,7 @@ public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> i
             user.setCollect(user.getCollect() == null ? 0 : user.getCollect());
             user.setEducation(user.getEducation().isEmpty() ? "无" : user.getEducation());
             user.setPassword(user.getPassword());
-            user.setFristtime(first);
+            user.setFirsttime(first);
             user.setUpdatetime(first);
             user.setLasttime(first);
             dao.insert(user);
@@ -58,7 +58,7 @@ public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> i
                 return BaseResult.fail("密码长度必须介于 6 - 20 位之间");
             }
             user.setVip(oldUser.getVip());
-            user.setFristtime(oldUser.getFristtime());
+            user.setFirsttime(oldUser.getFirsttime());
             user.setUpdatetime(new Date());
             user.setLasttime(oldUser.getLasttime());
             dao.update(user);

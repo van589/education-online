@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van589.mooc.web.admin.dao.CourseFileMapper">
+
+    <resultMap id="BaseResultMap" type="com.van589.mooc.domain.CourseFile">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="filename" jdbcType="VARCHAR" property="filename"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+    <sql id="courseFileColumns">
+        a.id,
+        a.filename,
+        a.url,
+        a.firsttime,
+        a.updatetime
+    </sql>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from course_file AS a
+<!--
+        <where>
+            <if test="name != null and name != ''">
+                AND a.name LIKE CONCAT ('%', #{name}, '%')
+            </if>
+            <if test="nickname != null and nickname != ''">
+                AND a.nickname LIKE CONCAT ('%', #{nickname}, '%')
+            </if>
+            <if test="phone != null and phone != ''">
+                AND a.phone LIKE CONCAT ('%', #{phone}, '%')
+            </if>
+            <if test="email != null and email != ''">
+                AND a.email LIKE CONCAT ('%', #{email}, '%')
+            </if>
+            <if test="sex != null and sex != ''">
+                AND a.sex LIKE CONCAT ('%', #{sex}, '%')
+            </if>
+            <if test="education != null and education != ''">
+                AND a.education LIKE CONCAT ('%', #{education}, '%')
+            </if>
+        </where>
+-->
+    </select>
+
+    <select id="page" parameterType="java.util.Map" resultType="com.van589.mooc.domain.CourseFile">
+        SELECT
+        <include refid="courseFileColumns"/>
+        FROM
+        course_file AS a
+<!--
+        <where>
+            <if test="pageParams.name != null and pageParams.name != ''">
+                AND a.name LIKE CONCAT ('%', #{pageParams.name}, '%')
+            </if>
+            <if test="pageParams.nickname != null and pageParams.nickname != ''">
+                AND a.nickname LIKE CONCAT ('%', #{pageParams.nickname}, '%')
+            </if>
+            <if test="pageParams.phone != null and pageParams.phone != ''">
+                AND a.phone LIKE CONCAT ('%', #{pageParams.phone}, '%')
+            </if>
+            <if test="pageParams.email != null and pageParams.email != ''">
+                AND a.email LIKE CONCAT ('%', #{pageParams.email}, '%')
+            </if>
+            <if test="pageParams.sex != null and pageParams.sex != ''">
+                AND a.sex LIKE CONCAT ('%', #{pageParams.sex}, '%')
+            </if>
+            <if test="pageParams.education != null and pageParams.education != ''">
+                AND a.education LIKE CONCAT ('%', #{pageParams.education}, '%')
+            </if>
+        </where>
+-->
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+</mapper>

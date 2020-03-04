@@ -54,7 +54,7 @@
 
                             <p style="font-size: small">
                                 管理员昵称-<span th:text="${session.admin.nickname}">管理员名字</span><br>
-                                注册时间-<span th:text="${#dates.format(session.admin.fristtime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span><br>
+                                注册时间-<span th:text="${#dates.format(session.admin.firsttime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span><br>
                                 上次登录时间-<span th:text="${#dates.format(session.admin.lasttime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span>
                             </p>
                         </li>
@@ -118,6 +118,7 @@
                 <ul class="treeview-menu">
                     <li><a href="/course/list"><i class="fa fa-circle-o"></i> 课程列表 </a></li>
                     <li><a href="/course/form"><i class="fa fa-circle-o"></i> 新增课程 </a></li>
+                    <li><a href="/file/list"><i class="fa fa-circle-o"></i> 视频列表 </a></li>
                 </ul>
             </li>
             <!-- 视频管理 end -->

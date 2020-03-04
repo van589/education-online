@@ -7,22 +7,24 @@
           WARNING - @mbg.generated
         -->
         <id column="id" jdbcType="VARCHAR" property="id"/>
+        <id column="file_id" jdbcType="VARCHAR" property="fileId"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
         <result column="label" jdbcType="VARCHAR" property="label"/>
-        <result column="fristtime" jdbcType="TIMESTAMP" property="fristtime"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
         <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
     </resultMap>
     <sql id="courseColumns">
         a.id,
+        a.file_id,
         a.name,
         a.introduction,
         a.type,
         a.price,
         a.label,
-        a.fristtime,
+        a.firsttime,
         a.updatetime
     </sql>
 

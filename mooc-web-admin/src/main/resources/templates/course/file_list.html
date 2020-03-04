@@ -1,10 +1,11 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <!-- 引入公共的 静态资源 部分 -->
-<head th:replace="includes/common_includes :: common_header('后台管理 | 课程列表')"></head>
+<head th:replace="includes/common_includes :: common_header('后台管理 | 视频列表')"></head>
 <body class="hold-transition skin-blue layout-boxed sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
+
     <!-- 引入公共的 导航栏 部分 -->
     <header th:replace="includes/common_includes :: common_nav"></header>
     <!-- 引入公共的 菜单栏 部分 -->
@@ -19,7 +20,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">课程列表</a></li>
+                <li><a href="#">视频列表</a></li>
             </ol>
         </section>
 
@@ -43,62 +44,72 @@
                             <div class="row form-horizontal">
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="name" class="col-sm-3 control-label">名称</label>
+                                        <label for="name" class="col-sm-3 control-label">账号</label>
 
                                         <div class="col-sm-9">
-                                            <input id="name" class="form-control" placeholder="课程名称"/>
+                                            <input id="name" class="form-control" placeholder="账号"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="introduction" class="col-sm-3 control-label">简介</label>
+                                        <label for="nickname" class="col-sm-3 control-label">昵称</label>
 
                                         <div class="col-sm-9">
-                                            <input id="introduction" class="form-control" placeholder="课程简介"/>
+                                            <input id="nickname" class="form-control" placeholder="昵称"/>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="type" class="col-sm-3 control-label">类型</label>
+                                        <label for="email" class="col-sm-3 control-label">邮箱</label>
 
                                         <div class="col-sm-9">
-                                            <select id="type" class="form-control" style="width: 100%;">
+                                            <input id="email" class="form-control" placeholder="邮箱"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="phone" class="col-sm-3 control-label">手机</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="phone" class="form-control" placeholder="手机"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="sex" class="col-sm-3 control-label">性别</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="sex" class="form-control" style="width: 100%;">
                                                 <option selected="selected"></option>
-                                                <option>free</option>
-                                                <option>vip</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
-                                        <label for="price" class="col-sm-3 control-label">价格</label>
+                                        <label for="education" class="col-sm-3 control-label">学历</label>
 
                                         <div class="col-sm-9">
-                                            <input id="price" class="form-control" placeholder="课程价格"/>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-4">
-                                    <div class="form-group">
-                                        <label for="label" class="col-sm-3 control-label">评价</label>
-
-                                        <div class="col-sm-9">
-                                            <select id="label" class="form-control" style="width: 100%;">
+                                            <select id="education" class="form-control" style="width: 100%;">
                                                 <option selected="selected"></option>
                                                 <option>无</option>
-                                                <option>极差</option>
-                                                <option>一般</option>
-                                                <option>良好</option>
-                                                <option>优秀</option>
+                                                <option>初中</option>
+                                                <option>高中</option>
+                                                <option>中专</option>
+                                                <option>专科</option>
+                                                <option>本科</option>
+                                                <option>硕士</option>
+                                                <option>博士</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
@@ -109,16 +120,16 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">课程列表</h3>
+                            <h3 class="box-title">视频列表</h3>
                         </div>
 
                         <div class="box-body">
-                            <a href="/course/form" type="button" class="btn btn-sm btn-default"><i
+                            <a href="/user/form" type="button" class="btn btn-sm btn-default"><i
                                     class="fa fa-plus"></i>
                                 新增
                             </a>&nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-sm btn-default"
-                                    onclick="App.deleteMulti('/course/delete')"><i class="fa fa-trash-o"></i> 删除
+                                    onclick="App.deleteMulti('/user/delete')"><i class="fa fa-trash-o"></i> 删除
                             </button>&nbsp;&nbsp;&nbsp;
                             <button type="button" class="btn btn-sm btn-primary"
                                     onclick="$('.box-info-search').css('display') == 'none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast')">
@@ -132,11 +143,10 @@
                                 <thead>
                                 <tr>
                                     <th><input type="checkbox" class="minimal icheck_master"/></th>
-                                    <th>课程名称</th>
-                                    <th>课程类型</th>
-                                    <th>课程价格</th>
-                                    <th>课程评价</th>
-                                    <th>课程修改日期</th>
+                                    <th>视频名称</th>
+                                    <th>视频地址</th>
+                                    <th>创建日期</th>
+                                    <th>修改日期</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -156,12 +166,13 @@
 
     <!-- 引入公共的 copyright 部分 -->
     <footer th:replace="includes/common_includes :: common_copyright"></footer>
+
 </div>
+
 <!-- 引入公共的 JS 部分 -->
 <div th:replace="includes/common_includes :: common_foot"></div>
 
 <!-- 引入公共的 模态框 部分 -->
-<div th:replace="includes/common_includes :: common_default_modal"></div>
 <div th:replace="includes/common_includes :: common_detail_modal"></div>
 <script>
     var _dataTable;
@@ -173,49 +184,52 @@
                     return '<input id="' + row.id + '" type="checkbox" class="minimal" />';
                 }
             },
-            {"data": "name"},
-            {"data": "type"},
-            {"data": "price"},
-            {"data": "label"},
+            {"data": "filename"},
+            {"data": "url"},
             {
                 "data": function (row, type, val, meta) {
-                    var updatetime = DateTime.format(row.updatetime, "yyyy-MM-dd HH:mm:ss");
-                    return updatetime;
+                    return DateTime.format(row.firsttime, "yyyy-MM-dd HH:mm:ss");
                 }
             },
             {
                 "data": function (row, type, val, meta) {
-                    var detailUrl = "/course/detail?id=" + row.id;
-                    var deleteUrl = "/course/delete";
+                    return DateTime.format(row.updatetime, "yyyy-MM-dd HH:mm:ss");
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var detailUrl = "/file/detail?id=" + row.id;
+                    var deleteUrl = "/file/delete";
                     return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
-                        '<a href="/course/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
+                        '<a href="/user/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
                         '<button type="button" class="btn btn-sm btn-danger" onclick="App.deleteSingle(\'' + deleteUrl + '\', \'' + row.id + '\')"><i class="fa fa-trash-o"></i> 删除</button>';
                 }
             }
         ];
 
-        _dataTable = App.initDataTables("/course/page", _columns);
+        _dataTable = App.initDataTables("/file/page", _columns);
     });
 
     function search() {
         var name = $("#name").val();
-        var introduction = $("#introduction").val();
-        var type = $("#type").val();
-        var price = $("#price").val();
-        var label = $("#label").val();
+        var nickname = $("#nickname").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var sex = $("#sex").val();
+        var education = $("#education").val();
 
         var param = {
             "name": name,
-            "introduction": introduction,
-            "type": type,
-            "price": price,
-            "label": label
+            "nickname": nickname,
+            "phone": phone,
+            "email": email,
+            "sex": sex,
+            "education": education
         };
 
         _dataTable.settings()[0].ajax.data = param;
         _dataTable.ajax.reload();
     }
 </script>
-
 </body>
 </html>
