@@ -317,6 +317,32 @@ var App = function () {
     };
 
     /**
+     * 新增视频文件
+     * @param url
+     */
+    var handlerCourseFileUpload = function (url) {
+        // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "html",
+            success: function (data) {
+                //装载页面信息
+                $("#modal-message").html(data);
+            }
+        });
+
+        // 点击按钮时弹出模态框
+        $("#modal-default").modal("show");
+
+        // 如果用户点击确定则提交表单并隐藏模态框
+        $("#btnModalOk").bind("click", function () {
+            $('#btnSubmit').click();
+            $("#modal-default").modal("hide");
+        });
+    };
+
+    /**
      * Ajax异步请求成功后的模态框操作
      * @param data
      */
@@ -417,6 +443,14 @@ var App = function () {
          */
         vipSetting: function (url) {
             handlerVipSettting(url);
+        },
+
+        /**
+         * 新增视频文件
+         * @param url
+         */
+        courseFileUpload: function (url) {
+            handlerCourseFileUpload(url);
         }
 
     }

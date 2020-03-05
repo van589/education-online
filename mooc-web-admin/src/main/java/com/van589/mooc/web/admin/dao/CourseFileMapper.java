@@ -6,6 +6,16 @@ import com.van589.mooc.domain.CourseFile;
 import org.springframework.stereotype.Component;
 import tk.mybatis.MyMapper;
 
+import java.util.List;
+
 @Component
 public interface CourseFileMapper extends BaseDao<CourseFile> {
+
+    /**
+     * 根据 ID 查询多条记录
+     *
+     * @param ids
+     * @return
+     */
+    public List<CourseFile> selectMultiById(String[] ids);
 }

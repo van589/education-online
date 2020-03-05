@@ -22,28 +22,14 @@
 
     <select id="count" resultType="java.lang.Integer">
         select count(*) from course_file AS a
-<!--
         <where>
-            <if test="name != null and name != ''">
-                AND a.name LIKE CONCAT ('%', #{name}, '%')
+            <if test="filename != null and filename != ''">
+                AND a.filename LIKE CONCAT ('%', #{filename}, '%')
             </if>
-            <if test="nickname != null and nickname != ''">
-                AND a.nickname LIKE CONCAT ('%', #{nickname}, '%')
-            </if>
-            <if test="phone != null and phone != ''">
-                AND a.phone LIKE CONCAT ('%', #{phone}, '%')
-            </if>
-            <if test="email != null and email != ''">
-                AND a.email LIKE CONCAT ('%', #{email}, '%')
-            </if>
-            <if test="sex != null and sex != ''">
-                AND a.sex LIKE CONCAT ('%', #{sex}, '%')
-            </if>
-            <if test="education != null and education != ''">
-                AND a.education LIKE CONCAT ('%', #{education}, '%')
+            <if test="url != null and url != ''">
+                AND a.url LIKE CONCAT ('%', #{url}, '%')
             </if>
         </where>
--->
     </select>
 
     <select id="page" parameterType="java.util.Map" resultType="com.van589.mooc.domain.CourseFile">
@@ -51,29 +37,40 @@
         <include refid="courseFileColumns"/>
         FROM
         course_file AS a
-<!--
         <where>
-            <if test="pageParams.name != null and pageParams.name != ''">
-                AND a.name LIKE CONCAT ('%', #{pageParams.name}, '%')
+            <if test="pageParams.filename != null and pageParams.filename != ''">
+                AND a.filename LIKE CONCAT ('%', #{pageParams.filename}, '%')
             </if>
-            <if test="pageParams.nickname != null and pageParams.nickname != ''">
-                AND a.nickname LIKE CONCAT ('%', #{pageParams.nickname}, '%')
-            </if>
-            <if test="pageParams.phone != null and pageParams.phone != ''">
-                AND a.phone LIKE CONCAT ('%', #{pageParams.phone}, '%')
-            </if>
-            <if test="pageParams.email != null and pageParams.email != ''">
-                AND a.email LIKE CONCAT ('%', #{pageParams.email}, '%')
-            </if>
-            <if test="pageParams.sex != null and pageParams.sex != ''">
-                AND a.sex LIKE CONCAT ('%', #{pageParams.sex}, '%')
-            </if>
-            <if test="pageParams.education != null and pageParams.education != ''">
-                AND a.education LIKE CONCAT ('%', #{pageParams.education}, '%')
+            <if test="pageParams.url != null and pageParams.url != ''">
+                AND a.url LIKE CONCAT ('%', #{pageParams.url}, '%')
             </if>
         </where>
--->
         LIMIT #{page}, #{pageSize}
     </select>
 
+    <delete id="deleteMulti">
+        DELETE FROM course_file
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectMultiById" resultType="com.van589.mooc.domain.CourseFile">
+        SELECT
+        <include refid="courseFileColumns"/>
+        FROM course_file AS a
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
+
+    <select id="selectById" resultType="com.van589.mooc.domain.CourseFile">
+        SELECT
+        <include refid="courseFileColumns"></include>
+        FROM course_file AS a
+        where
+        a.id = #{id}
+    </select>
 </mapper>
