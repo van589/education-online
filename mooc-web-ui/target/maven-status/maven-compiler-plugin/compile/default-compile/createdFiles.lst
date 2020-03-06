@@ -1,0 +1,7 @@
+com\van589\mooc\web\ui\configure\WebConfigure.class
+com\van589\mooc\web\ui\controller\MainController.class
+com\van589\mooc\web\ui\MoocWebUiApplication.class
+com\van589\mooc\web\ui\controller\LoginController.class
+com\van589\mooc\web\ui\dto\User.class
+com\van589\mooc\web\ui\interceptor\LoginInterceptor.class
+com\van589\mooc\web\ui\interceptor\PermissionInterceptor.class

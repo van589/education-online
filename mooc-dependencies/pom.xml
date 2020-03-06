@@ -32,6 +32,8 @@
         <commons-email.version>1.5</commons-email.version>
         <commons-fileupload.version>1.3.2</commons-fileupload.version>
         <commons-lang3.version>3.5</commons-lang3.version>
+        <kaptcha.version>2.3</kaptcha.version>
+        <apache-httpclient.version>4.5.5</apache-httpclient.version>
     </properties>
 
     <dependencyManagement>
@@ -78,9 +80,23 @@
             </dependency>
             <!-- Commons End -->
 
-            <!-- Spring Begin -->
-
-            <!-- Spring End -->
+            <!-- Apache Http Begin -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${apache-httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>fluent-hc</artifactId>
+                <version>${apache-httpclient.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${apache-httpclient.version}</version>
+            </dependency>
+            <!-- Apache Http End -->
 
             <dependency>
                 <groupId>net.sourceforge.nekohtml</groupId>
