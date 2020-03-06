@@ -18,4 +18,18 @@ public interface CourseFileMapper extends BaseDao<CourseFile> {
      * @return
      */
     public List<CourseFile> selectMultiById(String[] ids);
+
+    /**
+     * 查询未关联到课程的视频
+     *selectUnbindCourseFileById
+     * @return
+     */
+    public List<CourseFile> selectUnbindCourseFileById();
+
+    /**
+     * 查询已关联到课程的视频
+     *
+     * @return
+     */
+    public List<CourseFile> selectBindCourseFileById();
 }

@@ -99,6 +99,20 @@
                                     </div>
                                 </div>
 
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="fileId" class="col-sm-3 control-label">是否绑定视频 </label>
+
+                                        <div class="col-sm-9">
+                                            <select id="fileId" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>是</option>
+                                                <option>否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
@@ -124,6 +138,14 @@
                                     onclick="$('.box-info-search').css('display') == 'none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast')">
                                 <i class="fa fa-search"></i> 搜索
                             </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-info"
+                                    onclick="App.courseFileBind('/course/bind')">
+                                <i class="fa fa-search"></i> 绑定视频
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-info"
+                                    onclick="App.courseFileBind('/course/unbind')">
+                                <i class="fa fa-search"></i> 解绑视频
+                            </button>&nbsp;&nbsp;&nbsp;
                         </div>
 
                         <!-- /.box-header -->
@@ -137,6 +159,7 @@
                                     <th>课程价格</th>
                                     <th>课程评价</th>
                                     <th>课程修改日期</th>
+                                    <th>是否绑定视频</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -185,6 +208,12 @@
             },
             {
                 "data": function (row, type, val, meta) {
+                    var file_id = row.fileId;
+                    return file_id == null ? "否" : "是";
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
                     var detailUrl = "/course/detail?id=" + row.id;
                     var deleteUrl = "/course/delete";
                     return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
@@ -203,13 +232,15 @@
         var type = $("#type").val();
         var price = $("#price").val();
         var label = $("#label").val();
+        var fileId = $("#fileId").val();
 
         var param = {
             "name": name,
             "introduction": introduction,
             "type": type,
             "price": price,
-            "label": label
+            "label": label,
+            "fileId": fileId
         };
 
         _dataTable.settings()[0].ajax.data = param;

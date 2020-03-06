@@ -297,7 +297,7 @@ var App = function () {
      * @param url
      * @param data
      */
-    var handlerVipSettingDataUpdate = function (url,vipDate) {
+    var handlerVipSettingDataUpdate = function (url, vipDate) {
         $("#modal-default").modal("hide");
 
         if (_idArray.length > 0) {
@@ -343,6 +343,85 @@ var App = function () {
     };
 
     /**
+     * 视频文件绑定课程
+     * @param url
+     */
+    var handlerCourseFileBind = function (url) {
+        //将前端用户信息的 ID 放入数组里
+        idAarrayPush();
+        //当只选择一个的情况下执行请求
+        if (_idArray.length == 1) {
+            // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
+            $.ajax({
+                url: url,
+                type: "get",
+                "data": {"id": _idArray.toString()},
+                dataType: "html",
+                success: function (data) {
+                    //装载页面信息
+                    $("#modal-message").html(data);
+                }
+            });
+
+            // 点击按钮时弹出模态框
+            $("#modal-default").modal("show");
+
+            // 如果用户点击确定则提交表单并隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                //当为绑定操作时进行下一步
+                if(url == "/course/bind"){
+                    handlerCourseFileBindToCourse(url);
+                }
+                //当为解绑的时候直接刷新页面
+                else {
+                    window.location.reload();
+                }
+            });
+        }
+        //没有选择课程
+        else if (_idArray.length == 0) {
+            //设置提示信息
+            $("#modal-message").html("你还没选择课程");
+            // 点击按钮时弹出模态框
+            $("#modal-default").modal("show");
+            // 如果用户点击确定则隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                $("#modal-default").modal("hide");
+            });
+        }
+        //选择课程过多
+        else {
+            //设置提示信息
+            $("#modal-message").html("只能选择一个课程");
+            // 点击按钮时弹出模态框
+            $("#modal-default").modal("show");
+            // 如果用户点击确定则隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                $("#modal-default").modal("hide");
+            });
+        }
+    };
+
+    var handlerCourseFileBindToCourse = function (url) {
+        $("#modal-default").modal("hide");
+        var CourseFileId = $("#selectCourseFile").val();
+        //如果没有视频ID则表明不需要更新
+        if(CourseFileId != null){
+            // AJAX 异步更新操作
+            setTimeout(function () {
+                $.ajax({
+                    "url": url,
+                    "type": "POST",
+                    "data": {"CourseId": _idArray.toString(),"CourseFileId":CourseFileId.toString()},
+                    "dataType": "JSON",
+                    "success": function (data) {
+                        defaultModelOk(data);
+                    }
+                });
+            }, 500)
+        }
+    };
+    /**
      * Ajax异步请求成功后的模态框操作
      * @param data
      */
@@ -385,7 +464,7 @@ var App = function () {
             }
         });
     };
-    
+
     return {
         /**
          * 初始化
@@ -451,6 +530,14 @@ var App = function () {
          */
         courseFileUpload: function (url) {
             handlerCourseFileUpload(url);
+        },
+
+        /**
+         * 视频文件绑定课程
+         * @param url
+         */
+        courseFileBind: function (url) {
+            handlerCourseFileBind(url);
         }
 
     }

@@ -73,4 +73,24 @@
         where
         a.id = #{id}
     </select>
+
+    <select id="selectUnbindCourseFileById" resultType="com.van589.mooc.domain.CourseFile">
+        SELECT
+            <include refid="courseFileColumns"></include>
+        FROM
+            course_file AS a
+                LEFT JOIN course AS b ON b.file_id = a.id
+        WHERE
+            b.file_id IS NULL
+    </select>
+
+    <select id="selectBindCourseFileById" resultType="com.van589.mooc.domain.CourseFile">
+        SELECT
+        <include refid="courseFileColumns"></include>
+        FROM
+        course_file AS a
+        LEFT JOIN course AS b ON b.file_id = a.id
+        WHERE
+        b.file_id IS NOT NULL
+    </select>
 </mapper>
