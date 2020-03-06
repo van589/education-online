@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="box box-info">
+                <form action="/file/save" method="post" th:object="${courseFile}" enctype="multipart/form-data" class="form-horizontal" >
+                    <div class="box-body">
+                        <input type="hidden" th:value="${courseFile.url}">
+                        <div class="form-group">
+                            <label for="courseFileName" class="col-sm-3 control-label">文件名称</label>
+
+                            <div class="col-sm-9">
+                                <input type="text" th:value="${courseFile.filename}"  id="courseFileName" name="courseFileName" class="form-control" placeholder="保存时的文件名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseFile" class="col-sm-3 control-label">选择文件</label>
+
+                            <div class="col-sm-9">
+                                <input type="file" id="courseFile" name="courseFile" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" id="btnSubmit" style="display: none">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

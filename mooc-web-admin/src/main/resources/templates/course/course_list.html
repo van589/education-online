@@ -1,0 +1,252 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 引入公共的 静态资源 部分 -->
+<head th:replace="includes/common_includes :: common_header('后台管理 | 课程列表')"></head>
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+    <!-- 引入公共的 导航栏 部分 -->
+    <header th:replace="includes/common_includes :: common_nav"></header>
+    <!-- 引入公共的 菜单栏 部分 -->
+    <aside th:replace="includes/common_includes :: common_menu"></aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                课程管理
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#">课程列表</a></li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <div th:if="${baseResult != null}" class="alert alert-dismissible"
+                         th:classappend="${baseResult.status == 200} ? 'alert-success' : 'alert-danger'">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <span th:text="${baseResult.message}"></span>
+                    </div>
+
+                    <div class="box box-info box-info-search" style="display: none;">
+                        <div class="box-header">
+                            <h3 class="box-title">高级搜索</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row form-horizontal">
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-3 control-label">名称</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="name" class="form-control" placeholder="课程名称"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="introduction" class="col-sm-3 control-label">简介</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="introduction" class="form-control" placeholder="课程简介"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="type" class="col-sm-3 control-label">类型</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="type" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>free</option>
+                                                <option>vip</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="price" class="col-sm-3 control-label">价格</label>
+
+                                        <div class="col-sm-9">
+                                            <input id="price" class="form-control" placeholder="课程价格"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="label" class="col-sm-3 control-label">评价</label>
+
+                                        <div class="col-sm-9">
+                                            <select id="label" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>无</option>
+                                                <option>极差</option>
+                                                <option>一般</option>
+                                                <option>良好</option>
+                                                <option>优秀</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="fileId" class="col-sm-3 control-label">是否绑定视频 </label>
+
+                                        <div class="col-sm-9">
+                                            <select id="fileId" class="form-control" style="width: 100%;">
+                                                <option selected="selected"></option>
+                                                <option>是</option>
+                                                <option>否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="button" class="btn btn-info pull-right" onclick="search();">搜索</button>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">课程列表</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <a href="/course/form" type="button" class="btn btn-sm btn-default"><i
+                                    class="fa fa-plus"></i>
+                                新增
+                            </a>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-default"
+                                    onclick="App.deleteMulti('/course/delete')"><i class="fa fa-trash-o"></i> 删除
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-primary"
+                                    onclick="$('.box-info-search').css('display') == 'none' ? $('.box-info-search').show('fast') : $('.box-info-search').hide('fast')">
+                                <i class="fa fa-search"></i> 搜索
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-info"
+                                    onclick="App.courseFileBind('/course/bind')">
+                                <i class="fa fa-search"></i> 绑定视频
+                            </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-info"
+                                    onclick="App.courseFileBind('/course/unbind')">
+                                <i class="fa fa-search"></i> 解绑视频
+                            </button>&nbsp;&nbsp;&nbsp;
+                        </div>
+
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="dataTable" class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th><input type="checkbox" class="minimal icheck_master"/></th>
+                                    <th>课程名称</th>
+                                    <th>课程类型</th>
+                                    <th>课程价格</th>
+                                    <th>课程评价</th>
+                                    <th>课程修改日期</th>
+                                    <th>是否绑定视频</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- 引入公共的 copyright 部分 -->
+    <footer th:replace="includes/common_includes :: common_copyright"></footer>
+</div>
+<!-- 引入公共的 JS 部分 -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+
+<!-- 引入公共的 模态框 部分 -->
+<div th:replace="includes/common_includes :: common_default_modal"></div>
+<div th:replace="includes/common_includes :: common_detail_modal"></div>
+<script>
+    var _dataTable;
+
+    $(function () {
+        var _columns = [
+            {
+                "data": function (row, type, val, meta) {
+                    return '<input id="' + row.id + '" type="checkbox" class="minimal" />';
+                }
+            },
+            {"data": "name"},
+            {"data": "type"},
+            {"data": "price"},
+            {"data": "label"},
+            {
+                "data": function (row, type, val, meta) {
+                    var updatetime = DateTime.format(row.updatetime, "yyyy-MM-dd HH:mm:ss");
+                    return updatetime;
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var file_id = row.fileId;
+                    return file_id == null ? "否" : "是";
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var detailUrl = "/course/detail?id=" + row.id;
+                    var deleteUrl = "/course/delete";
+                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
+                        '<a href="/course/form?id=' + row.id + '" type="button" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i> 编辑</a>&nbsp;&nbsp;&nbsp;' +
+                        '<button type="button" class="btn btn-sm btn-danger" onclick="App.deleteSingle(\'' + deleteUrl + '\', \'' + row.id + '\')"><i class="fa fa-trash-o"></i> 删除</button>';
+                }
+            }
+        ];
+
+        _dataTable = App.initDataTables("/course/page", _columns);
+    });
+
+    function search() {
+        var name = $("#name").val();
+        var introduction = $("#introduction").val();
+        var type = $("#type").val();
+        var price = $("#price").val();
+        var label = $("#label").val();
+        var fileId = $("#fileId").val();
+
+        var param = {
+            "name": name,
+            "introduction": introduction,
+            "type": type,
+            "price": price,
+            "label": label,
+            "fileId": fileId
+        };
+
+        _dataTable.settings()[0].ajax.data = param;
+        _dataTable.ajax.reload();
+    }
+</script>
+
+</body>
+</html>

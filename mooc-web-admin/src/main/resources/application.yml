@@ -22,6 +22,10 @@ spring:
     prefix: classpath:/templates/
   mvc:
     static-path-pattern: /static/**
+  servlet:
+    multipart:
+      max-file-size: 128MB
+      max-request-size: 128MB
 
 mybatis:
   type-aliases-package: com.van589.mooc.domain
@@ -35,3 +39,8 @@ logging:
           web:
             admin:
               dao: debug
+mapper:
+  mappers: com.van589.mooc.commons.persistence.BaseDao
+
+file:
+  path: F:/javaWeb/education/upload/

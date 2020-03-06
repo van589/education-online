@@ -3,30 +3,27 @@ package com.van589.mooc.web.admin.service;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
+import com.van589.mooc.commons.persistence.BaseService;
+import com.van589.mooc.domain.User;
 
+import javax.validation.Valid;
 import java.util.Map;
 
-public interface UserService<T extends BaseRoleEntity> {
+public interface UserService extends BaseService<User> {
+
+
 
     /**
-     * 分页查询
+     *充值一条或多条余额信息
      *
      * @param params
-     * @return
      */
-    public PageInfo<T> page(Map<String, Object> params);
+    public void updateCollectMulti(Map<String,Object> params);
 
     /**
-     * 查询分页笔数
+     * 充值一条或多条 VIP 时间信息
      *
-     * @return
+     * @param params
      */
-    public int count();
-
-    /**
-     * 保存信息
-     * @param entity
-     * @return
-     */
-    public BaseResult save(T entity);
+    public void updateVipSettingDateMulti(Map<String,Object> params);
 }

@@ -1,5 +1,6 @@
 package com.van589.mooc.web.admin.dao;
 
+import com.van589.mooc.commons.persistence.BaseDao;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 import org.springframework.stereotype.Component;
@@ -9,19 +10,19 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public interface UserMapper<T extends BaseRoleEntity> extends MyMapper<User> {
-    /**
-     * 分页查询
-     *
-     * @param params，需要两个参数，start/记录开始的位置 length/每页记录数
-     * @return
-     */
-    List<T> page(Map<String, Object> params);
+public interface UserMapper extends BaseDao<User> {
 
     /**
-     * 查询总笔数
+     * 批量更新用户余额
      *
-     * @return
+     * @param params
      */
-    int count();
+    public void updateCollectMulti(Map<String, Object> params);
+
+    /**
+     * 批量更新用户 VIP 时间
+     *
+     * @param params
+     */
+    public void updateVipSettingDateMulti(Map<String,Object> params);
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-xs-12">
+        <dl>
+            <dt>课程ID：</dt>
+            <dd class="lead" th:text="${course.id}"></dd>
+        </dl>
+    </div>
+
+    <br/>
+    <div class="col-xs-6">
+        <dl>
+            <dt>课程名称：</dt>
+            <dd class="lead" th:text="${course.name}"></dd>
+            <br/>
+
+            <dt>课程简介：</dt>
+            <dd class="lead" th:text="${course.introduction}"></dd>
+            <br/>
+
+            <dt>课程类型：</dt>
+            <dd class="lead" th:text="${course.type}"></dd>
+            <br/>
+
+        </dl>
+    </div>
+
+    <div class="col-xs-6">
+        <dl>
+            <dt>课程评价：</dt>
+            <dd class="lead" th:text="${course.label}"></dd>
+            <br/>
+
+            <dt>创建时间：</dt>
+            <dd class="lead" th:text="${#dates.format(course.firsttime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+
+            <dt>修改时间：</dt>
+            <dd class="lead" th:text="${#dates.format(course.updatetime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+
+        </dl>
+    </div>
+</div>
+</body>
+</html>

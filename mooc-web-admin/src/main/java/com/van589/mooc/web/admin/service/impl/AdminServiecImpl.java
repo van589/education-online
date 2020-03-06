@@ -1,9 +1,13 @@
 package com.van589.mooc.web.admin.service.impl;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
+import com.van589.mooc.commons.persistence.BaseEntity;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
+import com.van589.mooc.commons.persistence.BaseService;
 import com.van589.mooc.domain.Admin;
 import com.van589.mooc.domain.User;
+import com.van589.mooc.web.admin.abstracts.AbstractBaseServiceImpl;
 import com.van589.mooc.web.admin.dao.AdminMapper;
 import com.van589.mooc.web.admin.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +20,7 @@ import java.util.Map;
 
 @Service
 @Transactional(readOnly = true)
-public class AdminServiecImpl implements AdminService {
-
-    @Autowired
-    private AdminMapper adminMapper;
+public class AdminServiecImpl extends AbstractBaseServiceImpl<Admin,AdminMapper> implements AdminService {
 
     /**
      * 管理员登录逻辑操作
@@ -34,7 +35,7 @@ public class AdminServiecImpl implements AdminService {
         Example.Criteria criteria = example.createCriteria();
         //以name为查找条件
         criteria.andEqualTo("name", name);
-        List<Admin> admins = adminMapper.selectByExample(example);
+        List<Admin> admins = dao.selectByExample(example);
         //只要有值则匹配密码
         if (admins.size() > 0) {
             Admin admin = admins.get(0);
@@ -43,6 +44,11 @@ public class AdminServiecImpl implements AdminService {
                 return admin;
             }
         }
+        return null;
+    }
+
+    @Override
+    public BaseResult save(Admin entity) {
         return null;
     }
 }

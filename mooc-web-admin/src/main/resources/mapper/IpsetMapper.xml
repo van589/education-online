@@ -9,7 +9,7 @@
     <result column="isban" jdbcType="BIT" property="isban" />
     <result column="flag" jdbcType="VARCHAR" property="flag" />
     <result column="bantime" jdbcType="TIMESTAMP" property="bantime" />
-    <result column="fristtime" jdbcType="TIMESTAMP" property="fristtime" />
+    <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime" />
     <result column="lasttime" jdbcType="TIMESTAMP" property="lasttime" />
   </resultMap>
 </mapper>

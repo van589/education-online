@@ -1,0 +1,78 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-xs-12">
+        <dl>
+            <dt>用户ID：</dt>
+            <dd class="lead" th:text="${user.id}"></dd>
+        </dl>
+    </div>
+
+    <br/>
+    <div class="col-xs-6">
+        <dl>
+            <dt>用户账户：</dt>
+            <dd class="lead" th:text="${user.name}"></dd>
+            <br/>
+
+            <dt>用户昵称：</dt>
+            <dd class="lead" th:text="${user.nickname}"></dd>
+            <br/>
+
+            <dt>用户密码：</dt>
+            <dd class="lead" th:text="${user.password}"></dd>
+            <br/>
+
+            <dt>用户性别：</dt>
+            <dd class="lead" th:text="${user.sex}"></dd>
+            <br/>
+
+            <dt>手机号码：</dt>
+            <dd class="lead" th:text="${user.phone}"></dd>
+            <br/>
+
+            <dt>用户微信：</dt>
+            <dd class="lead" th:text="${user.wechar}"></dd>
+            <br/>
+
+            <dt>用户邮箱：</dt>
+            <dd class="lead" th:text="${user.email}"></dd>
+            <br/>
+        </dl>
+    </div>
+
+    <div class="col-xs-6">
+        <dl>
+            <dt>用户余额：</dt>
+            <dd class="lead" th:text="${user.collect}"></dd>
+            <br/>
+
+            <dt>教育程度：</dt>
+            <dd class="lead" th:text="${user.education}"></dd>
+            <br/>
+
+            <dt>VIP日期：</dt>
+            <dd class="lead" th:text="${user.vip == null ? '无VIP' : #dates.format(user.vip,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+
+            <dt>首次登录：</dt>
+            <dd class="lead" th:text="${#dates.format(user.firsttime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+
+            <dt>修改时间：</dt>
+            <dd class="lead" th:text="${#dates.format(user.updatetime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+
+            <dt>最后登录：</dt>
+            <dd class="lead" th:text="${#dates.format(user.lasttime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
+            <br/>
+        </dl>
+    </div>
+</div>
+</body>
+</html>

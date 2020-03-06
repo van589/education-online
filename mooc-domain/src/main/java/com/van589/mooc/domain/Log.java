@@ -1,11 +1,14 @@
 package com.van589.mooc.domain;
 
+import com.van589.mooc.commons.persistence.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
 @Data
-public class Log {
+@EqualsAndHashCode(callSuper = false)
+public class Log extends BaseEntity {
     /**
      * 日志id
      */

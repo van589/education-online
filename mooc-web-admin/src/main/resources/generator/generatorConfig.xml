@@ -28,7 +28,7 @@
         <javaModelGenerator targetPackage="com.van589.mooc.domain" targetProject="src/main/java"/>
 
         <!-- 配置 XML 存放路径 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="mapperOther" targetProject="src/main/resources"/>
 
         <!-- 配置 DAO 存放路径 -->
         <javaClientGenerator

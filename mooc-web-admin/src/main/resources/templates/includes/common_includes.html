@@ -8,18 +8,20 @@
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="/static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet"href="/static/assets/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/assets/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/static/assets/bower_components/Ionicons/css/ionicons.min.css">
     <!-- DataTables -->
     <link rel="stylesheet" href="/static/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="/static/assets/plugins/iCheck/all.css" />
+    <link rel="stylesheet" href="/static/assets/plugins/iCheck/all.css"/>
     <!-- Theme style -->
     <link rel="stylesheet" href="/static/assets/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/static/assets/css/skins/_all-skins.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="/static/assets/bower_components/select2/dist/css/select2.min.css">
 </head>
 
 <header class="main-header" th:fragment="common_nav">
@@ -47,12 +49,12 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header"  style="height: auto">
+                        <li class="user-header" style="height: auto">
                             <img src="/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p style="font-size: small">
                                 管理员昵称-<span th:text="${session.admin.nickname}">管理员名字</span><br>
-                                注册时间-<span th:text="${#dates.format(session.admin.fristtime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span><br>
+                                注册时间-<span th:text="${#dates.format(session.admin.firsttime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span><br>
                                 上次登录时间-<span th:text="${#dates.format(session.admin.lasttime,'yyyy-MM-dd:HH:mm:ss')}">Member since Nov. 2012</span>
                             </p>
                         </li>
@@ -90,6 +92,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">功能列表</li>
+            <!-- 用户管理 start -->
             <li class="active treeview">
                 <a href="#">
                     <i class="fa fa-upload"></i> <span>用户管理</span>
@@ -100,9 +103,41 @@
                 <ul class="treeview-menu">
                     <li><a href="/user/list"><i class="fa fa-circle-o"></i> 用户列表 </a></li>
                     <li><a href="/user/form"><i class="fa fa-circle-o"></i> 新增用户 </a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> 余额充值 </a></li>
                 </ul>
             </li>
+            <!-- 用户管理 end -->
+
+            <!-- 课程管理 start -->
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-cab"></i> <span>课程管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/course/list"><i class="fa fa-circle-o"></i> 课程列表 </a></li>
+                    <li><a href="/course/form"><i class="fa fa-circle-o"></i> 新增课程 </a></li>
+                    <li><a href="/file/list"><i class="fa fa-circle-o"></i> 视频列表 </a></li>
+                </ul>
+            </li>
+            <!-- 视频管理 end -->
+
+            <!-- 日志管理 start -->
+            <li class="active treeview">
+                <a href="#">
+                    <i class="fa fa-bookmark"></i> <span>日志管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/log/user_list"><i class="fa fa-circle-o"></i> 用户日志 </a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> 管理员日志 </a></li>
+                </ul>
+            </li>
+            <!-- 日志管理 end -->
+
         </ul>
     </section>
     <!-- /.sidebar -->
@@ -117,6 +152,10 @@
     <script src="/static/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- SlimScroll -->
     <script src="/static/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- jQuery Validation Plugin - v1.14.0 -->
+    <script src="/static/assets/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script src="/static/assets/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="/static/assets/plugins/jquery-validation/js/localization/messages_zh.min.js"></script>
     <!-- iCheck 1.0.1 -->
     <script src="/static/assets/plugins/iCheck/icheck.min.js"></script>
     <!-- DataTables -->
@@ -130,13 +169,60 @@
     <script src="/static/assets/js/demo.js"></script>
 
     <!-- App -->
-    <!--<script src="/static/assets/app/validate.js"></script>-->
+    <script src="/static/assets/app/validate.js"></script>
     <script src="/static/assets/app/adminApp.js"></script>
+
+    <!-- datetime -->
+    <script src="/static/assets/app/datetime.js"></script>
+</div>
+
+<!-- 提示模态框 -->
+<div class="modal fade" id="modal-default" th:fragment="common_default_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">温馨提示</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">message</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">关闭</button>
+                <button id="btnModalOk" type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- 细节模态框 -->
+<div class="modal fade" id="modal-detail" th:fragment="common_detail_modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">查看详情</h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-detail-body">
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
 
 <footer class="main-footer" th:fragment="common_copyright">
     <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.0
+        <b>Version</b> 1.1.0
     </div>
     <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
     reserved.

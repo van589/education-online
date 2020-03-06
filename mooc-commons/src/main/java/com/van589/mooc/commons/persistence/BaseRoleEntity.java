@@ -1,12 +1,17 @@
 package com.van589.mooc.commons.persistence;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 所有 使用者角色 的基类
+ *
+ */
 @Data
-public class BaseRoleEntity implements Serializable {
+public abstract class BaseRoleEntity extends BaseTimeEntity {
     /**
      * 用户ID
      */
@@ -20,6 +25,7 @@ public class BaseRoleEntity implements Serializable {
     /**
      * 用户昵称
      */
+    @Length(min = 6,max = 10,message = "用户昵称的长度必须介于 {min} - {max} 位之间")
     private String nickname;
 
     /**
@@ -42,15 +48,6 @@ public class BaseRoleEntity implements Serializable {
      */
     private String email;
 
-    /**
-     * 首次登录时间
-     */
-    private Date fristtime;
-
-    /**
-     * 修改时间
-     */
-    private Date updatetime;
 
     /**
      * 最后登录时间
