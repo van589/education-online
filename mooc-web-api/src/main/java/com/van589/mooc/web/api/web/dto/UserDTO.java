@@ -2,10 +2,12 @@ package com.van589.mooc.web.api.web.dto;
 
 import com.van589.mooc.commons.persistence.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class UserDTO extends BaseEntity {
 
     /**

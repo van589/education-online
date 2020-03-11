@@ -10,4 +10,7 @@ public class API {
 
     // 会员管理接口 - 登录
     public static final String API_USERS_LOGIN = HOST + "/users/login";
+
+    // 会员管理接口 - 登录
+    public static final String API_COURSES_BOUTIQUE = HOST + "/courses/getBoutiqueCourse";
 }

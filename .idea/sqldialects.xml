@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/LogMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/UserMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/mooc-web-api/src/main/resources/mapper/CourseMapper.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/mooc-web-api/src/main/resources/mapper/UserMapper.xml" dialect="MySQL" />
   </component>
 </project>

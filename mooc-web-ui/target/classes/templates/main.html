@@ -15,8 +15,12 @@
 <div id="header">
     <div class="header-box">
         <h3 class="huany">MyShop本地购物商城欢迎您的到来！</h3>
-        <ul class="header-right">
-            <li class="denglu">Hi~<a class="red" href="dengl.html">请登录!</a> <a href="zhuc.html">[免费注册]</a></li>
+        <ul class="header-right" th:if="${session.user == null}">
+            <li class="denglu">Hi~<a class="red" href="/login">请登录!</a> <a href="#">[免费注册]</a></li>
+        </ul>
+        <ul class="header-right" th:if="${session.user != null}">
+            <li class="denglu">欢迎~ 用户：<span th:text="${session.user.name}">用户名字</span>&nbsp;&nbsp;&nbsp;<a href="#">用户信息（待开发）</a>&nbsp;&nbsp;&nbsp;<a
+                    href="/logout" class="red">[注销]</a></li>
         </ul>
     </div>
 </div>
@@ -53,13 +57,17 @@
 <div class="dianp_banner_brij">
     <div class="slideBox_dianp">
         <div class="hd">
-            <ul><li>1</li><li>2</li><li>3</li></ul>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
         </div>
         <div class="bd">
             <ul>
-                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg" /></a></li>
-                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner2.jpg" /></a></li>
-                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg" /></a></li>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg"/></a></li>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner2.jpg"/></a></li>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg"/></a></li>
             </ul>
         </div>
         <a class="prev" href="javascript:void(0)"></a>
@@ -80,35 +88,10 @@
     </div>
     <div class="jinp_tuij_lb">
         <ul>
-            <li>
+            <li th:each="boutiqueCourse:${boutiqueCourse}">
                 <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli1.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
-            </li>
-            <li>
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
-            </li>
-            <li>
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli3.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
-            </li>
-            <li>
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
-            </li>
-            <li>
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli1.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
-            </li>
-            <li>
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                <span>￥139.00</span>
+                <a href="#" class="jinp_biaot" th:text="'视频名称'+${boutiqueCourse.name}">java</a>
+                <span th:text="'￥'+${boutiqueCourse.price} + ${boutiqueCourse.label} ">￥139.00</span>
             </li>
         </ul>
     </div>
@@ -135,47 +118,21 @@
             </div>
             <div class="bd jinp_tuij_lb">
                 <ul class="picList">
-                    <li>
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                        <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                        <span>￥139.00</span>
-                    </li>
-                    <li>
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                        <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                        <span>￥139.00</span>
-                    </li>
-                    <li>
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                        <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                        <span>￥139.00</span>
-                    </li>
-                    <li>
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                        <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                        <span>￥139.00</span>
-                    </li>
-                    <li>
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli2.jpg"></a>
-                        <a href="#" class="jinp_biaot">思莱德SELECTED夏季新款纯棉撞色饰边翻领</a>
-                        <span>￥139.00</span>
+                    <li th:each="boutiqueCourse:${boutiqueCourse}">
+                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli1.jpg"></a>
+                        <a href="#" class="jinp_biaot" th:text="'视频名称'+${boutiqueCourse.name}">java</a>
+                        <span th:text="'￥'+${boutiqueCourse.price} + ${boutiqueCourse.label} ">￥139.00</span>
                     </li>
                 </ul>
             </div>
         </div>
-        0000
-
     </div>
 </div>
-<script type="text/javascript">
-    jQuery(".picScroll_left_dianp").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:3,scroll:1,trigger:"click"});
-    jQuery(".slideBox_dianp").slide({mainCell:".bd ul",autoPlay:true});
-</script>
 <!--底部-->
 <div class="dib_beij">
     <div class="dib_jvz_beij">
         <div class="beia_hao">
-            <p>京ICP备：123456789号  </p>
+            <p>京ICP备：123456789号 </p>
             <p class="gonga_bei">京公网安备：123456789号</p>
             <div class="renz_">
                 <span></span>
@@ -186,5 +143,27 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    jQuery(".picScroll_left_dianp").slide({
+        titCell: ".hd ul",
+        mainCell: ".bd ul",
+        autoPage: true,
+        effect: "left",
+        autoPlay: true,
+        vis: 3,
+        scroll: 1,
+        trigger: "click"
+    });
+    jQuery(".slideBox_dianp").slide({mainCell: ".bd ul", autoPlay: true});
+    $.ajax({
+        "url": url,
+        "type": "POST",
+        "data": {"ids": _idArray.toString()},
+        "dataType": "JSON",
+        "success": function (data) {
+            defaultModelOk(data);
+        }
+    });
+</script>
 </body>
 </html>

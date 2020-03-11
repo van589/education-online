@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van589.mooc.web.api.dao.CourseMapper">
+
+    <resultMap id="BaseResultMap" type="com.van589.mooc.domain.Course">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="file_id" jdbcType="VARCHAR" property="fileId"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="price" jdbcType="INTEGER" property="price"/>
+        <result column="label" jdbcType="VARCHAR" property="label"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+    <sql id="courseColumns">
+        a.id,
+        a.file_id AS fileId,
+        a.name,
+        a.introduction,
+        a.type,
+        a.price,
+        a.label,
+        a.firsttime,
+        a.updatetime
+    </sql>
+
+    <select id="selectAll" resultType="com.van589.mooc.domain.Course">
+        SELECT
+            <include refid="courseColumns"></include>
+        FROM
+            course AS a
+    </select>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from course AS a
+        <!--<where>
+            <if test="name != null and name != ''">
+                AND a.name LIKE CONCAT ('%', #{name}, '%')
+            </if>
+            <if test="introduction != null and introduction != ''">
+                AND a.introduction LIKE CONCAT ('%', #{introduction}, '%')
+            </if>
+            <if test="type != null and type != ''">
+                AND a.type LIKE CONCAT ('%', #{type}, '%')
+            </if>
+            <if test="price != null and price != ''">
+                AND a.price LIKE CONCAT ('%', #{price}, '%')
+            </if>
+            <if test="label != null and label != ''">
+                AND a.label LIKE CONCAT ('%', #{label}, '%')
+            </if>
+            <if test="fileId != null and fileId != '' and fileId == '是'.toString() ">
+                AND a.file_id is not null
+            </if>
+            <if test="fileId != null and fileId != '' and fileId == '否'.toString() ">
+                AND a.file_id is null
+            </if>
+        </where>-->
+    </select>
+
+</mapper>

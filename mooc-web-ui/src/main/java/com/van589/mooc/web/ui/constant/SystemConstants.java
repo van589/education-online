@@ -5,5 +5,7 @@ package com.van589.mooc.web.ui.constant;
  *
  */
 public class SystemConstants {
-    public static final String SESSION_USER_KEY = "tbUser";
+    public static final String SESSION_USER_KEY = "user";
+
+    public static final String SESSION_COURSE_KEY = "course";
 }

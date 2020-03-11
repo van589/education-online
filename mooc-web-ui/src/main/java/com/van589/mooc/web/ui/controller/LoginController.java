@@ -49,4 +49,17 @@ public class LoginController {
             return "redirect:/main";
         }
     }
+
+    /**
+     * 用户注销
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request) {
+        if (request.getSession().getAttribute(SystemConstants.SESSION_USER_KEY) != null)
+            request.getSession().invalidate();
+        return "redirect:/main";
+    }
 }
