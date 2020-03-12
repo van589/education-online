@@ -13,6 +13,7 @@ import java.util.List;
 @Controller
 public class MainController {
 
+    //精品视频列表
     private List<Course> boutiqueCourse;
 
     /**
