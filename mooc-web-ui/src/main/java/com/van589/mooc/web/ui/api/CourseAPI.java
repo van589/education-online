@@ -24,7 +24,6 @@ public class CourseAPI {
     public static List<Course> getBoutiqueCourse() throws Exception{
         String json = HttpClientUtils.doGet(API.API_COURSES_BOUTIQUE);
 
-        //MapperUtils.json2ListRecursion(json,Course);
         ObjectMapper mapper = new ObjectMapper();
         List<Course> readValue = mapper.readValue(json,new TypeReference<List<Course>>(){});
         return readValue;

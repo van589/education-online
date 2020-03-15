@@ -1,41 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="完成绑定或解绑课程视频的功能">
-      <change afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/includes/course/course_image_file_bind.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0d11b9a6-7487-46e1-ad62-5e854d36c9f9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0d11b9a6-7487-46e1-ad62-5e854d36c9f9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/education.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/education.iml" afterDir="false" />
+    <list default="true" id="626643e9-1ac5-493a-89eb-24553e3bf72d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mooc-web-ui/src/main/java/com/van589/mooc/web/ui/MyWebAppConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/mooc-commons.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/mooc-commons.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-commons/target/mooc-commons-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-commons/target/mooc-commons-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/mooc-domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/mooc-domain.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/src/main/java/com/van589/mooc/domain/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/src/main/java/com/van589/mooc/domain/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/target/classes/com/van589/mooc/domain/Course.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/target/classes/com/van589/mooc/domain/Course.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-domain/target/mooc-domain-1.0.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-domain/target/mooc-domain-1.0.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/CourseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/service/impl/CourseServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/java/com/van589/mooc/web/admin/web/comtroller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/rebel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/rebel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/static/assets/app/adminApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/static/assets/app/adminApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-admin/src/main/resources/templates/course/course_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-api/src/main/resources/rebel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-api/src/main/resources/rebel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/mooc-web-ui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/mooc-web-ui.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/rebel-remote.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/rebel-remote.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/rebel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/rebel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/mooc-web-ui-1.0.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/mooc-web-ui-1.0.0-SNAPSHOT.jar.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/surefire-reports/TEST-com.van589.mooc.web.ui.MoocWebApiApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/surefire-reports/com.van589.mooc.web.ui.MoocWebApiApplicationTests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-api/src/main/java/com/van589/mooc/web/api/web/dto/CourseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-api/src/main/java/com/van589/mooc/web/api/web/dto/CourseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-api/src/main/resources/mapper/CourseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-api/src/main/resources/mapper/CourseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/src/main/java/com/van589/mooc/web/ui/api/CourseAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/src/main/java/com/van589/mooc/web/ui/api/CourseAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/src/main/java/com/van589/mooc/web/ui/dto/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/src/main/java/com/van589/mooc/web/ui/dto/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/src/main/resources/templates/course/course_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/src/main/resources/templates/course/course_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/src/main/resources/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/src/main/resources/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/com/van589/mooc/web/ui/api/CourseAPI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/com/van589/mooc/web/ui/api/CourseAPI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/com/van589/mooc/web/ui/api/CourseAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/com/van589/mooc/web/ui/api/CourseAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/templates/course/course_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/templates/course/course_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mooc-web-ui/target/classes/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/mooc-web-ui/target/classes/templates/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,8 +62,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -338,7 +317,7 @@
       <workItem from="1583926164418" duration="10120000" />
       <workItem from="1584204046304" duration="881000" />
       <workItem from="1584205957920" duration="833000" />
-      <workItem from="1584237874065" duration="9419000" />
+      <workItem from="1584237874065" duration="14725000" />
     </task>
     <task id="LOCAL-00001" summary="新增高级搜索功能">
       <created>1582367759440</created>
@@ -417,7 +396,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583495540639</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="完成绑定视频封面功能">
+      <created>1584249224893</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1584249224893</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,7 +468,8 @@
     <MESSAGE value="新增视频列表功能、对实体类字段进行了修改" />
     <MESSAGE value="视频列表CRUD基本完成、对实体类的firsttime和updatetime进行简单的抽象" />
     <MESSAGE value="完成绑定或解绑课程视频的功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成绑定或解绑课程视频的功能" />
+    <MESSAGE value="完成绑定视频封面功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成绑定视频封面功能" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="181" key="#Console" timestamp="1583418787692">
@@ -546,10 +533,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="708" y="368" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583577123187" />
-    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2" timestamp="1583926207238">
+    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2" timestamp="1584253343103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583926207238" />
+    <state x="319" y="15" width="1156" height="995" key="CommitChangelistDialog2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253343103" />
     <state x="2239" y="52" width="1156" height="894" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582626011068" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1583342087986">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -569,65 +556,65 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="785" y="418" width="373" height="204" key="Github.CreateGistDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583413822760" />
-    <state width="1877" height="435" key="GridCell.Tab.0.bottom" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.0.bottom" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.0.center" timestamp="1584247798403">
+    <state width="1877" height="435" key="GridCell.Tab.0.center" timestamp="1584253001308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798403" />
+    <state width="1877" height="435" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001308" />
     <state width="1877" height="438" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.0.left" timestamp="1584247798403">
+    <state width="1877" height="435" key="GridCell.Tab.0.left" timestamp="1584253001307">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798403" />
+    <state width="1877" height="435" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001307" />
     <state width="1877" height="438" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.0.right" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.0.right" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.1.bottom" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.1.bottom" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.1.center" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.1.center" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.1.left" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.1.left" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.1.right" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.1.right" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.2.bottom" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.2.bottom" timestamp="1584253001310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.2.bottom/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001310" />
     <state width="1877" height="438" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896540" />
-    <state width="1877" height="435" key="GridCell.Tab.2.center" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.2.center" timestamp="1584253001310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.2.center/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001310" />
     <state width="1877" height="438" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.2.left" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.2.left" timestamp="1584253001309">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.2.left/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001309" />
     <state width="1877" height="438" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896538" />
-    <state width="1877" height="435" key="GridCell.Tab.2.right" timestamp="1584247798404">
+    <state width="1877" height="435" key="GridCell.Tab.2.right" timestamp="1584253001310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="435" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584247798404" />
+    <state width="1877" height="435" key="GridCell.Tab.2.right/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584253001310" />
     <state width="1877" height="438" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582624896540" />
     <state x="490" y="178" key="Maven.ArtifactSearchDialog" timestamp="1583741079436">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -656,10 +643,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583057298473" />
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1583926196698">
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2" timestamp="1584249845169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="256" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1583926196698" />
+    <state x="552" y="256" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1584249845169" />
     <state x="552" y="256" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1582626019749" />
     <state x="714" y="277" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1582116263669">
       <screen x="0" y="0" width="1920" height="1040" />

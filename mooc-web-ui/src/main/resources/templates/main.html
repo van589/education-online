@@ -65,9 +65,9 @@
     <div class="jinp_tuij_lb">
         <ul>
             <li th:each="boutiqueCourse:${boutiqueCourse}">
-                <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli1.jpg"></a>
+                <a href="#" class="jngp_img"><img th:src="'/Path/'+${boutiqueCourse.imageUrl}" alt="课程封面"></a>
                 <a href="#" class="jinp_biaot" th:text="${boutiqueCourse.name}">java</a>
-                <span th:text="'￥'+${boutiqueCourse.price} + ${boutiqueCourse.label} ">￥139.00</span>
+                <span th:text="'评价:'+ ${boutiqueCourse.label} "></span>
             </li>
         </ul>
     </div>
@@ -99,9 +99,9 @@
             <div class="bd jinp_tuij_lb">
                 <ul class="picList">
                     <li th:each="boutiqueCourse:${boutiqueCourse}">
-                        <a href="#" class="jngp_img"><img src="/static/assets/images/dianp_anli1.jpg"></a>
+                        <a href="#" class="jngp_img"><img th:src="'/Path/'+${boutiqueCourse.imageUrl}" alt="课程封面"></a>
                         <a href="#" class="jinp_biaot" th:text="${boutiqueCourse.name}">java</a>
-                        <span th:text="'￥'+${boutiqueCourse.price} + ${boutiqueCourse.label} ">￥139.00</span>
+                        <span th:text="'评价:'+ ${boutiqueCourse.label} "></span>
                     </li>
                 </ul>
             </div>

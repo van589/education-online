@@ -13,6 +13,7 @@
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
         <result column="label" jdbcType="VARCHAR" property="label"/>
+        <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
         <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
         <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
     </resultMap>
@@ -24,15 +25,16 @@
         a.type,
         a.price,
         a.label,
+        a.image_url AS imageUrl,
         a.firsttime,
         a.updatetime
     </sql>
 
     <select id="selectAll" resultType="com.van589.mooc.domain.Course">
         SELECT
-            <include refid="courseColumns"></include>
+        <include refid="courseColumns"></include>
         FROM
-            course AS a
+        course AS a
     </select>
 
     <select id="count" resultType="java.lang.Integer">

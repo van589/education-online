@@ -212,11 +212,11 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
         //获取文件的后缀名
         String suffixName = image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."));
         //将文件名改成UUID
-        imageName = UUID.randomUUID().toString().replaceAll("-", "");
+        imageName = UUID.randomUUID().toString().replaceAll("-", "")  + suffixName;
         //文件地址的Url
-        String ImageUrl = filePath + imageName + suffixName;
+        String ImageUrl = filePath + imageName;
         //设置封面的Url
-        entity.setImageUrl(ImageUrl);
+        entity.setImageUrl(imageName);
         service.save(entity);
         //返回提示信息
         baseResult = BaseResult.success("视频绑定成功");

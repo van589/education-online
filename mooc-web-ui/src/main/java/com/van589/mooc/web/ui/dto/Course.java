@@ -34,4 +34,9 @@ public class Course extends BaseEntity {
      * 课程评价
      */
     private String label;
+
+    /**
+     * 课程封面
+     */
+    private String imageUrl;
 }
