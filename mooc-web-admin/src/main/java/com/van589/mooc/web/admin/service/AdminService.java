@@ -20,5 +20,11 @@ public interface AdminService extends BaseService<Admin> {
      */
     public Admin login(String username, String password);
 
+    /**
+     * 查询所有管理员
+     *
+     * @return
+     */
+    public List<Admin> selectAll();
 
 }

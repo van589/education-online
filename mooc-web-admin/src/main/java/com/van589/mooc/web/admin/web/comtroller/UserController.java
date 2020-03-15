@@ -71,7 +71,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
     }
 
     /**
-     * 删除一条或多条课程信息
+     * 删除一条或多条用户信息
      *
      * @param ids
      * @return

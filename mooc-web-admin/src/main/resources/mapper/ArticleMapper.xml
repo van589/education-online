@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.van589.mooc.web.admin.dao.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.van589.mooc.domain.Article">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="author_id" jdbcType="VARCHAR" property="authorId"/>
+        <result column="article_title" jdbcType="VARCHAR" property="articleTitle"/>
+        <result column="article_content" jdbcType="VARCHAR" property="articleContent"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+    </resultMap>
+
+    <sql id="articleColumns">
+        a.id,
+        a.author_id AS authorId,
+        a.article_title AS articleTitle,
+        a.article_content AS articleContent,
+        a.firsttime,
+        a.updatetime
+    </sql>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from article AS a
+        <where>
+            <if test="authorId != null and authorId != ''">
+                AND a.author_id = #{authorId}
+            </if>
+            <if test="articleTitle != null and articleTitle != ''">
+                AND a.article_title LIKE CONCAT ('%', #{articleTitle}, '%')
+            </if>
+            <if test="articleContent != null and articleContent != ''">
+                AND a.article_content LIKE CONCAT ('%', #{articleContent}, '%')
+            </if>
+        </where>
+    </select>
+
+    <select id="page" parameterType="java.util.Map" resultType="com.van589.mooc.domain.Article">
+        SELECT
+        <include refid="articleColumns"/>
+        FROM
+        article AS a
+        <where>
+            <if test="pageParams.authorId != null and pageParams.authorId != ''">
+                AND a.author_id = #{pageParams.authorId}
+            </if>
+            <if test="pageParams.articleTitle != null and pageParams.articleTitle != ''">
+                AND a.article_title LIKE CONCAT ('%', #{pageParams.articleTitle}, '%')
+            </if>
+            <if test="pageParams.articleContent != null and pageParams.articleContent != ''">
+                AND a.article_content LIKE CONCAT ('%', #{pageParams.articleContent}, '%')
+            </if>
+        </where>
+        LIMIT #{page}, #{pageSize}
+    </select>
+
+    <select id="selectById" resultType="com.van589.mooc.domain.Article">
+        SELECT
+        <include refid="articleColumns"></include>
+        FROM article AS a
+        where
+        a.id = #{id}
+    </select>
+
+    <update id="update">
+        UPDATE
+            article
+        SET author_id       = #{authorId},
+            article_title  = #{articleTitle},
+            article_content  = #{articleContent},
+            firsttime  = #{firsttime},
+            updatetime = #{updatetime}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteMulti">
+        DELETE FROM article
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </delete>
+
+
+</mapper>

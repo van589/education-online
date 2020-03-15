@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.van589.mooc.web.admin.dao.AdminMapper">
-  <resultMap id="BaseResultMap" type="com.van589.mooc.domain.Admin">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime" />
-    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
-    <result column="lasttime" jdbcType="TIMESTAMP" property="lasttime" />
-  </resultMap>
+    <resultMap id="BaseResultMap" type="com.van589.mooc.domain.Admin">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+        <result column="lasttime" jdbcType="TIMESTAMP" property="lasttime"/>
+    </resultMap>
+
+    <sql id="adminColumns">
+        a.id,
+        a.name,
+        a.nickname,
+        a.password,
+        a.sex,
+        a.phone,
+        a.email,
+        a.firsttime,
+        a.updatetime,
+        a.lasttime
+    </sql>
+
+    <select id="selectById" resultType="com.van589.mooc.domain.Admin">
+        SELECT
+        <include refid="adminColumns"></include>
+        FROM admin AS a
+        where
+        a.id = #{id}
+    </select>
 
 
 </mapper>

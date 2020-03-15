@@ -1,0 +1,111 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 引入公共的 静态资源 部分 -->
+<head th:replace="includes/common_includes :: common_header('后台管理 | 新增文章')"></head>
+<link rel="stylesheet" href="/static/assets/plugins/wangEditor/wangEditor.min.css"/>
+<body class="hold-transition skin-blue layout-boxed sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+
+    <!-- 引入公共的 导航栏 部分 -->
+    <header th:replace="includes/common_includes :: common_nav"></header>
+    <!-- 引入公共的 菜单栏 部分 -->
+    <aside th:replace="includes/common_includes :: common_menu"></aside>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                文章管理
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="/main"><i class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a href="#" th:text="${article.id == null ? '新增文章' : '编辑文章'}">新增用户</a></li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div th:if="${baseResult != null}" class="alert alert-dismissible"
+                         th:classappend="${baseResult.status == 200} ? 'alert-success' : 'alert-danger'">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <span th:text="${baseResult.message}"></span>
+                    </div>
+
+
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title" th:text="${article.id == null ? '新增文章' : '编辑文章'}"></h3>
+                        </div>
+                        <!-- /.box-header -->
+                        <!-- form start -->
+                        <form id="inputForm" class="form-horizontal" th:action="@{/article/save}" th:object="${article}"
+                              method="post">
+                            <input type="hidden" th:value="${article.id}" name="id"/>
+
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="authorId" class="col-sm-2 control-label">文章作者</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="authorId" name="authorId"
+                                                style="width: 100%;">
+                                            <option value="" selected="selected" disabled>选择作者</option>
+                                            <option th:each="adminList:${adminList}" th:value="${adminList.id}"
+                                                    th:text="${adminList.nickname}" th:selected="${adminList.nickname} == ${adminNickName}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="articleTitle" class="col-sm-2 control-label">文章标题</label>
+
+                                    <div class="col-sm-10">
+                                        <input name="articleTitle" id="articleTitle" type="text" class="form-control required"
+                                               placeholder="请输文章标题" th:value="${article.articleTitle}">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="editor" class="col-sm-2 control-label">文章内容</label>
+                                    <div class="col-sm-10">
+                                        <input type="hidden" id="articleContent" name="articleContent" th:value="${article.articleContent}">
+                                        <div id="editor"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="box-footer">
+                                <button type="button" class="btn btn-default" onclick="history.go(-1);">返回</button>
+                                <button type="submit" id="submit" class="btn btn-info pull-right">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <!-- 引入公共的 copyright 部分 -->
+    <footer th:replace="includes/common_includes :: common_copyright"></footer>
+    <!-- 引入公共的 JS 部分 -->
+    <div th:replace="includes/common_includes :: common_foot"></div>
+    <script src="/static/assets/plugins/wangEditor/wangEditor.min.js"></script>
+</div>
+<script>
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    editor.create();
+
+    if ($("#articleContent").val() != null){
+        editor.txt.html($("#articleContent").val());
+    }
+    document.getElementById('submit').addEventListener('click', function () {
+        // 读取 html
+        $("#articleContent").attr("value",editor.txt.html());
+    }, false)
+</script>
+</body>
+</html>
