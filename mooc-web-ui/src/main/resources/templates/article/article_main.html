@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 导入公共的 head-->
+<head th:replace="includes/common_includes :: common_header(博客中心)">
+</head>
+<body>
+
+<!-- 导入公共的 nav-->
+<div th:replace="includes/common_includes :: common_nav"></div>
+
+<!-- 导入公共的 搜索栏-->
+<div th:replace="includes/common_includes :: common_search"></div>
+
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
+
+<!-- 内容 start-->
+
+<!-- 内容 end-->
+
+<!-- 导入公共的 foot -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+
+</body>
+</html>

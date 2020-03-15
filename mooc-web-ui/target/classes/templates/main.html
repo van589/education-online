@@ -11,21 +11,8 @@
 <!-- 导入公共的 搜索栏-->
 <div th:replace="includes/common_includes :: common_search"></div>
 
-<!-- 菜单栏 start-->
-<div class="dianp_daoh_beij">
-    <div class="beij_center">
-        <div class="dp_daoh_ul">
-            <ul>
-                <li class="dp_dh_li"><a href="/main" class="lin_color">首页</a></li>
-                <li class="dp_dh_li"><a href="/course" class="lin_color">视频中心</a></li>
-                <li class="dp_dh_li"><a href="#" class="lin_color">博客中心</a></li>
-                <li class="dp_dh_li"><a href="#" class="lin_color">会员中心</a></li>
-                <li class="dp_dh_li"><a href="#" class="lin_color">个人中心</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- 菜单栏 end-->
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
 
 <!--banner start-->
 <div class="dianp_banner_brij">
