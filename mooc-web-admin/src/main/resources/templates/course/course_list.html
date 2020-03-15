@@ -146,6 +146,10 @@
                                     onclick="App.courseFileBind('/course/unbind')">
                                 <i class="fa fa-search"></i> 解绑视频
                             </button>&nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-sm btn-dropbox"
+                                    onclick="App.courseFileBind('/course/bindImage')">
+                                <i class="fa fa-search"></i> 绑定封面
+                            </button>&nbsp;&nbsp;&nbsp;
                         </div>
 
                         <!-- /.box-header -->
@@ -160,6 +164,7 @@
                                     <th>课程评价</th>
                                     <th>课程修改日期</th>
                                     <th>是否绑定视频</th>
+                                    <th>是否绑定封面</th>
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -210,6 +215,12 @@
                 "data": function (row, type, val, meta) {
                     var file_id = row.fileId;
                     return file_id == null ? "否" : "是";
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var image_URL = row.imageUrl;
+                    return image_URL == null ? "否" : "是";
                 }
             },
             {

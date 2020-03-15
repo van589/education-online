@@ -369,8 +369,14 @@ var App = function () {
             // 如果用户点击确定则提交表单并隐藏模态框
             $("#btnModalOk").bind("click", function () {
                 //当为绑定操作时进行下一步
-                if(url == "/course/bind"){
+                if (url == "/course/bind") {
                     handlerCourseFileBindToCourse(url);
+                }
+                //绑定课程封面
+                else if (url == "/course/bindImage") {
+                    //提交表单并隐藏模态框
+                    $('#btnSubmit').click();
+                    $("#modal-default").modal("hide");
                 }
                 //当为解绑的时候直接刷新页面
                 else {
@@ -402,17 +408,21 @@ var App = function () {
         }
     };
 
+    /**
+     * 绑定视频到文件
+     * @param url
+     */
     var handlerCourseFileBindToCourse = function (url) {
         $("#modal-default").modal("hide");
         var CourseFileId = $("#selectCourseFile").val();
         //如果没有视频ID则表明不需要更新
-        if(CourseFileId != null){
+        if (CourseFileId != null) {
             // AJAX 异步更新操作
             setTimeout(function () {
                 $.ajax({
                     "url": url,
                     "type": "POST",
-                    "data": {"CourseId": _idArray.toString(),"CourseFileId":CourseFileId.toString()},
+                    "data": {"CourseId": _idArray.toString(), "CourseFileId": CourseFileId.toString()},
                     "dataType": "JSON",
                     "success": function (data) {
                         defaultModelOk(data);
@@ -421,6 +431,7 @@ var App = function () {
             }, 500)
         }
     };
+
     /**
      * Ajax异步请求成功后的模态框操作
      * @param data

@@ -1,7 +1,10 @@
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\MoocWebUiApplication.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\controller\LoginController.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\interceptor\PermissionInterceptor.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\configure\WebConfigure.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\dto\User.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\controller\MainController.java
-F:\javaWeb\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\interceptor\LoginInterceptor.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\api\API.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\controller\CourseController.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\controller\LoginController.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\controller\MainController.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\MoocWebUiApplication.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\api\CourseAPI.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\dto\User.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\api\UserAPI.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\constant\SystemConstants.java
+C:\Users\hasee\Desktop\大创\education\mooc-web-ui\src\main\java\com\van589\mooc\web\ui\dto\Course.java

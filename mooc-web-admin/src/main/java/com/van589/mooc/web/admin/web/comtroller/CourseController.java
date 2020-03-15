@@ -7,19 +7,25 @@ import com.van589.mooc.domain.CourseFile;
 import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.CourseService;
 import io.micrometer.core.instrument.util.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping(value = "course")
 public class CourseController extends AbstractBaseController<Course, CourseService> {
+
+    @Value("${file.path}")
+    private String filePath;
 
     /**
      * 跳转 课程列表 界面
@@ -170,6 +176,64 @@ public class CourseController extends AbstractBaseController<Course, CourseServi
             model.addAttribute(ConstantUtils.SESSION_MESSAGE, "请选择已绑定的视频");
         }
         return "includes/course/course_file_bind";
+    }
+
+    /**
+     * 跳转到绑定封面页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "bindImage", method = RequestMethod.GET)
+    public String bindImage(Model model, String id) {
+        model.addAttribute("courseId", id);
+        return "includes/course/course_image_file_bind";
+    }
+
+    /**
+     * 跳转到绑定封面页面
+     *
+     * @param image
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "bindImage", method = RequestMethod.POST)
+    public String bindImage(String id, MultipartFile image, Model model) {
+        //获取图片名称
+        String imageName = image.getOriginalFilename();
+        BaseResult baseResult = null;
+        //如果图片为空则返回错误信息
+        if (imageName.isEmpty()) {
+            baseResult = BaseResult.fail("请选择绑定的封面");
+            model.addAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
+            return "course/course_list";
+        }
+        //如果图片不为空则保存图片Url信息到数据库
+        Course entity =getCourse(id);
+        //获取文件的后缀名
+        String suffixName = image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."));
+        //将文件名改成UUID
+        imageName = UUID.randomUUID().toString().replaceAll("-", "");
+        //文件地址的Url
+        String ImageUrl = filePath + imageName + suffixName;
+        //设置封面的Url
+        entity.setImageUrl(ImageUrl);
+        service.save(entity);
+        //返回提示信息
+        baseResult = BaseResult.success("视频绑定成功");
+
+        // 保存图片文件到本地
+        if (baseResult.getStatus() == 200) {
+            //成功则保存文件至目录
+            File newFile = new File(ImageUrl);
+            try {
+                image.transferTo(newFile);  //拷贝文件，性能高效，比原先的方便
+            } catch (IOException e) {
+                e.printStackTrace();
+                baseResult = BaseResult.fail("保存失败");
+            }
+        }
+        model.addAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
+        return "course/course_list";
     }
 
     /**

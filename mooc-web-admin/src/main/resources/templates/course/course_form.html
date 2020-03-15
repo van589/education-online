@@ -42,7 +42,7 @@
                         <!-- /.box-header -->
                         <!-- form start -->
                         <form id="inputForm" class="form-horizontal" th:action="@{/course/save}" th:object="${course}"
-                              method="post">
+                              method="post" enctype="multipart/form-data">
                             <input type="hidden" th:value="${course.id}" name="id"/>
 
                             <div class="box-body">
@@ -66,18 +66,21 @@
                                 <div class="form-group">
                                     <label for="type" class="col-sm-2 control-label">课程类型</label>
                                     <div class="col-sm-10">
-                                        <select id="type" onchange="select()" name="type" class="form-control required" style="width: 100%;">
+                                        <select id="type" onchange="select()" name="type" class="form-control required"
+                                                style="width: 100%;">
                                             <option th:selected="${course.type == 'vip'}" value="vip">vip</option>
                                             <option th:selected="${course.type == 'free'}" value="free">free</option>
                                         </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group" id="priceDisplay" th:style="${course.type == 'free' ? 'display:none' : 'display:block'}">
+                                <div class="form-group" id="priceDisplay"
+                                     th:style="${course.type == 'free' ? 'display:none' : 'display:block'}">
                                     <label for="price" class="col-sm-2 control-label">课程价格</label>
 
                                     <div class="col-sm-10">
-                                        <input name="price" id="price" type="text" class="form-control number required" placeholder="请输入课程价格" th:value="${course.price}">
+                                        <input name="price" id="price" type="text" class="form-control number required"
+                                               placeholder="请输入课程价格" th:value="${course.price}">
                                     </div>
                                 </div>
 
@@ -120,12 +123,12 @@
     function select() {
 
         //如果课程类型为 free 则隐藏课程价格
-        if($("#type").val() == 'free'){
-            $("#priceDisplay").css('display','none');
+        if ($("#type").val() == 'free') {
+            $("#priceDisplay").css('display', 'none');
         }
         //如果课程类型为 vip 则显示课程价格
-        else{
-            $("#priceDisplay").css('display','block');
+        else {
+            $("#priceDisplay").css('display', 'block');
         }
     }
 </script>
