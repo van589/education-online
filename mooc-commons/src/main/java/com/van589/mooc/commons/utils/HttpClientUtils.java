@@ -5,6 +5,8 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -95,7 +97,6 @@ public class HttpClientUtils {
                 httpGet.setHeader("Connection", REQUEST_HEADER_CONNECTION);
                 httpGet.setHeader("Cookie", cookie);
                 httpGet.setHeader("User-Agent", REQUEST_HEADER_USER_AGENT);
-
                 httpResponse = httpClient.execute(httpGet);
             }
 
