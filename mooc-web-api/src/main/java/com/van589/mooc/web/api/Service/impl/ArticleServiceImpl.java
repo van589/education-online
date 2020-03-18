@@ -52,4 +52,15 @@ public class ArticleServiceImpl implements ArticleService {
         return articleMapper.count(entity);
     }
 
+    /**
+     * 根据 ID 查询信息
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public Article selectById(String id) {
+        return articleMapper.selectById(id);
+    }
+
 }

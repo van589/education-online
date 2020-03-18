@@ -1,5 +1,6 @@
 package com.van589.mooc.web.ui.controller;
 
+import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.web.ui.api.API;
 import com.van589.mooc.web.ui.api.ArticleAPI;
 import com.van589.mooc.web.ui.api.CourseAPI;
@@ -14,6 +15,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,5 +73,29 @@ public class ArticleController {
         entityStr = EntityUtils.toString(entity, "UTF-8");
 
         return entityStr;
+    }
+
+    /**
+     * 跳转文章详细页
+     *
+     * @return
+     */
+    public String detail(){
+        return "article/article_detail";
+    }
+
+    /**
+     * 查询文章并跳转
+     *
+     * @param model
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(value = "detail")
+    public String detail(Model model,String id) throws Exception {
+        Article detail = ArticleAPI.getDetail(id);
+        model.addAttribute(ConstantUtils.SESSION_ARTICLE,detail);
+        return detail();
     }
 }

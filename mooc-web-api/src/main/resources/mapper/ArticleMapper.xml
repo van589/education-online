@@ -74,5 +74,12 @@
         LIMIT #{page}, #{pageSize}
     </select>
 
+    <select id="selectById" resultType="com.van589.mooc.domain.Article">
+        SELECT
+        <include refid="articleColumns"/>
+        FROM
+        article AS a
+        WHERE a.id = #{id}
+    </select>
 
 </mapper>

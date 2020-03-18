@@ -23,4 +23,12 @@ public interface ArticleService {
      * @return
      */
     public int count(Article entity);
+
+    /**
+     * 根据 ID 查询信息
+     *
+     * @param id
+     * @return
+     */
+    public Article selectById(String id);
 }

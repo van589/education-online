@@ -16,4 +16,7 @@ public class API {
 
     // 文章管理接口 - 文章列表
     public static final String API_ARTICLE_LIST = HOST + "/article/page";
+
+    // 文章管理接口 - 获取文章详情
+    public static final String API_ARTICLE_DETAIL = HOST + "/article/detail";
 }

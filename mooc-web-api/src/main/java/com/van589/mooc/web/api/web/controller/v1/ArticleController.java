@@ -1,5 +1,6 @@
 package com.van589.mooc.web.api.web.controller.v1;
 
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
 import com.van589.mooc.domain.Article;
 import com.van589.mooc.web.api.Service.ArticleService;
@@ -46,5 +47,23 @@ public class ArticleController {
         pageInfo.setDraw(draw == null ? 0 : Integer.parseInt(draw));
 
         return pageInfo;
+    }
+
+    /**
+     * 根据 ID 查询文章信息
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "detail",method = RequestMethod.GET)
+    public BaseResult detail(String id){
+        BaseResult baseResult = BaseResult.fail("查询错误");
+        Article article = articleService.selectById(id);
+        //如果查询成功则返回文章信息
+        if(article != null){
+            baseResult = BaseResult.success("查询成功",article);
+        }
+
+        return baseResult;
     }
 }

@@ -25,4 +25,12 @@ public interface ArticleMapper {
      * @return
      */
     int count(Article entity);
+
+    /**
+     * 根据ID查询信息
+     *
+     * @param id
+     * @return
+     */
+    public Article selectById(String id);
 }
