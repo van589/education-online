@@ -11,3 +11,6 @@ spring:
     prefix: classpath:/templates/
   mvc:
     static-path-pattern: /static/**
+
+file:
+  image-path: F:/javaWeb/education/upload/

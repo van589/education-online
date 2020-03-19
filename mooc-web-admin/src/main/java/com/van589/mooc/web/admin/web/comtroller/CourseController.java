@@ -24,7 +24,7 @@ import java.util.UUID;
 @RequestMapping(value = "course")
 public class CourseController extends AbstractBaseController<Course, CourseService> {
 
-    @Value("${file.path}")
+    @Value("${file.image-path}")
     private String filePath;
 
     /**

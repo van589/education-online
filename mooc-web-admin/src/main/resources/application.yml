@@ -43,4 +43,6 @@ mapper:
   mappers: com.van589.mooc.commons.persistence.BaseDao
 
 file:
-  path: F:/javaWeb/education/upload/
+  image-path: F:/javaWeb/education/upload/
+  video-path: F:/javaWeb/education/upload/
+  excel-path: F:/javaWeb/education/upload/

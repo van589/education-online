@@ -34,6 +34,7 @@
         <commons-lang3.version>3.5</commons-lang3.version>
         <kaptcha.version>2.3</kaptcha.version>
         <apache-httpclient.version>4.5.5</apache-httpclient.version>
+        <apache.poi.version>3.14</apache.poi.version>
     </properties>
 
     <dependencyManagement>
@@ -98,6 +99,7 @@
             </dependency>
             <!-- Apache Http End -->
 
+            <!-- utils start -->
             <dependency>
                 <groupId>net.sourceforge.nekohtml</groupId>
                 <artifactId>nekohtml</artifactId>
@@ -109,6 +111,26 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <!-- utils end -->
+
+            <!--解析Excel start -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml-schemas</artifactId>
+                <version>${apache.poi.version}</version>
+            </dependency>
+            <!--解析Excel end -->
+
         </dependencies>
 
     </dependencyManagement>
