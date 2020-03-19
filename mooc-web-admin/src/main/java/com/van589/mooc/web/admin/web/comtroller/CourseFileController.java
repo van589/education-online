@@ -26,7 +26,7 @@ import java.util.List;
 @RequestMapping(value = "file")
 public class CourseFileController extends AbstractBaseController<CourseFile, CourseFileService> {
 
-    @Value("${file.path}")
+    @Value("${file.video-path}")
     private String filePath;
 
     /**

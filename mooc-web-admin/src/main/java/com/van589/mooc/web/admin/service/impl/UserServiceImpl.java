@@ -87,4 +87,14 @@ public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> i
     public void updateVipSettingDateMulti(Map<String, Object> params) {
         dao.updateVipSettingDateMulti(params);
     }
+
+    /**
+     * 根据 ID 查找多条信息
+     *
+     * @param ids
+     */
+    @Override
+    public List<User> selectByMultiId(String[] ids) {
+        return dao.selectByMultiId(ids);
+    }
 }
