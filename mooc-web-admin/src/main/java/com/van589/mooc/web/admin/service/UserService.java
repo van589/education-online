@@ -34,4 +34,12 @@ public interface UserService extends BaseService<User> {
      * @param ids
      */
     public List<User> selectByMultiId(String[] ids);
+
+    /**
+     * 根据键值批量插入
+     *
+     * @param mapList
+     * @return
+     */
+    public BaseResult excelInputByList(List<Map<String,Object>> mapList);
 }

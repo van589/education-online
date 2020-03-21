@@ -97,4 +97,35 @@ public class UserServiceImpl extends AbstractBaseServiceImpl<User, UserMapper> i
     public List<User> selectByMultiId(String[] ids) {
         return dao.selectByMultiId(ids);
     }
+
+    /**
+     * 根据键值批量插入
+     *
+     * @param mapList
+     * @return
+     */
+    @Override
+    @Transactional(readOnly = false)
+    public BaseResult excelInputByList(List<Map<String, Object>> mapList) {
+        List<User> userList = new ArrayList<>();
+        for (Map<String, Object> map : mapList) {
+            User user = new User();
+            Date first = new Date();
+            user.setId(UUID.randomUUID().toString().replace("-", ""));
+            user.setName((String) map.get("账号"));
+            user.setNickname((String) map.get("呢称"));
+            user.setPassword((String) map.get("密码"));
+            user.setSex((String) map.get("性别"));
+            user.setPhone((String) map.get("手机"));
+            user.setEmail((String) map.get("邮箱"));
+            user.setWechar((String) map.get("微信"));
+            user.setEducation((String) map.get("学历"));
+            user.setFirsttime(first);
+            user.setUpdatetime(first);
+            user.setLasttime(first);
+            userList.add(user);
+        }
+        dao.insertList(userList);
+        return BaseResult.success("导入成功");
+    }
 }

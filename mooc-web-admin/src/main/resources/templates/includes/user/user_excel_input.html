@@ -1,0 +1,22 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box-body">
+    <div class="form-group">
+        <form action="/user/excelInput" method="post" enctype="multipart/form-data">
+            <label for="excelFile" class="col-sm-3 control-label">导入的选择excel</label>
+
+            <div class="col-sm-9">
+                <input name="excelFile" id="excelFile" type="file">
+            </div>
+
+            <input type="submit" id="btnSubmit" style="display: none">
+        </form>
+    </div>
+</div>
+</body>
+</html>

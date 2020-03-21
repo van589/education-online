@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -203,8 +205,8 @@ public class UserController extends AbstractBaseController<User, UserService> {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "excelExport",method = RequestMethod.POST)
-    public BaseResult excelExport(HttpServletResponse response,String ids, String excelName, String excelPath){
+    @RequestMapping(value = "excelExport", method = RequestMethod.POST)
+    public BaseResult excelExport(HttpServletResponse response, String ids, String excelName, String excelPath) {
         BaseResult baseResult = BaseResult.fail("导出失败");
         if (StringUtils.isNotBlank(ids)) {
             String[] idArray = ids.split(",");
@@ -228,10 +230,39 @@ public class UserController extends AbstractBaseController<User, UserService> {
                 e.printStackTrace();
                 return baseResult;
             }
-            baseResult = BaseResult.success("导出成功",users);
+            baseResult = BaseResult.success("导出成功", users);
         }
 
         return baseResult;
+    }
+
+    /**
+     * 跳转导入信息详细页
+     *
+     * @return
+     */
+    @RequestMapping(value = "excelInput", method = RequestMethod.GET)
+    public String excelInput() {
+        return "includes/user/user_excel_input";
+    }
+
+    /**
+     * 将excel信息读取并导入数据库
+     *
+     * @param excelFile
+     * @param model
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = "excelInput", method = RequestMethod.POST)
+    public String excelInput(MultipartFile excelFile, Model model) throws IOException {
+        List<Map<String, Object>> list = new ArrayList<>();
+        List<Map<String, Object>> readExcelFile = ExportPOIUtils.readExcelFile(list, excelFile.getInputStream(), excelFile.getOriginalFilename());
+        BaseResult baseResult = service.excelInputByList(readExcelFile);
+        if (baseResult.getStatus() == 200) {
+            model.addAttribute(ConstantUtils.SESSION_BASERESULT, "导入成功");
+        }
+        return "redirect:/user/list";
     }
 
     /**

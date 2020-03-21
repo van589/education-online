@@ -496,6 +496,31 @@ var App = function () {
     };
 
     /**
+     * 将excel数据导入系统
+     * @param url
+     */
+    var handlerExcelInput = function (url) {
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "html",
+            success: function (data) {
+                //装载页面信息
+                $("#modal-message").html(data);
+            }
+        });
+
+        // 点击按钮时弹出模态框
+        $("#modal-default").modal("show");
+
+        // 如果用户点击确定则提交表单并隐藏模态框
+        $("#btnModalOk").bind("click", function () {
+            $("#btnSubmit").click();
+            $("#modal-default").modal("hide");
+        });
+    };
+
+    /**
      * Ajax异步请求成功后的模态框操作
      * @param data
      */
@@ -619,7 +644,15 @@ var App = function () {
          * @param url
          */
         excelExport: function (url) {
-            handlerExcelExport(url)
+            handlerExcelExport(url);
+        },
+
+        /**
+         * 将excel数据导入系统
+         * @param url
+         */
+        excelInput: function (url) {
+            handlerExcelInput(url);
         }
 
     }
