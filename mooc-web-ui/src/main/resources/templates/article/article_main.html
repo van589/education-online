@@ -1,0 +1,112 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 导入公共的 head-->
+<head th:replace="includes/common_includes :: common_header(博客中心)">
+</head>
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" href="/static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="/static/assets/bower_components/font-awesome/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="/static/assets/bower_components/Ionicons/css/ionicons.min.css">
+<!-- DataTables -->
+<link rel="stylesheet" href="/static/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<!-- iCheck for checkboxes and radio inputs -->
+<link rel="stylesheet" href="/static/assets/plugins/iCheck/all.css"/>
+<!-- Theme style -->
+<link rel="stylesheet" href="/static/assets/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="/static/assets/css/skins/_all-skins.min.css">
+<body>
+
+<!-- 导入公共的 nav-->
+<div th:replace="includes/common_includes :: common_nav"></div>
+
+<!-- 导入公共的 搜索栏-->
+<div th:replace="includes/common_includes :: common_search"></div>
+
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
+
+<!-- 内容 start-->
+<section class="content">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8 ">
+
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table id="dataTable" class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-xs-2">作者ID</th>
+                            <th class="col-xs-6">文章标题</th>
+                            <th class="col-xs-2">创建时间</th>
+                            <th class="col-xs-2">修改时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>
+<!-- 内容 end-->
+<!-- 导入公共的 foot -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+<!-- jQuery 3 -->
+<script src="/static/assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/static/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="/static/assets/plugins/iCheck/icheck.min.js"></script>
+<!-- DataTables -->
+<script src="/static/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/static/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="/static/assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="/static/assets/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="/static/assets/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/static/assets/js/demo.js"></script>
+<script src="/static/assets/app/uiAPP.js"></script>
+<script src="/static/assets/app/datetime.js"></script>
+<script>
+    var _dataTable;
+
+    $(function () {
+        var _columns = [
+            {"data": "authorId"},
+            {
+                "data": function (row, type, val, meta) {
+                    return '<a href="/article/detail?id=' + row.id + '" ><span>' + row.articleTitle + '</span></a>';
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var firsttime = DateTime.format(row.firsttime, "yyyy-MM-dd HH:mm:ss");
+                    return firsttime;
+                }
+            },
+            {
+                "data": function (row, type, val, meta) {
+                    var updatetime = DateTime.format(row.updatetime, "yyyy-MM-dd HH:mm:ss");
+                    return updatetime;
+                }
+            }
+        ];
+
+        _dataTable = App.initDataTables("/article/page", _columns);
+    });
+</script>
+</body>
+</html>

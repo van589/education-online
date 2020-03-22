@@ -1,1 +1,17 @@
+server:
+  port: 8092
 
+spring:
+  thymeleaf:
+    cache: false # 开发时关闭缓存,不然没法看到实时页面
+    mode: LEGACYHTML5 # 用非严格的 HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+  mvc:
+    static-path-pattern: /static/**
+
+file:
+  image-path: F:/javaWeb/education/upload/
+  video-path: F:/javaWeb/education/upload/

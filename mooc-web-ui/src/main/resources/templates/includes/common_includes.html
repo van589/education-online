@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 公共的 head-->
+<head th:fragment="common_header(title)">
+    <meta charset="utf-8">
+    <title th:text="${title}"></title>
+    <!-- 引入css -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/ziy.css">
+</head>
+
+<!-- 公共的 nav-->
+<div id="header" th:fragment="common_nav">
+    <div class="header-box">
+        <h3 class="huany">MyShop本地购物商城欢迎您的到来！</h3>
+        <ul class="header-right" th:if="${session.user == null}">
+            <li class="denglu">Hi~<a class="red" href="/login">请登录!</a> <a href="#">[免费注册]</a></li>
+        </ul>
+        <ul class="header-right" th:if="${session.user != null}">
+            <li class="denglu">欢迎~ 用户：<span th:text="${session.user.name}">用户名字</span>&nbsp;&nbsp;&nbsp;<a
+                    href="/logout" class="red">[注销]</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 公共的 菜单栏-->
+<div class="dianp_daoh_beij" th:fragment="common_menu">
+    <div class="beij_center">
+        <div class="dp_daoh_ul">
+            <ul>
+                <li class="dp_dh_li"><a href="/main" class="lin_color">首页</a></li>
+                <li class="dp_dh_li"><a href="/course" class="lin_color">视频中心</a></li>
+                <li class="dp_dh_li"><a href="/article/" class="lin_color">博客中心</a></li>
+                <li class="dp_dh_li"><a href="#" class="lin_color">个人中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 公共的 搜索栏-->
+<div class="toub_beij" th:fragment="common_search">
+    <div class="logo"><a href="#"><img src="/static/assets/images/logo.png"></a></div>
+    <div class="search">
+        <input type="text" value="查看课程" class="text" id="textt">
+        <button class="button">搜索</button>
+    </div>
+
+    <div class="hotwords">
+        <a class="biaoti">热门搜索：</a>
+        <a href="#">Java</a>
+        <a href="#">C#</a>
+    </div>
+</div>
+
+<!-- 公共的 foot-->
+<div th:fragment="common_foot">
+    <!-- jQuery-1.11.3 -->
+    <script src="/static/assets/js/jquery-1.11.3.min.js"></script>
+    <!-- index -->
+    <script src="/static/assets/js/index.js"></script>
+    <!-- SuperSlide -->
+    <script src="/static/assets/js/jquery.SuperSlide.2.1.1.source.js"></script>
+</div>
+
+<!-- 公共的 copyright-->
+<div class="dib_beij" th:fragment="common_copyright">
+    <div class="dib_jvz_beij">
+        <div class="beia_hao">
+            <p>京ICP备：123456789号 </p>
+            <p class="gonga_bei">京公网安备：123456789号</p>
+            <div class="renz_">
+                <span></span>
+                <span class="span1"></span>
+                <span class="span2"></span>
+                <span class="span3"></span>
+            </div>
+        </div>
+    </div>
+</div>

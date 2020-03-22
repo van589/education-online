@@ -1,0 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 导入公共的 head-->
+<head th:replace="includes/common_includes :: common_header(课程中心)">
+</head>
+<body>
+
+<!-- 导入公共的 nav-->
+<div th:replace="includes/common_includes :: common_nav"></div>
+
+<!-- 导入公共的 搜索栏-->
+<div th:replace="includes/common_includes :: common_search"></div>
+
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
+
+<!-- 精品推荐 start-->
+<div class="beij_center">
+    <div class="dp_sy_biaot">
+        <div class="dis_jvz">
+            <div class="zuoy_xian"></div>
+            <div class="biaot_minz">
+                <h1>视频中心</h1>
+            </div>
+            <div class="zuoy_xian"></div>
+        </div>
+    </div>
+    <div class="jinp_tuij_lb">
+        <ul>
+            <li th:each="allCourse:${allCourse}" style="width:219px;height: 250px;">
+                <a th:href="'/course/detail?id='+ ${allCourse.id}" class="jngp_img" style="width:219px;height: 180px;"><img style="width:219px;height: 180px;" th:src="'/Path/'+${allCourse.imageUrl}" alt="课程封面"></a>
+                <a class="jinp_biaot" th:text="${allCourse.name}">java</a>
+                <span th:text="'￥'+${allCourse.price} + ${allCourse.label} ">￥139.00</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 精品推荐 end-->
+
+<!-- 导入公共的 foot -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+
+</body>
+</html>

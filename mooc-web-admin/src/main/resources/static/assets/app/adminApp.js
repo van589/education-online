@@ -369,8 +369,14 @@ var App = function () {
             // 如果用户点击确定则提交表单并隐藏模态框
             $("#btnModalOk").bind("click", function () {
                 //当为绑定操作时进行下一步
-                if(url == "/course/bind"){
+                if (url == "/course/bind") {
                     handlerCourseFileBindToCourse(url);
+                }
+                //绑定课程封面
+                else if (url == "/course/bindImage") {
+                    //提交表单并隐藏模态框
+                    $('#btnSubmit').click();
+                    $("#modal-default").modal("hide");
                 }
                 //当为解绑的时候直接刷新页面
                 else {
@@ -402,17 +408,21 @@ var App = function () {
         }
     };
 
+    /**
+     * 绑定视频到文件
+     * @param url
+     */
     var handlerCourseFileBindToCourse = function (url) {
         $("#modal-default").modal("hide");
         var CourseFileId = $("#selectCourseFile").val();
         //如果没有视频ID则表明不需要更新
-        if(CourseFileId != null){
+        if (CourseFileId != null) {
             // AJAX 异步更新操作
             setTimeout(function () {
                 $.ajax({
                     "url": url,
                     "type": "POST",
-                    "data": {"CourseId": _idArray.toString(),"CourseFileId":CourseFileId.toString()},
+                    "data": {"CourseId": _idArray.toString(), "CourseFileId": CourseFileId.toString()},
                     "dataType": "JSON",
                     "success": function (data) {
                         defaultModelOk(data);
@@ -421,6 +431,95 @@ var App = function () {
             }, 500)
         }
     };
+
+    /**
+     *将表格数据导出本地
+     * @param url
+     */
+    var handlerExcelExport = function (url) {
+        //将前端用户信息的 ID 放入数组里
+        idAarrayPush();
+        //当有选中数据的时候
+        if (_idArray.length !== 0) {
+            // 这里是通过 Ajax 请求 html 的方式将 thymeleaf 装载进模态框中
+            $.ajax({
+                url: url,
+                type: "get",
+                dataType: "html",
+                success: function (data) {
+                    //装载页面信息
+                    $("#modal-message").html(data);
+                }
+            });
+
+            // 点击按钮时弹出模态框
+            $("#modal-default").modal("show");
+
+            // 如果用户点击确定则提交表单并隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                $("#modal-default").modal("hide");
+
+                //获取前台的数据
+                var excelName = $("#excelName").val();
+                var excelPath = $("#excelPath").val();
+
+                // AJAX 异步更新操作
+                setTimeout(function () {
+                    $.ajax({
+                        "url": url,
+                        "type": "POST",
+                        "data": {
+                            "ids": _idArray.toString(),
+                            "excelName": excelName.toString(),
+                            "excelPath": excelPath.toString()
+                        },
+                        "dataType": "JSON",
+                        "success": function (data) {
+                            defaultModelOk(data);
+                        }
+                    });
+                }, 500)
+
+            });
+        }
+        //当没选择数据的时候返回信息
+        else {
+            //设置提示信息
+            $("#modal-message").html("至少选择一条数据请选择");
+            // 点击按钮时弹出模态框
+            $("#modal-default").modal("show");
+            // 如果用户点击确定则隐藏模态框
+            $("#btnModalOk").bind("click", function () {
+                $("#modal-default").modal("hide");
+            });
+        }
+    };
+
+    /**
+     * 将excel数据导入系统
+     * @param url
+     */
+    var handlerExcelInput = function (url) {
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "html",
+            success: function (data) {
+                //装载页面信息
+                $("#modal-message").html(data);
+            }
+        });
+
+        // 点击按钮时弹出模态框
+        $("#modal-default").modal("show");
+
+        // 如果用户点击确定则提交表单并隐藏模态框
+        $("#btnModalOk").bind("click", function () {
+            $("#btnSubmit").click();
+            $("#modal-default").modal("hide");
+        });
+    };
+
     /**
      * Ajax异步请求成功后的模态框操作
      * @param data
@@ -538,6 +637,22 @@ var App = function () {
          */
         courseFileBind: function (url) {
             handlerCourseFileBind(url);
+        },
+
+        /**
+         * 将表格数据导出本地
+         * @param url
+         */
+        excelExport: function (url) {
+            handlerExcelExport(url);
+        },
+
+        /**
+         * 将excel数据导入系统
+         * @param url
+         */
+        excelInput: function (url) {
+            handlerExcelInput(url);
         }
 
     }

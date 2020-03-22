@@ -1,0 +1,119 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!-- 导入公共的 head-->
+<head th:replace="includes/common_includes :: common_header(首页)">
+</head>
+<body>
+
+<!-- 导入公共的 nav-->
+<div th:replace="includes/common_includes :: common_nav"></div>
+
+<!-- 导入公共的 搜索栏-->
+<div th:replace="includes/common_includes :: common_search"></div>
+
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
+
+<!--banner start-->
+<div class="dianp_banner_brij">
+    <div class="slideBox_dianp">
+        <div class="hd">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+        <div class="bd">
+            <ul>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg"/></a></li>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner2.jpg"/></a></li>
+                <li><a href="#" target="_blank"><img src="/static/assets/images/dianp_banner.jpg"/></a></li>
+            </ul>
+        </div>
+        <a class="prev" href="javascript:void(0)"></a>
+        <a class="next" href="javascript:void(0)"></a>
+    </div>
+</div>
+<!--banner end-->
+
+<!-- 精品推荐 start-->
+<div class="beij_center">
+    <div class="dp_sy_biaot">
+        <div class="dis_jvz">
+            <div class="zuoy_xian"></div>
+            <div class="biaot_minz">
+                <h1>精品推荐</h1>
+                <h3>Boutique zone</h3>
+            </div>
+            <div class="zuoy_xian"></div>
+        </div>
+    </div>
+    <div class="jinp_tuij_lb">
+        <ul>
+            <li th:each="boutiqueCourse:${boutiqueCourse}">
+                <a href="#" class="jngp_img"><img th:src="'/Path/'+${boutiqueCourse.imageUrl}" alt="课程封面"></a>
+                <a href="#" class="jinp_biaot" th:text="${boutiqueCourse.name}">java</a>
+                <span th:text="'评价:'+ ${boutiqueCourse.label} "></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 精品推荐 end-->
+
+<!-- 热销专区标题 start-->
+<div class="beij_center">
+    <div class="dp_sy_biaot">
+        <div class="dis_jvz">
+            <div class="zuoy_xian"></div>
+            <div class="biaot_minz">
+                <h1>热销专区</h1>
+                <h3>Hot zone</h3>
+            </div>
+            <div class="zuoy_xian"></div>
+        </div>
+    </div>
+</div>
+<!-- 热销专区标题 end -->
+
+<!-- 热销视频 start -->
+<div class="rexzqxt_beij">
+    <div class="beij_center">
+        <div class="picScroll_left_dianp">
+            <div class="hd">
+                <ul></ul>
+            </div>
+            <div class="bd jinp_tuij_lb">
+                <ul class="picList">
+                    <li th:each="boutiqueCourse:${boutiqueCourse}">
+                        <a href="#" class="jngp_img"><img th:src="'/Path/'+${boutiqueCourse.imageUrl}" alt="课程封面"></a>
+                        <a href="#" class="jinp_biaot" th:text="${boutiqueCourse.name}">java</a>
+                        <span th:text="'评价:'+ ${boutiqueCourse.label} "></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 热销视频 end -->
+
+<!-- 导入公共的 foot -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+
+<script type="text/javascript">
+    jQuery(".slideBox_dianp").slide({mainCell: ".bd ul", autoPlay: true});
+    jQuery(".picScroll_left_dianp").slide({
+        titCell: ".hd ul",
+        mainCell: ".bd ul",
+        autoPage: true,
+        effect: "left",
+        autoPlay: true,
+        vis: 3,
+        scroll: 1,
+        trigger: "click"
+    });
+</script>
+</body>
+</html>

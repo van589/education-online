@@ -47,6 +47,16 @@ public class AdminServiecImpl extends AbstractBaseServiceImpl<Admin,AdminMapper>
         return null;
     }
 
+    /**
+     * 查询所有管理员
+     *
+     * @return
+     */
+    @Override
+    public List<Admin> selectAll() {
+        return dao.selectAll();
+    }
+
     @Override
     public BaseResult save(Admin entity) {
         return null;

@@ -1,4 +1,6 @@
 com\van589\mooc\domain\Ipset.class
-com\van589\mooc\domain\Admin.class
 com\van589\mooc\domain\Log.class
 com\van589\mooc\domain\User.class
+com\van589\mooc\domain\Course.class
+com\van589\mooc\domain\Admin.class
+com\van589\mooc\domain\CourseFile.class

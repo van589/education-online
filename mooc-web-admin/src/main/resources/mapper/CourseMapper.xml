@@ -13,6 +13,7 @@
         <result column="type" jdbcType="VARCHAR" property="type"/>
         <result column="price" jdbcType="INTEGER" property="price"/>
         <result column="label" jdbcType="VARCHAR" property="label"/>
+        <result column="image_url" jdbcType="VARCHAR" property="imageUrl"/>
         <result column="firsttime" jdbcType="TIMESTAMP" property="firsttime"/>
         <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
     </resultMap>
@@ -24,6 +25,7 @@
         a.type,
         a.price,
         a.label,
+        a.image_url AS imageUrl,
         a.firsttime,
         a.updatetime
     </sql>
@@ -103,6 +105,7 @@
             type         = #{type},
             price        = #{price},
             label        = #{label},
+            image_url        = #{imageUrl},
             updatetime   = #{updatetime}
         WHERE id = #{id}
     </update>

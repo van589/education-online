@@ -47,4 +47,9 @@ public class Course extends BaseTimeEntity {
      */
     private String label;
 
+    /**
+     * 课程封面地址
+     */
+    private String imageUrl;
+
 }

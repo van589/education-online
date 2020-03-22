@@ -4,12 +4,13 @@ import com.van589.mooc.commons.persistence.BaseDao;
 import com.van589.mooc.commons.persistence.BaseRoleEntity;
 import com.van589.mooc.domain.User;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import tk.mybatis.MyMapper;
 
 import java.util.List;
 import java.util.Map;
 
-@Component
+@Repository
 public interface UserMapper extends BaseDao<User> {
 
     /**
@@ -25,4 +26,11 @@ public interface UserMapper extends BaseDao<User> {
      * @param params
      */
     public void updateVipSettingDateMulti(Map<String,Object> params);
+
+    /**
+     * 根据 ID 查找多条信息
+     *
+     * @param ids
+     */
+    public List<User> selectByMultiId(String[] ids);
 }

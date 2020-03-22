@@ -148,4 +148,15 @@
             #{id}
         </foreach>
     </update>
+
+    <select id="selectByMultiId" resultType="com.van589.mooc.domain.User">
+        SELECT
+        <include refid="userColumns"/>
+        FROM
+        user AS a
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" separator="," item="id">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

@@ -40,6 +40,7 @@ public class CourseServiceImpl extends AbstractBaseServiceImpl<Course, CourseMap
         entity.setPrice(entity.getPrice() == null ? 0 : entity.getPrice());
         entity.setLabel(entity.getLabel());
         entity.setFileId(entity.getFileId());
+        entity.setImageUrl(entity.getImageUrl());
 
         //新增课程信息
         if (entity.getId() == null || entity.getId().isEmpty()) {

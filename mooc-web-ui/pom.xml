@@ -19,13 +19,26 @@
     </properties>
 
     <dependencies>
+        <!-- Project Begin -->
+        <dependency>
+            <groupId>com.van589</groupId>
+            <artifactId>mooc-commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <!-- Project End -->
+
         <!-- Spring Begin -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency><dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency><dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -37,6 +50,16 @@
             </exclusions>
         </dependency>
         <!-- Spring End -->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

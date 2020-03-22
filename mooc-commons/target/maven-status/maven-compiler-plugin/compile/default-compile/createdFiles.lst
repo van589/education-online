@@ -1,4 +1,13 @@
-com\van589\mooc\commons\constant\ConstantUtils.class
 com\van589\mooc\commons\persistence\BaseRoleEntity.class
-com\van589\mooc\commons\dto\BaseResult.class
+com\van589\mooc\commons\utils\MapperUtils$1.class
+com\van589\mooc\commons\persistence\BaseEntity.class
 com\van589\mooc\commons\dto\PageInfo.class
+com\van589\mooc\commons\persistence\BaseService.class
+com\van589\mooc\commons\persistence\BeanCopyUtilCallBack.class
+com\van589\mooc\commons\persistence\BaseTimeEntity.class
+com\van589\mooc\commons\constant\ConstantUtils.class
+com\van589\mooc\commons\utils\HttpClientUtils.class
+com\van589\mooc\commons\dto\BaseResult.class
+com\van589\mooc\commons\persistence\BaseDao.class
+com\van589\mooc\commons\utils\BeanCopyUtil.class
+com\van589\mooc\commons\utils\MapperUtils.class

@@ -7,6 +7,7 @@ import com.van589.mooc.commons.persistence.BaseService;
 import com.van589.mooc.domain.User;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Map;
 
 public interface UserService extends BaseService<User> {
@@ -26,4 +27,19 @@ public interface UserService extends BaseService<User> {
      * @param params
      */
     public void updateVipSettingDateMulti(Map<String,Object> params);
+
+    /**
+     * 根据 ID 查找多条信息
+     *
+     * @param ids
+     */
+    public List<User> selectByMultiId(String[] ids);
+
+    /**
+     * 根据键值批量插入
+     *
+     * @param mapList
+     * @return
+     */
+    public BaseResult excelInputByList(List<Map<String,Object>> mapList);
 }

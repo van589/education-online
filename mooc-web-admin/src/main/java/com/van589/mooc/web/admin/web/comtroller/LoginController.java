@@ -48,7 +48,7 @@ public class LoginController {
         // 登录成功
         else {
             // 将登录信息放入会话
-            httpServletRequest.getSession().setAttribute(ConstantUtils.SESSION_Admin, admin);
+            httpServletRequest.getSession().setAttribute(ConstantUtils.SESSION_ADMIN, admin);
             return "redirect:/main";
         }
     }

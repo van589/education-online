@@ -3,25 +3,39 @@ package com.van589.mooc.web.admin.web.comtroller;
 import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.dto.PageInfo;
+import com.van589.mooc.commons.utils.ExportPOIUtils;
 import com.van589.mooc.domain.Course;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.admin.abstracts.AbstractBaseController;
 import com.van589.mooc.web.admin.service.UserService;
 import io.micrometer.core.instrument.util.StringUtils;
+import org.apache.http.HttpResponse;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
 @Controller
 @RequestMapping(value = "user")
 public class UserController extends AbstractBaseController<User, UserService> {
+
+    @Value("${file.excel-path}")
+    private String excelPath;
 
     /**
      * 跳转到用户列表页面
@@ -42,7 +56,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
     @Override
     @RequestMapping(value = "form", method = RequestMethod.GET)
     public String form(Model model, String id) {
-        getUser(model,id);
+        getUser(model, id);
         return "user/user_form";
     }
 
@@ -71,7 +85,7 @@ public class UserController extends AbstractBaseController<User, UserService> {
     }
 
     /**
-     * 删除一条或多条课程信息
+     * 删除一条或多条用户信息
      *
      * @param ids
      * @return
@@ -170,6 +184,85 @@ public class UserController extends AbstractBaseController<User, UserService> {
     @RequestMapping(value = "vipSetting", method = RequestMethod.GET)
     public String vipSetting() {
         return "includes/user/vip_setting_default";
+    }
+
+    /**
+     * 跳转导出详细页
+     *
+     * @return
+     */
+    @RequestMapping(value = "excelExport", method = RequestMethod.GET)
+    public String excelExport() {
+        return "includes/user/user_excel_export";
+    }
+
+    /**
+     * 将表列信息查询并导出
+     *
+     * @param ids
+     * @param excelName
+     * @param excelPath
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "excelExport", method = RequestMethod.POST)
+    public BaseResult excelExport(HttpServletResponse response, String ids, String excelName, String excelPath) {
+        BaseResult baseResult = BaseResult.fail("导出失败");
+        if (StringUtils.isNotBlank(ids)) {
+            String[] idArray = ids.split(",");
+            List<User> users = service.selectByMultiId(idArray);
+
+            // 列名
+            String columnNames[] = {"ID", "账号", "呢称", "密码", "性别", "手机", "邮箱", "微信", "学历"};
+            // map中的key,即实体类中的字段名
+            String keys[] = {"id", "name", "nickname", "password", "sex", "phone", "email", "wechar", "education"};
+
+            /**
+             * 创建文件输出流，并构建excel,最终写出并关闭
+             */
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(excelPath + excelName + ".xls");
+                Workbook workbook = ExportPOIUtils.start_download(users, columnNames, keys);
+                workbook.write(fos);
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                return baseResult;
+            }
+            baseResult = BaseResult.success("导出成功", users);
+        }
+
+        return baseResult;
+    }
+
+    /**
+     * 跳转导入信息详细页
+     *
+     * @return
+     */
+    @RequestMapping(value = "excelInput", method = RequestMethod.GET)
+    public String excelInput() {
+        return "includes/user/user_excel_input";
+    }
+
+    /**
+     * 将excel信息读取并导入数据库
+     *
+     * @param excelFile
+     * @param model
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value = "excelInput", method = RequestMethod.POST)
+    public String excelInput(MultipartFile excelFile, Model model) throws IOException {
+        List<Map<String, Object>> list = new ArrayList<>();
+        List<Map<String, Object>> readExcelFile = ExportPOIUtils.readExcelFile(list, excelFile.getInputStream(), excelFile.getOriginalFilename());
+        BaseResult baseResult = service.excelInputByList(readExcelFile);
+        if (baseResult.getStatus() == 200) {
+            model.addAttribute(ConstantUtils.SESSION_BASERESULT, "导入成功");
+        }
+        return "redirect:/user/list";
     }
 
     /**
