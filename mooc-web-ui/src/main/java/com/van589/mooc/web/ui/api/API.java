@@ -14,6 +14,8 @@ public class API {
     // 课程管理接口 - 获取推荐课程
     public static final String API_COURSES_BOUTIQUE = HOST + "/courses/getBoutiqueCourse";
 
+    public static final String API_COURSES_DETAIL = HOST + "/courses/detail";
+
     // 文章管理接口 - 文章列表
     public static final String API_ARTICLE_LIST = HOST + "/article/page";
 

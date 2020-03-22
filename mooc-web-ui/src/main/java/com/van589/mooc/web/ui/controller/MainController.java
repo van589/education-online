@@ -23,10 +23,7 @@ public class MainController {
      */
     @ModelAttribute
     public void loadBoutiqueCourse(Model model) throws Exception {
-        //如果精品视频为空则查询并返回
-        if(boutiqueCourse == null){
-            boutiqueCourse = CourseAPI.getBoutiqueCourse();
-        }
+        boutiqueCourse = CourseAPI.getBoutiqueCourse().subList(0, 6);
         model.addAttribute("boutiqueCourse", boutiqueCourse);
     }
 

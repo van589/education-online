@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:word-wrap="http://www.w3.org/1999/xhtml">
+<!-- 导入公共的 head-->
+<head th:replace="includes/common_includes :: common_header(视频中心)"></head>
+<!-- Bootstrap 3.3.7 -->
+<link rel="stylesheet" href="/static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<body>
+<!-- 导入公共的 nav-->
+<div th:replace="includes/common_includes :: common_nav"></div>
+
+<!-- 导入公共的 搜索栏-->
+<div th:replace="includes/common_includes :: common_search"></div>
+
+<!-- 导入公共的 菜单栏-->
+<div th:replace="includes/common_includes :: common_menu"></div>
+
+<!-- 内容 start-->
+<section class="content">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8" th:if="${course != null}">
+            <br><br> <!--insert one, two, or more here-->
+            <video controls="controls" class="col-md-12">
+                <source th:src="'/Path/'+${course.url}" type="video/Ogg">
+            </video>
+
+            <div class="box col-md-12">
+                <br><br> <!--insert one, two, or more here-->
+                <img th:src="'/Path/' + ${course.imageUrl}" class="col-md-3">
+                <div class="form-horizontal col-md-9">
+                    <div class="row">
+                        <h3 class="col-md-3">视频名称:</h3>
+                        <h3 class="col-md-9" th:text="${course.name}">视频标题</h3>
+                    </div>
+                    <div class="row">
+                        <h3 class="col-md-3">视频简介:</h3>
+                        <h3 class="col-md-9" th:text="${course.introduction}" style="word-wrap: break-word;"></h3>
+                    </div>
+                    <div class="row">
+                        <h3 class="col-md-3">创建日期:</h3>
+                        <h3 class="col-md-9" th:text="${#dates.format(course.firsttime, 'yyyy-MM-dd')}">创建日期</h3>
+                    </div>
+                    <div class="row">
+                        <h3 class="col-md-3">修改日期:</h3>
+                        <h3 class="col-md-9" th:text="${#dates.format(course.updatetime, 'yyyy-MM-dd')}">修改日期</h3>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-md-offset-4 col-md-8" style="height: 590px;" th:if="${course == null}">
+            <h1>404,该视频尚未上传</h1>
+        </div>
+
+
+    </div>
+</section>
+<!-- 内容 end-->
+
+<!-- 导入公共的 foot -->
+<div th:replace="includes/common_includes :: common_foot"></div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+<!-- jQuery 3 -->
+<script src="/static/assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/static/assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</div>
+</body>
+</html>

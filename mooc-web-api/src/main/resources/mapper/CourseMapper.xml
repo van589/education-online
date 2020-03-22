@@ -64,4 +64,11 @@
         </where>-->
     </select>
 
+    <select id="selectById" resultType="com.van589.mooc.domain.Course">
+        SELECT
+        <include refid="courseColumns"/>
+        FROM course AS a
+        WHERE id = #{id}
+    </select>
+
 </mapper>

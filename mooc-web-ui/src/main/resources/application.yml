@@ -14,3 +14,4 @@ spring:
 
 file:
   image-path: F:/javaWeb/education/upload/
+  video-path: F:/javaWeb/education/upload/

@@ -28,14 +28,9 @@
     <div class="jinp_tuij_lb">
         <ul>
             <li th:each="allCourse:${allCourse}" style="width:219px;height: 250px;">
-                <a href="#" class="jngp_img" style="width:219px;height: 180px;"><img style="width:219px;height: 180px;" th:src="'/Path/'+${allCourse.imageUrl}" alt="课程封面"></a>
-                <a href="#" class="jinp_biaot" th:text="${allCourse.name}">java</a>
+                <a th:href="'/course/detail?id='+ ${allCourse.id}" class="jngp_img" style="width:219px;height: 180px;"><img style="width:219px;height: 180px;" th:src="'/Path/'+${allCourse.imageUrl}" alt="课程封面"></a>
+                <a class="jinp_biaot" th:text="${allCourse.name}">java</a>
                 <span th:text="'￥'+${allCourse.price} + ${allCourse.label} ">￥139.00</span>
-            </li>
-            <li th:each="boutiqueCourse:${boutiqueCourse}">
-                <a href="#" class="jngp_img"><img th:src="'/Path/'+${boutiqueCourse.imageUrl}" alt="课程封面"></a>
-                <a href="#" class="jinp_biaot" th:text="${boutiqueCourse.name}">java</a>
-                <span th:text="'评价:'+ ${boutiqueCourse.label} "></span>
             </li>
         </ul>
     </div>

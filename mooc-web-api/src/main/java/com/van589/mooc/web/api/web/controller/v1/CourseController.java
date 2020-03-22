@@ -4,10 +4,12 @@ import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.utils.BeanCopyUtil;
 import com.van589.mooc.web.api.Service.CourseService;
 import com.van589.mooc.web.api.web.dto.CourseDTO;
+import com.van589.mooc.web.api.web.dto.CourseDetailDTO;
 import com.van589.mooc.web.api.web.dto.UserDTO;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +32,7 @@ public class CourseController {
     @RequestMapping(value = "getBoutiqueCourse" ,method = RequestMethod.GET)
     public List<CourseDTO> showsBoutiqueCourse(){
         List allBoutique = courseService.selectAllBoutique();
-        //未查找到用户则返回错误信息
+        //未查找到视频则返回错误信息
         if (allBoutique == null){
             return null;
         }
@@ -40,5 +42,26 @@ public class CourseController {
             List list = BeanCopyUtil.copyListProperties(allBoutique, CourseDTO::new);
             return list;
         }
+    }
+
+    /**
+     * 查询课程及其视频链接
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "detail",method = RequestMethod.GET)
+    public BaseResult getCourseDetail(String id){
+        BaseResult baseResult = BaseResult.fail("查找失败");
+        CourseDetailDTO courseDetailDTO = courseService.selectCourseById(id);
+
+        //如果课程不为空，且存在视频则返回成功
+        if(courseDetailDTO != null){
+            if (!StringUtils.isEmpty(courseDetailDTO.getUrl())){
+                baseResult = BaseResult.success("查找成功", courseDetailDTO);
+            }
+        }
+
+        return baseResult;
     }
 }
