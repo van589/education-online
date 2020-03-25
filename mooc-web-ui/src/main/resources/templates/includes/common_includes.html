@@ -14,7 +14,7 @@
     <div class="header-box">
         <h3 class="huany">MyShop本地购物商城欢迎您的到来！</h3>
         <ul class="header-right" th:if="${session.user == null}">
-            <li class="denglu">Hi~<a class="red" href="/login">请登录!</a> <a href="#">[免费注册]</a></li>
+            <li class="denglu">Hi~<a class="red" href="/login">请登录!</a> <a href="/register">[免费注册]</a></li>
         </ul>
         <ul class="header-right" th:if="${session.user != null}">
             <li class="denglu">欢迎~ 用户：<span th:text="${session.user.name}">用户名字</span>&nbsp;&nbsp;&nbsp;<a

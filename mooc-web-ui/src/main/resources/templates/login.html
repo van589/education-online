@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <title>MyShop——登录</title>
+    <title>登录</title>
     <link rel="stylesheet" type="text/css" href="/static/assets/css/index.css">
     <link rel="stylesheet" type="text/css" href="/static/assets/css/ziy.css">
 </head>
@@ -48,13 +48,8 @@
     </div>
 </div>
 
-
-<div class="jianj_dib">
-    <div class="beia_hao">
-        <p>京ICP备：123456789号 </p>
-        <p class="gonga_bei">京公网安备：123456789号</p>
-    </div>
-</div>
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
 
 </body>
 </html>

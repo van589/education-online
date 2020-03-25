@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>个人注册</title>
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/ziy.css">
+
+</head>
+<body>
+<!--dengl-->
+<div class="yiny">
+    <div class="beij_center">
+        <div class="dengl_logo">
+            <img src="/static/assets/images/logo_1.png">
+            <h1>欢迎注册</h1>
+        </div>
+    </div>
+</div>
+<div class="beij_center">
+    <div class="ger_zhuc_beij">
+        <div class="ger_zhuc_biaot">
+            <ul>
+                <li class="ger_border_color"><a href="#">个人注册</a></li>
+            </ul>
+        </div>
+        <div class="zhuc_biaod">
+            <div class="reg-items">
+              	<span class="reg-label">
+                	<label for="J_Name">用户名：</label>
+              	</span>
+                <input class="i-text" type="text">
+            </div>
+            <div class="reg-items">
+              	<span class="reg-label">
+                	<label for="J_Name">设置密码：</label>
+              	</span>
+                <input class="i-text" type="text">
+            </div>
+            <div class="reg-items">
+              	<span class="reg-label">
+                	<label for="J_Name">手机号码：</label>
+              	</span>
+                <input class="i-text" type="text">
+            </div>
+            <div class="reg-items">
+              	<span class="reg-label">
+                	<label for="J_Name"> </label>
+              	</span>
+                <input class="reg-btn" value="立即注册" type="button">
+            </div>
+        </div>
+        <div class="xiaogg">
+            <img src="/static/assets/images/cdsgfd.jpg">
+        </div>
+    </div>
+</div>
+
+<!-- 导入公共的 copyright-->
+<div th:replace="includes/common_includes :: common_copyright"></div>
+
+</body>
+</html>
