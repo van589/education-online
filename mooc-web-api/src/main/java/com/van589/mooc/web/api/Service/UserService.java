@@ -14,4 +14,20 @@ public interface UserService {
      * @return
      */
     public User login(User user);
+
+    /**
+     * 用户注册
+     *
+     * @param user
+     * @return
+     */
+    public int register(User user);
+
+    /**
+     * 检查用户名是否存在
+     *
+     * @param name
+     * @return
+     */
+    public User checkUserName(String name);
 }

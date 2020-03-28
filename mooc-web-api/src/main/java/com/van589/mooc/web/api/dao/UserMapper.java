@@ -14,4 +14,20 @@ public interface UserMapper {
      * @return
      */
     public User login (User user);
+
+    /**
+     * 插入信息
+     *
+     * @param user
+     * @return
+     */
+    public int insert(User user);
+
+    /**
+     * 根据用户名查询
+     *
+     * @param name
+     * @return
+     */
+    public User selectByName(String name);
 }

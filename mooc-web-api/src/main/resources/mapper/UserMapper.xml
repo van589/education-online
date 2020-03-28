@@ -48,4 +48,38 @@
         OR a.phone = #{name}
     </select>
 
+    <insert id="insert" parameterType="com.van589.mooc.domain.User" useGeneratedKeys="true" keyProperty="firsttime">
+        INSERT INTO `user`
+        (id,
+         `name`,
+         nickname,
+         `password`,
+         sex,
+         phone,
+         email,
+         wechar,
+         education,
+         firsttime,
+         updatetime,
+         lasttime)
+        VALUES (#{id},
+                #{name},
+                #{nickname},
+                #{password},
+                #{sex},
+                #{phone},
+                #{email},
+                #{wechar},
+                #{education},
+                now(),
+                now(),
+                now())
+    </insert>
+
+    <select id="selectByName" resultType="com.van589.mooc.domain.User">
+        select
+        <include refid="userColumns"/>
+        from user as a
+        where a.name = #{name}
+    </select>
 </mapper>

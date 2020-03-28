@@ -29,4 +29,26 @@ public class UserServiceImpl implements UserService {
 
         return null;
     }
+
+    /**
+     * 用户注册
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public int register(User user) {
+        return userMapper.insert(user);
+    }
+
+    /**
+     * 检查用户名是否存在
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public User checkUserName(String name) {
+        return userMapper.selectByName(name);
+    }
 }
