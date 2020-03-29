@@ -30,4 +30,20 @@ public interface UserMapper {
      * @return
      */
     public User selectByName(String name);
+
+    /**
+     * 更新用户信息
+     *
+     * @param user
+     * @return
+     */
+    public int update(User user);
+
+    /**
+     * 通过 Id 查询用户信息
+     *
+     * @param id
+     * @return
+     */
+    public User selectById(String id);
 }

@@ -1,10 +1,13 @@
 package com.van589.mooc.web.api.Service.impl;
 
+import com.van589.mooc.commons.utils.BeanCopyUtil;
 import com.van589.mooc.domain.User;
 import com.van589.mooc.web.api.Service.UserService;
 import com.van589.mooc.web.api.dao.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -50,5 +53,22 @@ public class UserServiceImpl implements UserService {
     @Override
     public User checkUserName(String name) {
         return userMapper.selectByName(name);
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     * @return
+     */
+    @Override
+    public int update(User user) {
+        User oldUser = userMapper.selectByName(user.getName());
+        user.setUpdatetime(new Date());
+        user.setFirsttime(oldUser.getFirsttime());
+        user.setLasttime(oldUser.getLasttime());
+        user.setId(oldUser.getId());
+
+        return userMapper.update(user);
     }
 }

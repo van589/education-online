@@ -8,14 +8,17 @@ public class API {
     // 主机地址
     public static final String HOST = "http://localhost:8091/api/v1";
 
-    // 会员管理接口 - 登录
+    // 用户管理接口 - 登录
     public static final String API_USERS_LOGIN = HOST + "/users/login";
 
-    // 会员管理接口 - 注册
+    // 用户管理接口 - 注册
     public static final String API_USERS_REGISTER = HOST + "/users/register";
 
-    // 会员管理接口 - 验证用户名
+    // 用户管理接口 - 验证用户名
     public static final String API_USERS_CHECK_NAME = HOST + "/users/checkName";
+
+    // 用户管理接口 - 编辑用户
+    public static final String API_USERS_EDIT = HOST + "/users/edit";
 
     // 课程管理接口 - 获取推荐课程
     public static final String API_COURSES_BOUTIQUE = HOST + "/courses/getBoutiqueCourse";

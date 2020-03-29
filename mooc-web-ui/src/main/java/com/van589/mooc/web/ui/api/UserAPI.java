@@ -60,9 +60,32 @@ public class UserAPI {
      * @return
      * @throws Exception
      */
-    public static BaseResult checkName(String name) throws Exception{
+    public static BaseResult checkName(String name) throws Exception {
         String json = HttpClientUtils.doGet(API.API_USERS_CHECK_NAME + "?name=" + name);
         BaseResult baseResult = MapperUtils.json2pojo(json, BaseResult.class);
         return baseResult;
     }
+
+    /**
+     * 编辑用户
+     *
+     * @param user
+     * @return
+     * @throws Exception
+     */
+    public static BaseResult edit(User user) throws Exception {
+        List<BasicNameValuePair> params = new ArrayList<>();
+        params.add(new BasicNameValuePair("name", user.getName()));
+        params.add(new BasicNameValuePair("nickname", user.getNickname()));
+        params.add(new BasicNameValuePair("password", user.getPassword()));
+        params.add(new BasicNameValuePair("sex", user.getSex()));
+        params.add(new BasicNameValuePair("phone", user.getPhone()));
+        params.add(new BasicNameValuePair("email", user.getEmail()));
+        params.add(new BasicNameValuePair("wechar", StringUtils.isEmpty(user.getWechar()) ? null : user.getWechar()));
+        params.add(new BasicNameValuePair("education", user.getPassword()));
+        String json = HttpClientUtils.doPost(API.API_USERS_EDIT, params.toArray(new BasicNameValuePair[params.size()]));
+        BaseResult baseResult = MapperUtils.json2pojo(json, BaseResult.class);
+        return baseResult;
+    }
+
 }

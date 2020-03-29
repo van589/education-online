@@ -30,4 +30,12 @@ public interface UserService {
      * @return
      */
     public User checkUserName(String name);
+
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     * @return
+     */
+    public int update(User user);
 }

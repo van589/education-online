@@ -82,4 +82,28 @@
         from user as a
         where a.name = #{name}
     </select>
+
+    <update id="update">
+        UPDATE
+            user
+        SET name       = #{name},
+            nickname   = #{nickname},
+            password   = #{password},
+            sex        = #{sex},
+            phone      = #{phone},
+            email      = #{email},
+            wechar     = #{wechar},
+            education  = #{education},
+            firsttime  = #{firsttime},
+            updatetime = #{updatetime},
+            lasttime   = #{lasttime}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.van589.mooc.domain.User">
+        select
+        <include refid="userColumns"/>
+        from user as a
+        where a.id = #{id}
+    </select>
 </mapper>

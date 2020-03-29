@@ -1,7 +1,11 @@
 package com.van589.mooc.web.ui.controller;
 
+import com.van589.mooc.commons.constant.ConstantUtils;
+import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.web.ui.api.CourseAPI;
+import com.van589.mooc.web.ui.api.UserAPI;
 import com.van589.mooc.web.ui.dto.Course;
+import com.van589.mooc.web.ui.dto.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,5 +39,27 @@ public class MainController {
     @RequestMapping(value = {"", "main"}, method = RequestMethod.GET)
     public String main() {
         return "main";
+    }
+
+    /**
+     * 跳转用户细节
+     *
+     * @return
+     */
+    @RequestMapping(value = "/users/edit", method = RequestMethod.GET)
+    public String detail() {
+        return "users_edit";
+    }
+
+    /**
+     * 跳转用户细节
+     *
+     * @return
+     */
+    @RequestMapping(value = "/users/edit", method = RequestMethod.POST)
+    public String detail(Model model, User user) throws Exception {
+        BaseResult baseResult = UserAPI.edit(user);
+        model.addAttribute(ConstantUtils.SESSION_BASERESULT, baseResult);
+        return "users_edit";
     }
 }

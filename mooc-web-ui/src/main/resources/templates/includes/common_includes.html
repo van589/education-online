@@ -29,9 +29,9 @@
         <div class="dp_daoh_ul">
             <ul>
                 <li class="dp_dh_li"><a href="/main" class="lin_color">首页</a></li>
-                <li class="dp_dh_li"><a href="/course" class="lin_color">视频中心</a></li>
+                <li class="dp_dh_li"><a href="/course/" class="lin_color">视频中心</a></li>
                 <li class="dp_dh_li"><a href="/article/" class="lin_color">博客中心</a></li>
-                <li class="dp_dh_li"><a href="#" class="lin_color">个人中心</a></li>
+                <li class="dp_dh_li" th:if="${session.user != null}"><a href="/users/edit" class="lin_color">个人中心</a></li>
             </ul>
         </div>
     </div>
@@ -39,7 +39,7 @@
 
 <!-- 公共的 搜索栏-->
 <div class="toub_beij" th:fragment="common_search">
-    <div class="logo"><a href="#"><img src="/static/assets/images/logo.png"></a></div>
+    <div class="logo"><a href="#"><img src="/static/assets/images/logo(1).png"></a></div>
     <div class="search">
         <input type="text" value="查看课程" class="text" id="searchName">
         <button id="search" class="button">搜索</button>

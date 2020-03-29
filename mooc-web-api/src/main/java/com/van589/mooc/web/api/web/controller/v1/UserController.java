@@ -68,12 +68,29 @@ public class UserController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "checkName",method = RequestMethod.GET)
-    public BaseResult checkUserName(String name){
+    @RequestMapping(value = "checkName", method = RequestMethod.GET)
+    public BaseResult checkUserName(String name) {
         BaseResult baseResult = BaseResult.fail("用户名已存在");
         User user = userService.checkUserName(name);
         if (user == null && !StringUtils.isEmpty(name)) {
             baseResult = BaseResult.success("用户名可用");
+        }
+        return baseResult;
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param user
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public BaseResult update(User user) {
+        BaseResult baseResult = BaseResult.fail("修改失败");
+        int result = userService.update(user);
+        if (result != 0) {
+            baseResult = BaseResult.success("修改成功");
         }
         return baseResult;
     }
