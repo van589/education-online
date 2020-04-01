@@ -143,14 +143,14 @@
                                     onclick="App.excelExport('/user/excelExport ')"><i class="fa fa-download"></i>
                                 导出
                             </button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-sm btn-default"
+                            <!--<button type="button" class="btn btn-sm btn-default"
                                     onclick="App.recharge('/user/recharge ')"><i class="fa fa-money"></i>
                                 余额充值
-                            </button>&nbsp;&nbsp;&nbsp;
-                            <button type="button" class="btn btn-sm btn-default"
+                            </button>-->&nbsp;&nbsp;&nbsp;
+                            <!--<button type="button" class="btn btn-sm btn-default"
                                     onclick="App.vipSetting('/user/vipSetting')"><i class="fa fa-coffee"></i>
                                  VIP 设置
-                            </button>&nbsp;&nbsp;&nbsp;
+                            </button>-->&nbsp;&nbsp;&nbsp;
                         </div>
 
                         <!-- /.box-header -->
@@ -162,9 +162,9 @@
                                     <th>用户名</th>
                                     <th>昵称</th>
                                     <th>手机号</th>
-                                    <th>余额</th>
+                                    <!--<th>余额</th>-->
                                     <th>邮箱</th>
-                                    <th>VIP时间</th>
+                                    <!--<th>VIP时间</th>-->
                                     <th>操作</th>
                                 </tr>
                                 </thead>
@@ -206,14 +206,14 @@
             {"data": "name"},
             {"data": "nickname"},
             {"data": "phone"},
-            {"data": "collect"},
+            /*{"data": "collect"},*/
             {"data": "email"},
-            {
+            /*{
                 "data": function (row, type, val, meta) {
                     var vip = row.vip;
                     return vip == null ? "无VIP" : DateTime.format(vip, "yyyy-MM-dd HH:mm:ss");
                 }
-            },
+            },*/
             {
                 "data": function (row, type, val, meta) {
                     var detailUrl = "/user/detail?id=" + row.id;

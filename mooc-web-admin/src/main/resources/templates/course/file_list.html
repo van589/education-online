@@ -75,7 +75,8 @@
                         </div>
 
                         <div class="box-body">
-                            <button onclick="App.courseFileUpload('/file/form')" type="button" class="btn btn-sm btn-default"><i
+                            <button onclick="App.courseFileUpload('/file/form')" type="button"
+                                    class="btn btn-sm btn-default"><i
                                     class="fa fa-plus"></i>
                                 新增
                             </button>&nbsp;&nbsp;&nbsp;
@@ -152,8 +153,7 @@
                 "data": function (row, type, val, meta) {
                     var detailUrl = "/file/detail?id=" + row.id;
                     var deleteUrl = "/file/delete";
-                    return '<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +
-                        '<button type="button" class="btn btn-sm btn-primary" onclick="App.courseFileUpload(\'/file/form?id=' + row.id + '\');"><i class="fa fa-edit"></i> 编辑</button>&nbsp;&nbsp;&nbsp;'+
+                    return /*'<button type="button" class="btn btn-sm btn-default" onclick="App.showDetail(\'' + detailUrl + '\');"><i class="fa fa-search"></i> 查看</button>&nbsp;&nbsp;&nbsp;' +*/'<button type="button" class="btn btn-sm btn-primary" onclick="App.courseFileUpload(\'/file/form?id=' + row.id + '\');"><i class="fa fa-edit"></i> 编辑</button>&nbsp;&nbsp;&nbsp;' +
                         '<button type="button" class="btn btn-sm btn-danger" onclick="App.deleteSingle(\'' + deleteUrl + '\', \'' + row.id + '\')"><i class="fa fa-trash-o"></i> 删除</button>';
                 }
             }

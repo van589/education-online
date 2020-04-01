@@ -59,7 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-4">
+                                <!--<div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
                                         <label for="type" class="col-sm-3 control-label">类型</label>
 
@@ -71,8 +71,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-4">
+                                </div>-->
+                                <!--<div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
                                         <label for="price" class="col-sm-3 control-label">价格</label>
 
@@ -80,7 +80,7 @@
                                             <input id="price" class="form-control" placeholder="课程价格"/>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
                                 <div class="col-xs-12 col-sm-4">
                                     <div class="form-group">
@@ -159,8 +159,8 @@
                                 <tr>
                                     <th><input type="checkbox" class="minimal icheck_master"/></th>
                                     <th>课程名称</th>
-                                    <th>课程类型</th>
-                                    <th>课程价格</th>
+                                    <!--<th>课程类型</th>-->
+                                    <!--<th>课程价格</th>-->
                                     <th>课程评价</th>
                                     <th>课程修改日期</th>
                                     <th>是否绑定视频</th>
@@ -202,8 +202,8 @@
                 }
             },
             {"data": "name"},
-            {"data": "type"},
-            {"data": "price"},
+            /*{"data": "type"},
+            {"data": "price"},*/
             {"data": "label"},
             {
                 "data": function (row, type, val, meta) {
@@ -240,16 +240,16 @@
     function search() {
         var name = $("#name").val();
         var introduction = $("#introduction").val();
-        var type = $("#type").val();
-        var price = $("#price").val();
+        /*var type = $("#type").val();
+        var price = $("#price").val();*/
         var label = $("#label").val();
         var fileId = $("#fileId").val();
 
         var param = {
             "name": name,
             "introduction": introduction,
-            "type": type,
-            "price": price,
+            /*"type": type,
+            "price": price,*/
             "label": label,
             "fileId": fileId
         };

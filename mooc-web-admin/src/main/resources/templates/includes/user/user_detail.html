@@ -48,17 +48,17 @@
 
     <div class="col-xs-6">
         <dl>
-            <dt>用户余额：</dt>
+            <!--<dt>用户余额：</dt>
             <dd class="lead" th:text="${user.collect}"></dd>
-            <br/>
+            <br/>-->
 
             <dt>教育程度：</dt>
             <dd class="lead" th:text="${user.education}"></dd>
             <br/>
 
-            <dt>VIP日期：</dt>
+            <!--<dt>VIP日期：</dt>
             <dd class="lead" th:text="${user.vip == null ? '无VIP' : #dates.format(user.vip,'yyyy-MM-dd:HH:mm:ss')}"></dd>
-            <br/>
+            <br/>-->
 
             <dt>首次登录：</dt>
             <dd class="lead" th:text="${#dates.format(user.firsttime,'yyyy-MM-dd:HH:mm:ss')}"></dd>
