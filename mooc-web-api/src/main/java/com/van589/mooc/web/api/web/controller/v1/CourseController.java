@@ -2,6 +2,7 @@ package com.van589.mooc.web.api.web.controller.v1;
 
 import com.van589.mooc.commons.dto.BaseResult;
 import com.van589.mooc.commons.utils.BeanCopyUtil;
+import com.van589.mooc.domain.Course;
 import com.van589.mooc.web.api.Service.CourseService;
 import com.van589.mooc.web.api.web.dto.CourseDTO;
 import com.van589.mooc.web.api.web.dto.CourseDetailDTO;
@@ -63,5 +64,20 @@ public class CourseController {
         }
 
         return baseResult;
+    }
+
+    @RequestMapping(value = "searchName",method = RequestMethod.GET)
+    public List<CourseDTO> searchName(String name){
+        List courseByName = courseService.selectAllCourseByName(name);
+        //未查找到视频则返回错误信息
+        if (courseByName == null){
+            return null;
+        }
+        //查早到则返回用户的DTO
+        else{
+            //将 List里的数据复制到 DTO 里
+            List list = BeanCopyUtil.copyListProperties(courseByName, CourseDTO::new);
+            return list;
+        }
     }
 }

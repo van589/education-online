@@ -107,6 +107,14 @@
 
         _dataTable = App.initDataTables("/article/page", _columns);
     });
+
+    $("#search").click(function () {
+        var param = {
+            "articleTitle": $("#searchName").val().trim()
+        };
+        _dataTable.settings()[0].ajax.data = param;
+        _dataTable.ajax.reload();
+    });
 </script>
 </body>
 </html>

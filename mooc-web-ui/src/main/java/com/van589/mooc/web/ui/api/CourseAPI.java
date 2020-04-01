@@ -48,4 +48,19 @@ public class CourseAPI {
         return courseDetailDTO;
     }
 
+    /**
+     * 获取搜索的课程
+     *
+     * @param name
+     * @return
+     * @throws Exception
+     */
+    public static List<Course> searchName(String name) throws Exception {
+        String json = HttpClientUtils.doGet(API.API_COURSES_SEARCH + "?name=" + name);
+
+        ObjectMapper mapper = new ObjectMapper();
+        List<Course> readValue = mapper.readValue(json, new TypeReference<List<Course>>() {});
+        return readValue;
+    }
+
 }

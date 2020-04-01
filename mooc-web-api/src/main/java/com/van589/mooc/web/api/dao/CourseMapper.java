@@ -2,6 +2,7 @@ package com.van589.mooc.web.api.dao;
 
 import com.van589.mooc.commons.persistence.BaseEntity;
 import com.van589.mooc.domain.Course;
+import org.apache.ibatis.annotations.Param;
 import org.apache.poi.ss.formula.functions.T;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
@@ -18,6 +19,14 @@ public interface CourseMapper<T extends BaseEntity>{
      * @return
      */
     public List<T> selectAll();
+
+    /**
+     * 根据字段查询所有课程信息
+     *
+     * @param name
+     * @return
+     */
+    public List<T> selectAll(@Param("name") String name);
 
     /**
      * 根据 ID 查询课程

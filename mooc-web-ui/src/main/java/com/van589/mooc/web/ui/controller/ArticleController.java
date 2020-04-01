@@ -4,7 +4,9 @@ import com.van589.mooc.commons.constant.ConstantUtils;
 import com.van589.mooc.web.ui.api.API;
 import com.van589.mooc.web.ui.api.ArticleAPI;
 import com.van589.mooc.web.ui.api.CourseAPI;
+import com.van589.mooc.web.ui.constant.SystemConstants;
 import com.van589.mooc.web.ui.dto.Article;
+import com.van589.mooc.web.ui.dto.CourseDetailDTO;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -41,7 +43,7 @@ public class ArticleController {
      */
     @ResponseBody
     @RequestMapping(value = "/page", method = RequestMethod.GET)
-    public String course(HttpServletRequest request) throws Exception {
+    public String course(HttpServletRequest request, String articleTitle) throws Exception {
         // 获取连接客户端工具
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -55,9 +57,11 @@ public class ArticleController {
         BasicNameValuePair pair1 = new BasicNameValuePair("draw", draw);
         BasicNameValuePair pair2 = new BasicNameValuePair("start", start);
         BasicNameValuePair pair3 = new BasicNameValuePair("length", length);
+        BasicNameValuePair pair4 = new BasicNameValuePair("pageParams", articleTitle);
         list.add(pair1);
         list.add(pair2);
         list.add(pair3);
+        list.add(pair4);
 
         URIBuilder uriBuilder = new URIBuilder(API.API_ARTICLE_LIST);
         uriBuilder.addParameters(list);
@@ -80,7 +84,7 @@ public class ArticleController {
      *
      * @return
      */
-    public String detail(){
+    public String detail() {
         return "article/article_detail";
     }
 
@@ -93,9 +97,13 @@ public class ArticleController {
      * @throws Exception
      */
     @GetMapping(value = "detail")
-    public String detail(Model model,String id) throws Exception {
-        Article detail = ArticleAPI.getDetail(id);
-        model.addAttribute(ConstantUtils.SESSION_ARTICLE,detail);
-        return detail();
+    public String detail(Model model, String id, HttpServletRequest request) throws Exception {
+        if (request.getSession().getAttribute(SystemConstants.SESSION_USER_KEY) != null) {
+            Article detail = ArticleAPI.getDetail(id);
+            model.addAttribute(ConstantUtils.SESSION_ARTICLE, detail);
+            return detail();
+        } else {
+            return "detail_error";
+        }
     }
 }

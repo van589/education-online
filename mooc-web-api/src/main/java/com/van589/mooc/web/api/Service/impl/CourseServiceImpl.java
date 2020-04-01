@@ -56,4 +56,15 @@ public class CourseServiceImpl implements CourseService<Course> {
         BeanCopyUtil.copyProperties(course,courseDetailDTO);
         return courseDetailDTO;
     }
+
+    /**
+     * 根据字段查询所有课程信息
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public List<Course> selectAllCourseByName(String name) {
+        return courseMapper.selectAll(name);
+    }
 }

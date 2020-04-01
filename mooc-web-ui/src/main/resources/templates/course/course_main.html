@@ -25,12 +25,12 @@
             <div class="zuoy_xian"></div>
         </div>
     </div>
-    <div class="jinp_tuij_lb">
+    <div class="jinp_tuij_lb" id="courseDiv">
         <ul>
             <li th:each="allCourse:${allCourse}" style="width:219px;height: 250px;">
                 <a th:href="'/course/detail?id='+ ${allCourse.id}" class="jngp_img" style="width:219px;height: 180px;"><img style="width:219px;height: 180px;" th:src="'/Path/'+${allCourse.imageUrl}" alt="课程封面"></a>
                 <a class="jinp_biaot" th:text="${allCourse.name}">java</a>
-                <span th:text="'￥'+${allCourse.price} + ${allCourse.label} ">￥139.00</span>
+                <span th:text="'评价:'+ ${allCourse.label} "></span>
             </li>
         </ul>
     </div>
@@ -43,4 +43,12 @@
 <div th:replace="includes/common_includes :: common_copyright"></div>
 
 </body>
+<script>
+    $("#search").click(function(){
+        var url = "search?searchName=" + $("#searchName").val().trim();
+        $.get(url,function (data,status) {
+            $(".jinp_tuij_lb").html(data);
+        });
+    });
+</script>
 </html>

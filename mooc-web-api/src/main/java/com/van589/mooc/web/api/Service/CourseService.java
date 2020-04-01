@@ -21,4 +21,12 @@ public interface CourseService<T extends BaseEntity> {
      * @return
      */
     public CourseDetailDTO selectCourseById(String id);
+
+    /**
+     * 根据字段查询所有课程信息
+     *
+     * @param name
+     * @return
+     */
+    public List<T> selectAllCourseByName(String name);
 }

@@ -1,0 +1,9 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<ul>
+    <li th:each="allCourse:${searchCourse}" style="width:219px;height: 250px;">
+        <a th:href="'/course/detail?id='+ ${allCourse.id}" class="jngp_img" style="width:219px;height: 180px;"><img style="width:219px;height: 180px;" th:src="'/Path/'+${allCourse.imageUrl}" alt="课程封面"></a>
+        <a class="jinp_biaot" th:text="${allCourse.name}">java</a>
+        <span th:text="'￥'+${allCourse.price} + ${allCourse.label} ">￥139.00</span>
+    </li>
+</ul>

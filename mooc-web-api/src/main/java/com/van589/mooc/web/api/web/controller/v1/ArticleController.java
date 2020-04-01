@@ -35,6 +35,9 @@ public class ArticleController {
         String draw = request.getParameter("draw");
         String start = request.getParameter("start");
         String length = request.getParameter("length");
+        String pageParams = request.getParameter("pageParams");
+
+        entity.setArticleTitle(pageParams);
 
         //设置请求参数
         Map<String, Object> params = new HashMap<>();
